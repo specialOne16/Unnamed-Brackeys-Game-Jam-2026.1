@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=0 format=3 uid="uid://dpu0qlm2hpc1d"]
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}]

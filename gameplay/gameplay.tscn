@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://5wr35unbj208"]
+
+[ext_resource type="PackedScene" uid="uid://iggh13u56wx8" path="res://entities/player/player.tscn" id="1_nyvx4"]
+[ext_resource type="Texture2D" uid="uid://blmbboc1dkvyq" path="res://gameplay/images.jpeg" id="2_41n4r"]
+
+[node name="Gameplay" type="Node2D"]
+
+[node name="Images" type="Sprite2D" parent="."]
+scale = Vector2(5.514124, 5.5141244)
+texture = ExtResource("2_41n4r")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("1_nyvx4")]
+position = Vector2(614, 446)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.32915837, 0.3291584, 0.3291584, 1)
