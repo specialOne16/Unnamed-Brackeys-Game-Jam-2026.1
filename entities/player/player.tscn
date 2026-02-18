@@ -1,14 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://iggh13u56wx8"]
+[gd_scene load_steps=13 format=3 uid="uid://iggh13u56wx8"]
 
-[ext_resource type="SpriteFrames" path="res://entities/player/player.tres" id="1_bls4j"]
-[ext_resource type="Script" path="res://entities/player/player.gd" id="2_fkugw"]
+[ext_resource type="SpriteFrames" uid="uid://cf4hru5onum5g" path="res://entities/player/player.tres" id="1_bls4j"]
+[ext_resource type="Script" uid="uid://cf5hwjdaou6c3" path="res://entities/player/player.gd" id="2_fkugw"]
 [ext_resource type="Script" uid="uid://be8djsgk5wev3" path="res://entities/player/components/movement.gd" id="3_aix1t"]
+[ext_resource type="Script" uid="uid://dx02mvj1owgwd" path="res://combat/hitbox.gd" id="3_qiwj3"]
 [ext_resource type="Script" uid="uid://c0fyo0n2kffj0" path="res://entities/player/components/animation_manager.gd" id="4_0hsa5"]
+[ext_resource type="Script" uid="uid://qeugo64bwe7s" path="res://entities/player/components/shooting.gd" id="5_fkugw"]
+[ext_resource type="Script" uid="uid://b31kgxpwc63ht" path="res://entities/player/components/melee_attack.gd" id="6_8fjmc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xbce5"]
+radius = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bls4j"]
-bg_color = Color(0, 0.63561445, 0.9561741, 1)
+[sub_resource type="CircleShape2D" id="CircleShape2D_26q78"]
+radius = 7.0
 
 [sub_resource type="Gradient" id="Gradient_41n4r"]
 offsets = PackedFloat32Array(0, 0.52666664, 0.62666667, 1)
@@ -19,18 +23,52 @@ gradient = SubResource("Gradient_41n4r")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fkugw"]
-polygon = PackedVector2Array(-20, 0, 20, 20, 0, 0, 20, -20)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qiwj3"]
+polygon = PackedVector2Array(-8, -5, -8, 5, 6, 7, 0, 0, 6, -7)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("2_fkugw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 0)
 shape = SubResource("CircleShape2D_xbce5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5707964
 sprite_frames = ExtResource("1_bls4j")
-animation = &"idle_down"
+animation = &"attack_release"
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_qiwj3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_26q78")
+
+[node name="Lights" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="RadialLight" type="PointLight2D" parent="Lights"]
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_bls4j")
+texture_scale = 0.5
+
+[node name="SpotLight" type="PointLight2D" parent="Lights"]
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_item_cull_mask = 67
+texture = SubResource("GradientTexture2D_bls4j")
+texture_scale = 10.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Lights/SpotLight"]
+occluder = SubResource("OccluderPolygon2D_qiwj3")
+occluder_light_mask = 64
 
 [node name="Components" type="Node" parent="."]
 
@@ -42,30 +80,10 @@ metadata/_custom_type_script = "uid://be8djsgk5wev3"
 script = ExtResource("4_0hsa5")
 metadata/_custom_type_script = "uid://c0fyo0n2kffj0"
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_bls4j")
+[node name="Shooting" type="Node" parent="Components"]
+script = ExtResource("5_fkugw")
+metadata/_custom_type_script = "uid://qeugo64bwe7s"
 
-[node name="Lights" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="RadialLight" type="PointLight2D" parent="Lights"]
-blend_mode = 2
-shadow_enabled = true
-shadow_item_cull_mask = 33
-texture = SubResource("GradientTexture2D_bls4j")
-texture_scale = 2.0
-
-[node name="SpotLight" type="PointLight2D" parent="Lights"]
-blend_mode = 2
-shadow_enabled = true
-shadow_item_cull_mask = 65
-texture = SubResource("GradientTexture2D_bls4j")
-texture_scale = 12.55
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Lights/SpotLight"]
-occluder = SubResource("OccluderPolygon2D_fkugw")
-occluder_light_mask = 64
+[node name="MeleeAttack" type="Node" parent="Components"]
+script = ExtResource("6_8fjmc")
+metadata/_custom_type_script = "uid://b31kgxpwc63ht"

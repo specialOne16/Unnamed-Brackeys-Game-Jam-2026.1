@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://by64l5ruc3del"]
+
+[ext_resource type="Script" uid="uid://doljd8h3xxs32" path="res://entities/enemy/enemy.gd" id="1_3fvr7"]
+[ext_resource type="Texture2D" uid="uid://dotx4xgyv20g2" path="res://entities/enemy/assets/Enemies.png" id="1_im2q6"]
+[ext_resource type="Script" path="res://combat/hurtbox.gd" id="2_3fvr7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3fvr7"]
+light_mode = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im2q6"]
+atlas = ExtResource("1_im2q6")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fvr7"]
+atlas = ExtResource("1_im2q6")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt443"]
+atlas = ExtResource("1_im2q6")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wwj3"]
+atlas = ExtResource("1_im2q6")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wwj3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im2q6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fvr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt443")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wwj3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_im2q6"]
+radius = 5.0
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_3fvr7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_3fvr7")
+sprite_frames = SubResource("SpriteFrames_4wwj3")
+
+[node name="Hurtbox2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("2_3fvr7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
+shape = SubResource("CircleShape2D_im2q6")

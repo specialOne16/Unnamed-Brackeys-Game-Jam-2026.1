@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqn62kbomqpyp"]
+
+[ext_resource type="Script" uid="uid://o2jg1ne0gghx" path="res://combat/projectile.gd" id="1_tn6y3"]
+[ext_resource type="Texture2D" uid="uid://dw80l743ns37" path="res://combat/bullet/Shoot_Particles.png" id="2_61ok0"]
+[ext_resource type="Script" uid="uid://dx02mvj1owgwd" path="res://combat/hitbox.gd" id="3_6oda5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oda5"]
+atlas = ExtResource("2_61ok0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_svrpt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oda5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61ok0"]
+size = Vector2(6, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6oda5"]
+radius = 7.071068
+
+[node name="Bullet" type="AnimatableBody2D" node_paths=PackedStringArray("hitbox")]
+collision_layer = 0
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("1_tn6y3")
+hitbox = NodePath("HitBox2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_svrpt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -0.5)
+shape = SubResource("RectangleShape2D_61ok0")
+
+[node name="HitBox2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_6oda5")
+metadata/_custom_type_script = "uid://dx02mvj1owgwd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D"]
+shape = SubResource("CircleShape2D_6oda5")

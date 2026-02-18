@@ -4,17 +4,29 @@ class_name TD2AnimationManager
 const DIR = ["right", "down", "left", "up"]
 
 var face_direction: String = "down"
+var animation_override: Node = null
 
 @onready var player: TD2Player = $"../.."
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
 
 func _process(_delta: float) -> void:
-	var direction = player.velocity
+	if animation_override != null: return
 	
-	if direction != Vector2.ZERO:
-		var last_dir = Vector2.from_angle(DIR.find(face_direction) * TAU / 4)
-		var angle = (direction + 0.1 * last_dir).angle()
-		face_direction = DIR[roundi((angle / TAU) * 4)]
-		animated_sprite_2d.play("move_%s" % face_direction)
+	if player.velocity != Vector2.ZERO:
+		animated_sprite_2d.play("move")
 	else:
-		animated_sprite_2d.play("idle_%s" % face_direction)
+		animated_sprite_2d.play("idle")
+
+func override_animation(override: Node) -> bool:
+	if animation_override == null:
+		animation_override = override
+		return true
+	
+	if animation_override == override:
+		return true
+	
+	return false
+
+func release_override(override: Node):
+	if animation_override == override:
+		animation_override = null
