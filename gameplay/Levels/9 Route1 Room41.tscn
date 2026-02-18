@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 [node name="Door" type="Area2D" parent="."]
 position = Vector2(128, 8)
 script = ExtResource("4_pkscc")
-current_scene_name = "9 Route1 Room41"
+current_scene_name = "9 Route1 Room411"
 target_scene_path = "res://gameplay/Levels/8 Route1 Room3.tscn"
 metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 

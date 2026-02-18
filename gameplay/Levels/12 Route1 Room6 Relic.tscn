@@ -38,7 +38,14 @@ metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 position = Vector2(368, 184)
 script = ExtResource("3_f0roo")
 current_scene_name = "12 Route1 Room6 Relic"
+target_scene_path = "res://gameplay/Levels/13 Hub1.tscn"
 metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
 shape = SubResource("RectangleShape2D_0xkii")
+
+[node name="SpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(369, 164)
+script = ExtResource("4_f4h1e")
+previous_scene_name = "13 Hub1"
+metadata/_custom_type_script = "uid://b8lq8hy8jihqf"

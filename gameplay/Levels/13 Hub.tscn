@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dneub1kml3fhp"]
-
-[ext_resource type="PackedScene" uid="uid://lyc5nf2xlfol" path="res://gameplay/Levels/3 Tunnel2.tscn" id="1_effr4"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="TileMap" parent="." instance=ExtResource("1_effr4")]
-position = Vector2(0, 1)

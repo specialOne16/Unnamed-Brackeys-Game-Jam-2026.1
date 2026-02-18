@@ -61,15 +61,15 @@ metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 shape = SubResource("RectangleShape2D_xtqht")
 
 [node name="SpawnPoint2" type="Marker2D" parent="."]
-position = Vector2(271, 162)
+position = Vector2(144, 30)
 script = ExtResource("4_q7yo5")
 previous_scene_name = "9 Route1 Room41"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="SpawnPoint3" type="Marker2D" parent="."]
-position = Vector2(144, 30)
+position = Vector2(272, 164)
 script = ExtResource("4_q7yo5")
-previous_scene_name = "9 Route1 Room41"
+previous_scene_name = "9 Route1 Room411"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="SpawnPoint4" type="Marker2D" parent="."]
