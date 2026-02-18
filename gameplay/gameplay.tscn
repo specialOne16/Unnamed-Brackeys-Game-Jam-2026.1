@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://5wr35unbj208"]
 
 [ext_resource type="PackedScene" uid="uid://iggh13u56wx8" path="res://entities/player/player.tscn" id="1_nyvx4"]
-[ext_resource type="PackedScene" uid="uid://cayd0vdw2ecvi" path="res://gameplay/Levels/7 Route1 Room2.tscn" id="1_ueusv"]
+[ext_resource type="PackedScene" path="res://gameplay/Levels/7 Route1 Room2.tscn" id="1_ueusv"]
 [ext_resource type="PackedScene" uid="uid://by64l5ruc3del" path="res://entities/enemy/enemy.tscn" id="3_ueusv"]
 
 [node name="Gameplay" type="Node2D"]
@@ -10,7 +10,6 @@
 
 [node name="Player" parent="." instance=ExtResource("1_nyvx4")]
 position = Vector2(154, 97)
-cone_vision_scale = 0.15
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.329158, 0.329158, 0.329158, 1)
