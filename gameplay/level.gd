@@ -12,9 +12,9 @@ func _ready() -> void:
 		if spawn_point == null:
 			if node.previous_scene_name == "": 
 				spawn_point = node
-		else:
-			if node.previous_scene_name == LevelLoader.source:
-				spawn_point = node
+		
+		if node.previous_scene_name == LevelLoader.source:
+			spawn_point = node
 	
 	if spawn_point:
 		var player = PLAYER.instantiate()
