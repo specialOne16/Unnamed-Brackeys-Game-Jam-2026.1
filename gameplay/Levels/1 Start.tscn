@@ -107,3 +107,9 @@ shape = SubResource("RectangleShape2D_7blsu")
 position = Vector2(151, 87)
 script = ExtResource("4_ea7og")
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
+
+[node name="SpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(160, 147)
+script = ExtResource("4_ea7og")
+previous_scene_name = "2 Tunnel1"
+metadata/_custom_type_script = "uid://b8lq8hy8jihqf"

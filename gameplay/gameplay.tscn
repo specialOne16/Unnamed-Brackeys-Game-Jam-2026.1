@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_ktb3l"]
 [ext_resource type="PackedScene" uid="uid://iggh13u56wx8" path="res://entities/player/player.tscn" id="1_nyvx4"]
-[ext_resource type="PackedScene" path="res://gameplay/Levels/15 Route2 Room2.tscn" id="1_ueusv"]
+[ext_resource type="PackedScene" uid="uid://bfeinodiixbis" path="res://gameplay/Levels/15 Route2 Room2.tscn" id="1_ueusv"]
 [ext_resource type="PackedScene" uid="uid://by64l5ruc3del" path="res://entities/enemy/enemy.tscn" id="3_ueusv"]
 [ext_resource type="PackedScene" uid="uid://c3gq6kvbs1q0c" path="res://gameplay/components/dark_overlay.tscn" id="4_gvicd"]
 

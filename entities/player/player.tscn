@@ -30,7 +30,8 @@ polygon = PackedVector2Array(-8, -5, -8, 5, 6, 7, 0, 0, 6, -7)
 collision_mask = 16
 script = ExtResource("2_fkugw")
 charge_movement_speed = 25.0
-radial_vision_scale = 100.0
+radial_vision_scale = 0.7
+cone_vision_scale = 0.7
 charge_cone_vision_scale = 0.3
 charge_duration = 0.7
 
