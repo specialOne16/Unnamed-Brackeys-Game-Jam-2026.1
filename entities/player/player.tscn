@@ -41,6 +41,8 @@ scale = Vector2(1, 1.17169)
 sprite_frames = ExtResource("1_bls4j")
 animation = &"attack_release"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 16

@@ -10,7 +10,7 @@
 
 [node name="Player" parent="." instance=ExtResource("1_nyvx4")]
 position = Vector2(154, 97)
-movement_speed = 50.0
+cone_vision_scale = 0.15
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.329158, 0.329158, 0.329158, 1)

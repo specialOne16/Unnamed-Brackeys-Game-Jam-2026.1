@@ -8,14 +8,22 @@ var animation_override: Node = null
 
 @onready var player: TD2Player = $"../.."
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
+@onready var light_occluder_2d: LightOccluder2D = $"../../Lights/SpotLight/LightOccluder2D"
 
-func _process(_delta: float) -> void:
-	if animation_override != null: return
+func _process(delta: float) -> void:
+	if animation_override == null:
+		if player.velocity != Vector2.ZERO:
+			animated_sprite_2d.play("move")
+		else:
+			animated_sprite_2d.play("idle")
 	
-	if player.velocity != Vector2.ZERO:
-		animated_sprite_2d.play("move")
+	if player.holding_attack:
+		player.holding_duration += delta
+		
+		var hold_percentage = clampf(player.holding_duration / player.charge_duration, 0, 1)
+		light_occluder_2d.scale.y = lerpf(player.cone_vision_scale, player.charge_cone_vision_scale, hold_percentage)
 	else:
-		animated_sprite_2d.play("idle")
+		light_occluder_2d.scale.y = player.cone_vision_scale
 
 func override_animation(override: Node) -> bool:
 	if animation_override == null:
