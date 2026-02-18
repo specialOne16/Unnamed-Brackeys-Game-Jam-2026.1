@@ -43,7 +43,7 @@ position = Vector2(8.1937, 3.58158e-07)
 rotation = 1.5708
 scale = Vector2(1, 1.17169)
 sprite_frames = ExtResource("1_bls4j")
-animation = &"attack_release"
+animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

@@ -1,14 +1,12 @@
 extends Node2D
 
-@export var spawn_group: Array[SpawnPoint]
-
 const PLAYER = preload("uid://iggh13u56wx8")
 const DARK_OVERLAY = preload("uid://c3gq6kvbs1q0c")
 
 func _ready() -> void:
 	var spawn_point: SpawnPoint = null
 	
-	for node in spawn_group:
+	for node in get_children():
 		if not node is SpawnPoint: continue
 		
 		if spawn_point == null:

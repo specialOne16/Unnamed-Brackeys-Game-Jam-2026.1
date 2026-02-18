@@ -2,7 +2,7 @@ extends Area2D
 class_name Door
 
 @export var current_scene_name: String
-@export var target_scene: PackedScene
+@export var target_scene_path: String
 
 func _ready() -> void:
 	collision_layer = 0
@@ -12,4 +12,4 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is TD2Player:
-		LevelLoader.change_scene(target_scene, current_scene_name)
+		LevelLoader.change_scene(target_scene_path, current_scene_name)
