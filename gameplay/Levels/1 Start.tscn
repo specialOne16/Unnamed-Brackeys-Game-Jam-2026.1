@@ -1,9 +1,9 @@
 [gd_scene load_steps=4 format=4 uid="uid://cmroi75m8njdn"]
 
-[ext_resource type="Texture2D" uid="uid://cfnsvv4jfp6bw" path="res://gameplay/assets/Tilesets.png" id="1_h6m5j"]
+[ext_resource type="Texture2D" uid="uid://cfnsvv4jfp6bw" path="res://gameplay/assets/Tilesets.png" id="1_jsqac"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_25ybu"]
-texture = ExtResource("1_h6m5j")
+texture = ExtResource("1_jsqac")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1.25901, -1.07915, -1.07915, -1.25901, 8, -8, 8)
 1:0/0 = 0

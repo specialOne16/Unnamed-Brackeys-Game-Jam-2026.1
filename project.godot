@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Glowing Link"
 run/main_scene="uid://5wr35unbj208"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]

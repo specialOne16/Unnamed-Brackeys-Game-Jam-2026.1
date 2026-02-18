@@ -15,7 +15,7 @@ radius = 5.0
 radius = 7.0
 
 [sub_resource type="Gradient" id="Gradient_41n4r"]
-offsets = PackedFloat32Array(0, 0.52666664, 0.62666667, 1)
+offsets = PackedFloat32Array(0, 0.526667, 0.626667, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_bls4j"]
@@ -27,6 +27,7 @@ fill_from = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(-8, -5, -8, 5, 6, 7, 0, 0, 6, -7)
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 16
 script = ExtResource("2_fkugw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -34,7 +35,9 @@ position = Vector2(-7, 0)
 shape = SubResource("CircleShape2D_xbce5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-rotation = 1.5707964
+position = Vector2(8.1937, 3.58158e-07)
+rotation = 1.5708
+scale = Vector2(1, 1.17169)
 sprite_frames = ExtResource("1_bls4j")
 animation = &"attack_release"
 
