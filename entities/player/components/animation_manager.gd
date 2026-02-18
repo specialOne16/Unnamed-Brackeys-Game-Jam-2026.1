@@ -9,6 +9,10 @@ var animation_override: Node = null
 @onready var player: TD2Player = $"../.."
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
 @onready var light_occluder_2d: LightOccluder2D = $"../../Lights/SpotLight/LightOccluder2D"
+@onready var radial_light: PointLight2D = $"../../Lights/RadialLight"
+
+func _ready() -> void:
+	radial_light.texture_scale = player.radial_vision_scale
 
 func _process(delta: float) -> void:
 	if animation_override == null:

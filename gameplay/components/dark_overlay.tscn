@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://c3gq6kvbs1q0c"]
+
+[node name="DarkOverlay" type="CanvasModulate"]
+color = Color(0.329158, 0.329158, 0.329158, 1)
