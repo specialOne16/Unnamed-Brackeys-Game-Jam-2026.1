@@ -12,24 +12,31 @@ var attacking = false
 func _ready() -> void:
 	animated_sprite_2d.animation_finished.connect(_on_animation_finished)
 
-func _process(delta: float) -> void:
-	if player.holding_attack:
-		light_occluder_2d.scale.y = clampf(light_occluder_2d.scale.y - delta, 0.2, 1)
-	else:
-		light_occluder_2d.scale.y = 1
+func _process(_delta: float) -> void:
+	if player.holding_attack == null:
+		if  not attacking and Input.is_action_just_pressed("melee"):
+			player.holding_attack = self
+			player.holding_duration = 0
+			attacking = true
+			
+			animation_manager.override_animation(self)
+			animated_sprite_2d.play("attack_hold")
 	
-	if not attacking and Input.is_action_just_pressed("melee"):
-		attacking = true
-		player.holding_attack = true
-		animation_manager.override_animation(self)
-		animated_sprite_2d.play("attack_hold")
-	
-	if attacking and Input.is_action_just_released("melee"):
-		player.holding_attack = false
-		animated_sprite_2d.play("attack_release")
-		hitbox.hit()
+	if player.holding_attack == self:
+		if attacking and Input.is_action_just_released("melee"):
+			player.holding_attack = null
+			
+			if player.holding_duration >= player.charge_duration:
+				animated_sprite_2d.play("attack_release")
+				hitbox.hit()
+			else:
+				_release_attack()
 
 func _on_animation_finished():
 	if animated_sprite_2d.animation == "attack_release":
-		attacking = false
-		animation_manager.release_override(self)
+		_release_attack()
+
+func _release_attack():
+	attacking = false
+	player.holding_attack = null
+	animation_manager.release_override(self)

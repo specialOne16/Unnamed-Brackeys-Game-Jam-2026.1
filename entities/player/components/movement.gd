@@ -5,10 +5,11 @@ class_name TD2Movement
 
 func _process(_delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
-	player.velocity = direction * player.movement_speed
 	
 	if player.holding_attack:
-		player.velocity /= 3
+		player.velocity = direction * player.charge_movement_speed
 	else:
-		var mouse = get_viewport().get_mouse_position()
-		player.look_at(mouse)
+		player.velocity = direction * player.movement_speed
+		if direction != Vector2.ZERO:
+			player.rotation = direction.angle()
+ 

@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqn62kbomqpyp"]
+[gd_scene load_steps=9 format=3 uid="uid://cqn62kbomqpyp"]
 
 [ext_resource type="Script" uid="uid://o2jg1ne0gghx" path="res://combat/projectile.gd" id="1_tn6y3"]
 [ext_resource type="Texture2D" uid="uid://dw80l743ns37" path="res://combat/bullet/Shoot_Particles.png" id="2_61ok0"]
 [ext_resource type="Script" uid="uid://dx02mvj1owgwd" path="res://combat/hitbox.gd" id="3_6oda5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6oda5"]
+light_mode = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6oda5"]
 atlas = ExtResource("2_61ok0")
@@ -33,6 +36,9 @@ script = ExtResource("1_tn6y3")
 hitbox = NodePath("HitBox2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_6oda5")
 rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_svrpt")
 
