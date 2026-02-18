@@ -31,6 +31,8 @@ shape = SubResource("RectangleShape2D_paxv2")
 [node name="Door2" type="Area2D" parent="."]
 position = Vector2(32, 152)
 script = ExtResource("4_l00gb")
+current_scene_name = "17 Route2 Room41"
+target_scene_path = "res://gameplay/Levels/18 Route2 Room51.tscn"
 metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
@@ -46,4 +48,10 @@ metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 position = Vector2(32, 132)
 script = ExtResource("3_gqkmc")
 previous_scene_name = "15 Route2 Room2"
+metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
+
+[node name="SpawnPoint3" type="Marker2D" parent="."]
+position = Vector2(32, 131)
+script = ExtResource("3_gqkmc")
+previous_scene_name = "18 Route2 Room51"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
