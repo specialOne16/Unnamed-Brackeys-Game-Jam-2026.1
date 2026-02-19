@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=29 format=3 uid="uid://cpl1ssg6qxube"]
+[gd_resource type="TileSet" load_steps=35 format=3 uid="uid://cpl1ssg6qxube"]
 
 [ext_resource type="Texture2D" uid="uid://cfnsvv4jfp6bw" path="res://gameplay/assets/Tilesets.png" id="1_p2xdf"]
+[ext_resource type="Texture2D" uid="uid://bc18ar3rwjguj" path="res://gameplay/assets/Props.png" id="2_226s2"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_p2xdf"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 2, 1, 131072, 0, 65537, 131072, 2)
@@ -79,6 +80,18 @@ polygon = PackedVector2Array(-8, -8, 0.62950516, -8, 1.1690826, 8, -8, 8)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x36cj"]
 polygon = PackedVector2Array(-8, -8, 1.1690826, -8, 1.1690826, 1.4388695, -8, 1.6187286)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0t0ee"]
+polygon = PackedVector2Array(0.62950516, 2.1583061, 4.406538, -3.5971737, 8, -3.5971737, 8, 8, -3.1475277, 8, -3.1475277, 3.7770348)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cl5ca"]
+polygon = PackedVector2Array(-3.6871042, -5.2159023, -3.6871042, -8, 8, -8, 8, 3.956892, 4.7662563, 3.956892, 1.7086563, -3.2374563)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4b260"]
+polygon = PackedVector2Array(-8, -3.057598, -4.2266808, -2.6978807, -2.0683765, 2.8777409, 3.507244, 3.956892, 3.8669624, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4yaad"]
+polygon = PackedVector2Array(-8, 3.7770348, -8, -8, 2.7878094, -8, 2.6079502, -4.3166084, -0.26978874, -3.4173155, -3.507246, -0.71943474, -4.40654, 3.5971756)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_25ybu"]
 texture = ExtResource("1_p2xdf")
@@ -179,6 +192,50 @@ texture = ExtResource("1_p2xdf")
 1:8/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_48gip")
 2:8/0 = 0
 2:8/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_0jugb")
+9:1/0 = 0
+7:1/0 = 0
+8:2/0 = 0
+7:4/0 = 0
+7:4/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_cl5ca")
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -4.6763268, -8, -2.5180225, -4.856185, 2.5180225, -3.057598, 4.136751, 3.5971756, 8, 3.5971756)
+8:4/0 = 0
+8:4/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_4yaad")
+8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.2374573, -8, -8, -8, -8, 3.956892, -4.4964685, 3.956892, -2.6978807, -3.5971737, 2.5180225, -4.6763268)
+8:3/0 = 0
+8:3/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_4b260")
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.057598, -8, 8, 3.057598, 8, 2.6978798, 4.136751, -1.0791531, 3.956892, -3.4173164, 1.4388714, -4.6763268, -2.5180216)
+7:3/0 = 0
+7:3/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_0t0ee")
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.856186, -2.5180216, 8, -4.13675, 8, 8, -2.5180225, 8, -2.87774, 3.7770348, 3.7770329, 1.978447)
+11:2/0 = 0
+12:2/0 = 0
+12:1/0 = 0
+11:1/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+13:1/0 = 0
+10:0/0 = 0
+10:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:1/0 = 0
+10:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:2/0 = 0
+10:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f403m"]
+texture = ExtResource("2_226s2")
+1:1/0 = 0
+2:1/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+0:2/0 = 0
+0:1/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
 
 [resource]
 occlusion_layer_0/light_mask = 2
@@ -189,4 +246,5 @@ physics_layer_1/collision_mask = 0
 physics_layer_2/collision_layer = 64
 physics_layer_2/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_25ybu")
+sources/1 = SubResource("TileSetAtlasSource_f403m")
 pattern_0 = SubResource("TileMapPattern_p2xdf")

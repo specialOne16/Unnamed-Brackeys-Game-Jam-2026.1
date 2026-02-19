@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=4 uid="uid://lw3cwhxxsbqg"]
+
+[ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_wwlfa"]
+[ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_sgwxj"]
+[ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="3_q0ii2"]
+[ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="4_sgwxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vpgp"]
+size = Vector2(16, 32)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wwlfa")
+
+[node name="Background" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAMAAAADAAAAAAAAAAYAAAADAAIAAAABAAMAAAAEAAAAAAACAAMAAAAEAAAAAAADAAMAAAAEAAAAAAABAAYAAAAEAAIAAAACAAYAAAAEAAIAAAADAAYAAAAEAAIAAAAEAAYAAAACAAAAAAAEAAMAAAACAAEAAAAJAAYAAAAAAAAAAAAKAAYAAAAFAAIAAAAJAAcAAAAAAAIAAAAKAAcAAAAFAAAAAAAEAAgAAAADAAEAAAAEAAkAAAADAAEAAAAEAAoAAAADAAIAAAAFAAoAAAAEAAIAAAAGAAoAAAAEAAIAAAAHAAoAAAAEAAIAAAAIAAoAAAAEAAIAAAAJAAoAAAAEAAIAAAAKAAoAAAAFAAIAAAAEAAcAAAADAAEAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAIAAAAKAAIAAAAFAAIAAAAKAAMAAAAFAAAAAAAEAP//AAADAAAAAAAEAAAAAAACAAEAAAAEAAEAAAADAAEAAAAEAAIAAAACAAEAAAAFAP//AAAEAAAAAAAGAP//AAAEAAAAAAAHAP//AAAEAAAAAAAIAP//AAAEAAAAAAAJAP//AAAEAAAAAAAKAP//AAAFAAAAAAAAAAQAAAAGAAEAAAAAAAUAAAAGAAIAAAABAAQAAAAGAAIAAAABAAUAAAAGAAEAAAACAAQAAAAGAAEAAAACAAUAAAAGAAIAAAADAAQAAAAGAAIAAAADAAUAAAAGAAIAAAAEAAQAAQAAAAIAAAAEAAUAAAAGAAIAAAAFAAAAAAAGAAAAAAAFAAEAAAAGAAAAAAAFAAIAAAAGAAIAAAAFAAMAAAAGAAIAAAAFAAQAAQAAAAIAAAAFAAUAAAAGAAEAAAAFAAYAAAAGAAAAAAAFAAcAAAAGAAAAAAAFAAgAAAAGAAAAAAAFAAkAAAAGAAAAAAAGAAAAAAAGAAIAAAAGAAEAAAAGAAAAAAAGAAIAAAAGAAAAAAAGAAMAAAAGAAAAAAAGAAQAAAAGAAEAAAAGAAUAAAAGAAEAAAAGAAYAAAAGAAAAAAAGAAcAAAAGAAEAAAAGAAgAAAAGAAIAAAAGAAkAAAAGAAIAAAAHAAAAAAAGAAIAAAAHAAEAAAAGAAIAAAAHAAIAAAAGAAAAAAAHAAMAAAAGAAEAAAAHAAQAAAAGAAAAAAAHAAUAAAAGAAEAAAAHAAYAAAAGAAEAAAAHAAcAAAAGAAIAAAAHAAgAAAAGAAEAAAAHAAkAAAAGAAIAAAAIAAAAAAAGAAIAAAAIAAEAAAAGAAEAAAAIAAIAAAAGAAAAAAAIAAMAAAAGAAEAAAAIAAQAAAAGAAEAAAAIAAUAAAAGAAAAAAAIAAYAAAAGAAIAAAAIAAcAAAAGAAAAAAAIAAgAAAAGAAIAAAAIAAkAAAAGAAIAAAAJAAgAAAAGAAAAAAAJAAkAAAAGAAEAAAAKAAgAAAAGAAAAAAAKAAkAAAAGAAIAAAAJAAQAAAAGAAIAAAAJAAUAAAAGAAIAAAAKAAQAAAAGAAEAAAAKAAUAAAAGAAIAAAAJAAAAAAAGAAIAAAAJAAEAAAAGAAIAAAAKAAAAAAAGAAEAAAAKAAEAAAAGAAIAAAA=")
+tile_set = ExtResource("2_sgwxj")
+
+[node name="Door" type="Area2D" parent="."]
+position = Vector2(168, 16)
+script = ExtResource("3_q0ii2")
+current_scene_name = "30 Route2 Room332"
+target_scene_path = "res://gameplay/Levels/31 Route2 Room333.tscn"
+metadata/_custom_type_script = "uid://d33ikxrahs0fk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+shape = SubResource("RectangleShape2D_5vpgp")
+
+[node name="Door2" type="Area2D" parent="."]
+position = Vector2(168, 80)
+script = ExtResource("3_q0ii2")
+current_scene_name = "30 Route2 Room332"
+target_scene_path = "res://gameplay/Levels/37 Route2 Room332 Enemy.tscn"
+metadata/_custom_type_script = "uid://d33ikxrahs0fk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
+shape = SubResource("RectangleShape2D_5vpgp")
+
+[node name="Door3" type="Area2D" parent="."]
+position = Vector2(168, 144)
+script = ExtResource("3_q0ii2")
+current_scene_name = "30 Route2 Room332"
+target_scene_path = "res://gameplay/Levels/33 Route2 Room332 Chest.tscn"
+metadata/_custom_type_script = "uid://d33ikxrahs0fk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3"]
+shape = SubResource("RectangleShape2D_5vpgp")
+
+[node name="Door4" type="Area2D" parent="."]
+position = Vector2(8, 80)
+script = ExtResource("3_q0ii2")
+current_scene_name = "30 Route2 Room332"
+target_scene_path = "res://gameplay/Levels/29 Route2 Room331.tscn"
+metadata/_custom_type_script = "uid://d33ikxrahs0fk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door4"]
+shape = SubResource("RectangleShape2D_5vpgp")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(30, 79)
+script = ExtResource("4_sgwxj")
+previous_scene_name = "29 Route2 Room331"
+metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
+
+[node name="SpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(147, 16)
+script = ExtResource("4_sgwxj")
+previous_scene_name = "31 Route2 Room333"
+metadata/_custom_type_script = "uid://b8lq8hy8jihqf"

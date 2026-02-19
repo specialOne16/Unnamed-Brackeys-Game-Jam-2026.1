@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=4 uid="uid://cqdpkljpbk67"]
+
+[ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_1aam0"]
+[ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_ao58o"]
+[ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="3_borty"]
+[ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="4_3hu68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vpgp"]
+size = Vector2(16, 32)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1aam0")
+
+[node name="Background" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAMAAAADAAAAAAAAAAYAAAADAAIAAAABAAMAAAAEAAAAAAACAAMAAAAEAAAAAAADAAMAAAAEAAAAAAABAAYAAAAEAAIAAAACAAYAAAAEAAIAAAADAAYAAAAEAAIAAAAEAAYAAAAEAAIAAAAEAAMAAAAEAAAAAAAJAAYAAAAEAAIAAAAKAAYAAAAFAAIAAAAAAAQAAAAGAAEAAAAAAAUAAAAGAAIAAAABAAQAAAAGAAIAAAABAAUAAAAGAAEAAAACAAQAAAAGAAEAAAACAAUAAAAGAAIAAAADAAQAAAAGAAIAAAADAAUAAAAGAAIAAAAEAAQAAAAGAAAAAAAEAAUAAAAGAAIAAAAFAAMAAAAEAAAAAAAFAAQAAAAGAAAAAAAFAAUAAAAGAAEAAAAFAAYAAAAEAAIAAAAGAAMAAAAEAAAAAAAGAAQAAAAGAAEAAAAGAAUAAAAGAAEAAAAGAAYAAAAEAAIAAAAHAAMAAAAEAAAAAAAHAAQAAAAGAAAAAAAHAAUAAAAGAAEAAAAHAAYAAAAEAAIAAAAIAAMAAAAEAAAAAAAIAAQAAAAGAAEAAAAIAAUAAAAGAAAAAAAIAAYAAAAEAAIAAAAJAAQAAAAGAAIAAAAJAAUAAAAGAAIAAAAKAAQAAAAGAAEAAAAKAAUAAAAGAAIAAAAKAAMAAAAFAAAAAAAJAAMAAAAEAAAAAAA=")
+tile_set = ExtResource("2_ao58o")
+
+[node name="Door" type="Area2D" parent="."]
+position = Vector2(8, 80)
+script = ExtResource("3_borty")
+current_scene_name = "35 Route2 Room331 Enemy"
+target_scene_path = "res://gameplay/Levels/36 Route2 Room331 Enemy Deadend.tscn"
+metadata/_custom_type_script = "uid://d33ikxrahs0fk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+shape = SubResource("RectangleShape2D_5vpgp")
+
+[node name="Door2" type="Area2D" parent="."]
+position = Vector2(168, 80)
+script = ExtResource("3_borty")
+current_scene_name = "32 Route2 Room331 Chestend"
+target_scene_path = "res://gameplay/Levels/29 Route2 Room331.tscn"
+metadata/_custom_type_script = "uid://d33ikxrahs0fk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
+shape = SubResource("RectangleShape2D_5vpgp")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(28, 81)
+script = ExtResource("4_3hu68")
+previous_scene_name = "29 Route2 Room331"
+metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
+
+[node name="SpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(28, 81)
+script = ExtResource("4_3hu68")
+previous_scene_name = "36 Route2 Room331 Enemy Deadend"
+metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
