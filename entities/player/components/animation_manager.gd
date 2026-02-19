@@ -13,6 +13,7 @@ var animation_override: Node = null
 
 func _ready() -> void:
 	radial_light.texture_scale = player.radial_vision_scale
+	light_occluder_2d.scale.y = player.cone_vision_scale
 
 func _process(delta: float) -> void:
 	if animation_override == null:
