@@ -22,8 +22,8 @@ tile_set = ExtResource("2_575ou")
 [node name="Door3" type="Area2D" parent="."]
 position = Vector2(232, 97)
 script = ExtResource("3_i1osq")
-current_scene_name = "25 Route2 Trap4"
-target_scene_path = "res://gameplay/Levels/26 Route2 Trap5.tscn"
+current_scene_name = "27 Route2 Trap6"
+target_scene_path = "res://gameplay/Levels/21 Route2 Relic.tscn"
 metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door3"]
@@ -32,5 +32,5 @@ shape = SubResource("RectangleShape2D_rldci")
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(252, 95)
 script = ExtResource("4_egrjv")
-previous_scene_name = "24 Route2 Trap3"
+previous_scene_name = "26 Route2 Trap5"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"

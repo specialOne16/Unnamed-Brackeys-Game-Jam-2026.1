@@ -47,7 +47,7 @@ metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 [node name="SpawnPoint2" type="Marker2D" parent="."]
 position = Vector2(32, 132)
 script = ExtResource("3_gqkmc")
-previous_scene_name = "15 Route2 Room2"
+previous_scene_name = "16 Route2 Room31"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="SpawnPoint3" type="Marker2D" parent="."]

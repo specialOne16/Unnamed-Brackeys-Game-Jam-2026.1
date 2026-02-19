@@ -23,7 +23,7 @@ tile_set = ExtResource("2_fwggh")
 position = Vector2(282, 96)
 script = ExtResource("3_xwm1f")
 current_scene_name = "26 Route2 Trap5"
-target_scene_path = "res://gameplay/Levels/25 Route2 Trap4.tscn"
+target_scene_path = "res://gameplay/Levels/27 Route2 Trap6.tscn"
 metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door3"]

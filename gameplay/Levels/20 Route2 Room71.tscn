@@ -36,7 +36,8 @@ shape = SubResource("RectangleShape2D_pmbwy")
 [node name="Door2" type="Area2D" parent="."]
 position = Vector2(384, 248)
 script = ExtResource("4_7objc")
-current_scene_name = "20 Route2 Room7"
+current_scene_name = "20 Route2 Room71"
+target_scene_path = "res://gameplay/Levels/21 Route2 Relic.tscn"
 metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
