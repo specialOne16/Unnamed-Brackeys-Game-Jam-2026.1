@@ -3,13 +3,16 @@ class_name TD2Movement
 
 @onready var player: TD2Player = $"../.."
 @onready var pit_detector: Area2D = %PitDetector
+@onready var jumpable_detector: Area2D = %JumpableDetector
 @onready var jump_timer: Timer = %JumpTimer
 
-var air_duration = 0
 var jump_position = Vector2.INF
+var on_jumpable = false
 
 func _ready() -> void:
 	pit_detector.body_entered.connect(_pit_touched)
+	jumpable_detector.body_entered.connect(_jumpable_entered)
+	jumpable_detector.body_exited.connect(_jumpable_exited)
 	jump_timer.timeout.connect(_on_land)
 
 func _process(_delta: float) -> void:
@@ -30,6 +33,8 @@ func _process(_delta: float) -> void:
 		
 		jump_position = player.position
 		jump_timer.start(player.jump_duration)
+		
+		player.velocity = player.velocity.normalized() * player.jump_movement_speed
  
 func _pit_touched(_body: Node2D):
 	if jump_position == Vector2.INF:
@@ -37,9 +42,19 @@ func _pit_touched(_body: Node2D):
 	else:
 		player.position = jump_position
 
+func _jumpable_entered(_body: Node2D):
+	if jump_timer.time_left > 0:
+		on_jumpable = true
+
+func _jumpable_exited(_body: Node2D):
+	on_jumpable = false
+	if jump_timer.time_left <= 0:
+		player.set_collision_mask_value(7, true)
+
 func _on_land():
 	pit_detector.process_mode = Node.PROCESS_MODE_INHERIT
-	player.set_collision_mask_value(7, true)
+	if not on_jumpable:
+		player.set_collision_mask_value(7, true)
 	
 	await get_tree().physics_frame
 	jump_position = Vector2.INF
