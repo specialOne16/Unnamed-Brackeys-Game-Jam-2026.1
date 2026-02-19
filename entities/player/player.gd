@@ -3,6 +3,7 @@ class_name TD2Player
 
 @export var movement_speed: float = 100
 @export var charge_movement_speed: float = 40
+@export var jump_movement_speed: float = 100
 @export var radial_vision_scale: float = 1
 @export var cone_vision_scale: float = 1
 @export var charge_cone_vision_scale: float = 0.2
