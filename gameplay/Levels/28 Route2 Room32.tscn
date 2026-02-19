@@ -57,8 +57,3 @@ metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
 shape = SubResource("RectangleShape2D_navyr")
-
-[node name="SpawnPoint3" type="Marker2D" parent="."]
-position = Vector2(524, 443)
-script = ExtResource("3_kki1d")
-metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
