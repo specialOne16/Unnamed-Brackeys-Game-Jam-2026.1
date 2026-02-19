@@ -37,6 +37,7 @@ radial_vision_scale = 0.7
 cone_vision_scale = 0.7
 charge_cone_vision_scale = 0.3
 charge_duration = 0.7
+jump_duration = 0.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xbce5")
