@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://iggh13u56wx8"]
+[gd_scene load_steps=14 format=3 uid="uid://iggh13u56wx8"]
 
 [ext_resource type="SpriteFrames" uid="uid://cf4hru5onum5g" path="res://entities/player/player.tres" id="1_bls4j"]
 [ext_resource type="Script" uid="uid://cf5hwjdaou6c3" path="res://entities/player/player.gd" id="2_fkugw"]
@@ -12,7 +12,10 @@
 radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_26q78"]
-radius = 7.0
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qiwj3"]
+radius = 5.0
 
 [sub_resource type="Gradient" id="Gradient_41n4r"]
 offsets = PackedFloat32Array(0, 0.526667, 0.626667, 1)
@@ -27,7 +30,7 @@ fill_from = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(-8, -5, -8, 5, 6, 7, 0, 0, 6, -7)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 16
+collision_mask = 80
 script = ExtResource("2_fkugw")
 charge_movement_speed = 25.0
 radial_vision_scale = 0.7
@@ -36,29 +39,38 @@ charge_cone_vision_scale = 0.3
 charge_duration = 0.7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_xbce5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(8.1937, 3.58158e-07)
+position = Vector2(10, 0)
 rotation = 1.5708
 scale = Vector2(1, 1.17169)
 sprite_frames = ExtResource("1_bls4j")
-animation = &"idle"
+animation = &"attack_release"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0.55336857, 6.771088e-05)
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(6, 0)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_qiwj3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_26q78")
+
+[node name="PitDetector" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PitDetector"]
+shape = SubResource("CircleShape2D_qiwj3")
 
 [node name="Lights" type="Node2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0.55336857, 6.771088e-05)
 
 [node name="RadialLight" type="PointLight2D" parent="Lights"]
 blend_mode = 2
@@ -97,3 +109,7 @@ metadata/_custom_type_script = "uid://qeugo64bwe7s"
 [node name="MeleeAttack" type="Node" parent="Components"]
 script = ExtResource("6_8fjmc")
 metadata/_custom_type_script = "uid://b31kgxpwc63ht"
+
+[node name="JumpTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

@@ -7,6 +7,7 @@ class_name TD2Player
 @export var cone_vision_scale: float = 1
 @export var charge_cone_vision_scale: float = 0.2
 @export var charge_duration: float = 2
+@export var jump_duration: float = 1
 
 var holding_attack: Node = null
 var holding_duration = 0.0
