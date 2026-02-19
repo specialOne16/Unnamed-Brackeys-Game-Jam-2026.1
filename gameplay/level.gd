@@ -26,6 +26,7 @@ func _ready() -> void:
 		_player = PLAYER.instantiate()
 		_player.position = spawn_point.position
 		_player.rotation = spawn_point.spawn_direction.angle()
+		_player.on_jumpable = spawn_point.is_on_jumpable
 		add_child(_player)
 	
 	_in_game_ui = IN_GAME_UI.instantiate()
