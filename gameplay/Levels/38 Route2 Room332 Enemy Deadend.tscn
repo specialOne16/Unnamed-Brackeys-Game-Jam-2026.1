@@ -20,6 +20,7 @@ position = Vector2(168, 80)
 script = ExtResource("3_vi7pu")
 current_scene_name = "38 Route2 Room332 Enemy Deadend"
 target_scene_path = "res://gameplay/Levels/37 Route2 Room332 Enemy.tscn"
+asset_size = 32
 metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
