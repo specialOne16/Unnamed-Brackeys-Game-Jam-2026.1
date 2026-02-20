@@ -49,8 +49,3 @@ shape = SubResource("RectangleShape2D_adx3o")
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_nvukt")]
 position = Vector2(145, 149)
-
-[node name="SpawnPoint2" type="Marker2D" parent="."]
-position = Vector2(144, 32)
-script = ExtResource("2_nks10")
-metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
