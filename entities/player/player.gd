@@ -16,3 +16,6 @@ var on_platform = false
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
+
+func bump(source: Vector2, amount: float):
+	position += source.direction_to(position) * amount

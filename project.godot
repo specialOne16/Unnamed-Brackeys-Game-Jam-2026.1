@@ -68,9 +68,12 @@ jump={
 [layer_names]
 
 2d_render/layer_7="SpotLightOccluder"
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_4="EnemyHurtBox"
 2d_physics/layer_5="Wall"
 2d_physics/layer_6="Pit"
-2d_physics/layer_7="Jumpable"
+2d_physics/layer_7="Platform"
 2d_physics/layer_8="NearPit"
 
 [rendering]

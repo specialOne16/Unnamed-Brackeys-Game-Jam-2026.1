@@ -9,6 +9,7 @@ var _in_game_ui: InGameUi
 
 func _ready() -> void:
 	var spawn_point: SpawnPoint = null
+	_player = PLAYER.instantiate()
 	
 	for node in get_children():
 		if node is SpawnPoint:
@@ -21,9 +22,11 @@ func _ready() -> void:
 		
 		if node is Door:
 			node.change_scene.connect(_change_scene)
+		
+		if node is MeleeEnemy:
+			node.player = _player
 	
 	if spawn_point:
-		_player = PLAYER.instantiate()
 		_player.position = spawn_point.position
 		_player.rotation = spawn_point.spawn_direction.angle()
 		_player.on_platform = spawn_point.is_on_platform

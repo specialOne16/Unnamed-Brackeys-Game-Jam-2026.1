@@ -24,8 +24,6 @@ func _process(_delta: float) -> void:
 	
 	if player.holding_attack == self:
 		if attacking and Input.is_action_just_released("melee"):
-			player.holding_attack = null
-			
 			if player.holding_duration >= player.charge_duration:
 				animated_sprite_2d.play("attack_release")
 				hitbox.hit()

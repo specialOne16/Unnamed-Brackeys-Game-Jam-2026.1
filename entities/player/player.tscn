@@ -37,6 +37,7 @@ polygon = PackedVector2Array(-8, -5, -8, 5, 6, 7, 0, 0, 6, -7)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 80
+motion_mode = 1
 script = ExtResource("2_fkugw")
 movement_speed = 50.0
 charge_movement_speed = 25.0
@@ -64,8 +65,10 @@ position = Vector2(0.55336857, 6.771088e-05)
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(6, 0)
 collision_layer = 0
-collision_mask = 16
+collision_mask = 8
 script = ExtResource("3_qiwj3")
+damage = 10.0
+knockback = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_26q78")
