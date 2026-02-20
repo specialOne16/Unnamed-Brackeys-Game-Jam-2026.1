@@ -72,8 +72,3 @@ position = Vector2(530, 16)
 script = ExtResource("4_1mw7w")
 previous_scene_name = "44 Route2 Relic2 Deadend"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
-
-[node name="SpawnPoint4" type="Marker2D" parent="."]
-position = Vector2(454, 15)
-script = ExtResource("4_1mw7w")
-metadata/_custom_type_script = "uid://b8lq8hy8jihqf"

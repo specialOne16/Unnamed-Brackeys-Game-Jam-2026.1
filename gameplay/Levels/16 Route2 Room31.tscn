@@ -63,3 +63,8 @@ position = Vector2(466, -80)
 
 [node name="MeleeEnemy3" parent="." instance=ExtResource("5_g5w1u")]
 position = Vector2(632, -135)
+
+[node name="SpawnPoint3" type="Marker2D" parent="."]
+position = Vector2(46, 48)
+script = ExtResource("3_md4di")
+metadata/_custom_type_script = "uid://b8lq8hy8jihqf"

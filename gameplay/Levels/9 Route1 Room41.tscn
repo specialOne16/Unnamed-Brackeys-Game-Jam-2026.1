@@ -50,4 +50,4 @@ metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 shape = SubResource("RectangleShape2D_fagc1")
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_fws50")]
-position = Vector2(150, 165)
+position = Vector2(151, 148)

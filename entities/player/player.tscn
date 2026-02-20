@@ -72,7 +72,7 @@ collision_layer = 0
 collision_mask = 8
 script = ExtResource("3_qiwj3")
 damage = 10.0
-knockback = 250.0
+knockback = 300.0
 mini_stun_duration = 0.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]

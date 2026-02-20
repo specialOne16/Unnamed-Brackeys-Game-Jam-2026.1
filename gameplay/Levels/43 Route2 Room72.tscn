@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://dau22sse1xnro"]
+[gd_scene load_steps=8 format=4 uid="uid://dau22sse1xnro"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_qu2y4"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_k4uou"]
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="3_wdb0v"]
 [ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="4_x0gn6"]
+[ext_resource type="PackedScene" uid="uid://bl6jinchnypfx" path="res://entities/enemy/melee_enemy.tscn" id="5_w5bf1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tb2xx"]
 size = Vector2(32, 16)
@@ -53,3 +54,9 @@ metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
 shape = SubResource("RectangleShape2D_w5bf1")
+
+[node name="MeleeEnemy" parent="." instance=ExtResource("5_w5bf1")]
+position = Vector2(456, 302)
+
+[node name="MeleeEnemy2" parent="." instance=ExtResource("5_w5bf1")]
+position = Vector2(469, 302)

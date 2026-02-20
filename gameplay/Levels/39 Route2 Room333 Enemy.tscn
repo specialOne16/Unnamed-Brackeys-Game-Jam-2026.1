@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://dnrgd72rbotsb"]
+[gd_scene load_steps=7 format=4 uid="uid://dnrgd72rbotsb"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_chyor"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_yvm5j"]
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="3_xussn"]
 [ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="4_bsbpu"]
+[ext_resource type="PackedScene" uid="uid://bl6jinchnypfx" path="res://entities/enemy/melee_enemy.tscn" id="5_yvm5j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vpgp"]
 size = Vector2(16, 32)
@@ -46,3 +47,6 @@ position = Vector2(28, 81)
 script = ExtResource("4_bsbpu")
 previous_scene_name = "40 Route2 Room333 Enemy Deadend"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
+
+[node name="MeleeEnemy" parent="." instance=ExtResource("5_yvm5j")]
+position = Vector2(147, 80)
