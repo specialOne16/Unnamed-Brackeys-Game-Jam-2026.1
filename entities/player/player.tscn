@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://iggh13u56wx8"]
+[gd_scene load_steps=18 format=3 uid="uid://iggh13u56wx8"]
 
 [ext_resource type="SpriteFrames" uid="uid://cf4hru5onum5g" path="res://entities/player/player.tres" id="1_bls4j"]
 [ext_resource type="Script" uid="uid://cf5hwjdaou6c3" path="res://entities/player/player.gd" id="2_fkugw"]
 [ext_resource type="Script" uid="uid://be8djsgk5wev3" path="res://entities/player/components/movement.gd" id="3_aix1t"]
 [ext_resource type="Script" uid="uid://dx02mvj1owgwd" path="res://combat/hitbox.gd" id="3_qiwj3"]
 [ext_resource type="Script" uid="uid://c0fyo0n2kffj0" path="res://entities/player/components/animation_manager.gd" id="4_0hsa5"]
+[ext_resource type="Script" uid="uid://da61gkt0v6xos" path="res://combat/hurtbox.gd" id="4_26q78"]
 [ext_resource type="Script" uid="uid://qeugo64bwe7s" path="res://entities/player/components/shooting.gd" id="5_fkugw"]
 [ext_resource type="Script" uid="uid://b31kgxpwc63ht" path="res://entities/player/components/melee_attack.gd" id="6_8fjmc"]
 
@@ -13,6 +14,9 @@ radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_26q78"]
 radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7thud"]
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qiwj3"]
 radius = 5.0
@@ -69,9 +73,19 @@ collision_mask = 8
 script = ExtResource("3_qiwj3")
 damage = 10.0
 knockback = 500.0
+mini_stun_duration = 0.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_26q78")
+
+[node name="Hurtbox2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_26q78")
+metadata/_custom_type_script = "uid://da61gkt0v6xos"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
+shape = SubResource("CircleShape2D_7thud")
 
 [node name="PitDetector" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -142,3 +156,5 @@ metadata/_custom_type_script = "uid://b31kgxpwc63ht"
 [node name="JumpTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[connection signal="take_damage" from="Hurtbox2D" to="." method="take_damage"]

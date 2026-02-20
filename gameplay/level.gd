@@ -25,6 +25,9 @@ func _ready() -> void:
 		
 		if node is MeleeEnemy:
 			node.player = _player
+		
+		if node is RangedEnemy:
+			node.player = _player
 	
 	if spawn_point:
 		_player.position = spawn_point.position

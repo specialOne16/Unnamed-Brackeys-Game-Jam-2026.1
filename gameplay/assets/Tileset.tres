@@ -70,6 +70,10 @@ polygon = PackedVector2Array(-0.8093643, -8, 8, -8, 8, 1.4388695, -0.8093643, 1.
 polygon = PackedVector2Array(-8, -1.2590103, 8, -1.2590103, 8, 8, -8, 8)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_226s2"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rjxcx"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 1.4388695, -8, 1.4388695)

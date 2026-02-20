@@ -1,5 +1,7 @@
 extends CharacterBody2D
-class_name MeleeEnemy
+class_name RangedEnemy
+
+const ENEMY_ARROW = preload("uid://dv5i2bgbracx1")
 
 @export var max_health: float = 1
 @export var movement_speed: float = 50
@@ -10,7 +12,8 @@ class_name MeleeEnemy
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-@onready var hit_box_2d: HitBox2D = $HitBox2D
+@onready var attack_range: Area2D = $AttackRange
+@onready var fleeing_range: Area2D = $FleeingRange
 
 var player: TD2Player
 var _current_health: float
@@ -28,6 +31,10 @@ func _ready() -> void:
 		navigation_agent_2d.navigation_layers = 1
 
 func _physics_process(delta: float) -> void:
+	look_at(player.position)
+	
+	if animated_sprite_2d.animation == "shooting": return
+	
 	if velocity != Vector2.ZERO:
 		animated_sprite_2d.play("moving")
 	else:
@@ -38,21 +45,30 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 	
-	look_at(player.position)
-	
 	if ray_cast_2d.is_colliding(): 
 		_aggresive = true
 		ray_cast_2d.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	if _aggresive:
-		velocity = position.direction_to(navigation_agent_2d.get_next_path_position()) * movement_speed
+		if attack_range.has_overlapping_bodies() and not fleeing_range.has_overlapping_bodies():
+			_shoot()
+		else:
+			velocity = position.direction_to(navigation_agent_2d.get_next_path_position()) * movement_speed
 	
-	var collision = move_and_collide(velocity * delta)
-	if collision:
-		var collider = collision.get_collider()
-		if collider is TD2Player:
-			collider.take_damage(hit_box_2d)
+	move_and_collide(velocity * delta)
 
+func _shoot():
+	animated_sprite_2d.play("shooting")
+	await get_tree().create_timer(0.6).timeout
+	
+	var arrow: Projectile2D = ENEMY_ARROW.instantiate()
+	arrow.position = position
+	arrow.direction = Vector2.from_angle(rotation)
+	arrow.speed = 200
+	get_parent().add_child(arrow)
+	
+	await animated_sprite_2d.animation_finished
+	animated_sprite_2d.play("idle")
 
 func _on_hurtbox_2d_take_damage(source: HitBox2D) -> void:
 	_current_health -= source.damage
@@ -75,4 +91,7 @@ func _on_pit_detector_body_entered(_body: Node2D) -> void:
 	queue_free()
 
 func _on_target_update_heartbeat_timeout() -> void:
-	navigation_agent_2d.target_position = player.position
+	if fleeing_range.has_overlapping_bodies():
+		navigation_agent_2d.target_position = position + player.position.direction_to(position) * 32
+	else:
+		navigation_agent_2d.target_position = player.position

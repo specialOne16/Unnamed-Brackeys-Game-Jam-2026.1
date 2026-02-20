@@ -17,5 +17,5 @@ var on_platform = false
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
-func bump(source: Vector2, amount: float):
-	position += source.direction_to(position) * amount
+func take_damage(source: HitBox2D):
+	position += source.global_position.direction_to(global_position) * source.knockback

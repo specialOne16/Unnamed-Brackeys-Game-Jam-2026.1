@@ -3,6 +3,7 @@ class_name HitBox2D
 
 @export var damage: float
 @export var knockback: float
+@export var mini_stun_duration: float
 
 func hit():
 	for target in get_overlapping_areas():
