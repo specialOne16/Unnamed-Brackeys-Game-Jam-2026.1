@@ -32,7 +32,6 @@ func _ready() -> void:
 	if spawn_point:
 		_player.position = spawn_point.position
 		_player.rotation = spawn_point.spawn_direction.angle()
-		_player.on_platform = spawn_point.is_on_platform
 		add_child(_player)
 	
 	_in_game_ui = IN_GAME_UI.instantiate()

@@ -5,7 +5,6 @@ class_name MeleeEnemy
 @export var movement_speed: float = 50
 @export var attack_knockback: float = 20
 @export var player_detection_range: float = 50
-@export var is_on_platform: bool = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
@@ -22,10 +21,7 @@ func _ready() -> void:
 	_current_health = max_health
 	ray_cast_2d.target_position.x = player_detection_range
 	
-	if is_on_platform:
-		navigation_agent_2d.navigation_layers = 2
-	else:
-		navigation_agent_2d.navigation_layers = 1
+	navigation_agent_2d.navigation_layers = 1
 
 func _physics_process(delta: float) -> void:
 	if velocity != Vector2.ZERO:

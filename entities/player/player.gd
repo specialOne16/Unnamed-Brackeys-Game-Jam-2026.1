@@ -12,7 +12,6 @@ class_name TD2Player
 
 var holding_attack: Node = null
 var holding_duration = 0.0
-var on_platform = false
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()

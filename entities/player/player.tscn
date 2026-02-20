@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://iggh13u56wx8"]
+[gd_scene load_steps=17 format=3 uid="uid://iggh13u56wx8"]
 
 [ext_resource type="SpriteFrames" uid="uid://cf4hru5onum5g" path="res://entities/player/player.tres" id="1_bls4j"]
 [ext_resource type="Script" uid="uid://cf5hwjdaou6c3" path="res://entities/player/player.gd" id="2_fkugw"]
@@ -24,9 +24,6 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_wvtmh"]
 radius = 5.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bectd"]
-radius = 5.0
-
 [sub_resource type="Gradient" id="Gradient_41n4r"]
 offsets = PackedFloat32Array(0, 0.526667, 0.626667, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -40,7 +37,7 @@ fill_from = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(-8, -5, -8, 5, 6, 7, 0, 0, 6, -7)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 80
+collision_mask = 16
 motion_mode = 1
 script = ExtResource("2_fkugw")
 movement_speed = 50.0
@@ -103,14 +100,6 @@ collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NearPitDetector"]
 shape = SubResource("CircleShape2D_wvtmh")
-
-[node name="PlatformDetector" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 0
-collision_mask = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformDetector"]
-shape = SubResource("CircleShape2D_bectd")
 
 [node name="Lights" type="Node2D" parent="."]
 unique_name_in_owner = true
