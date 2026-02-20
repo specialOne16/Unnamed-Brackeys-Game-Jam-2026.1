@@ -17,7 +17,6 @@ tile_set = ExtResource("2_41n4r")
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(163, 93)
 script = ExtResource("3_ueusv")
-is_on_jumpable = true
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="Door" type="Area2D" parent="."]

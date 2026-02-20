@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://iggh13u56wx8"]
+[gd_scene load_steps=16 format=3 uid="uid://iggh13u56wx8"]
 
 [ext_resource type="SpriteFrames" uid="uid://cf4hru5onum5g" path="res://entities/player/player.tres" id="1_bls4j"]
 [ext_resource type="Script" uid="uid://cf5hwjdaou6c3" path="res://entities/player/player.gd" id="2_fkugw"]
@@ -15,6 +15,9 @@ radius = 5.0
 radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qiwj3"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wvtmh"]
 radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bectd"]
@@ -75,12 +78,20 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PitDetector"]
 shape = SubResource("CircleShape2D_qiwj3")
 
-[node name="JumpableDetector" type="Area2D" parent="."]
+[node name="NearPitDetector" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NearPitDetector"]
+shape = SubResource("CircleShape2D_wvtmh")
+
+[node name="PlatformDetector" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 64
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpableDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformDetector"]
 shape = SubResource("CircleShape2D_bectd")
 
 [node name="Lights" type="Node2D" parent="."]
