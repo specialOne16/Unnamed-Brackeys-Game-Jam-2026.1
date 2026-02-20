@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://bhit8j4txu62a"]
+[gd_scene load_steps=8 format=4 uid="uid://bhit8j4txu62a"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_p7iw7"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_navyr"]
 [ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="3_kki1d"]
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="4_34lec"]
+[ext_resource type="PackedScene" uid="uid://bl6jinchnypfx" path="res://entities/enemy/melee_enemy.tscn" id="5_navyr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7iw7"]
 size = Vector2(32, 16)
@@ -62,4 +63,12 @@ shape = SubResource("RectangleShape2D_navyr")
 position = Vector2(549, 455)
 script = ExtResource("3_kki1d")
 previous_scene_name = "29 Route2 Room331"
+metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
+
+[node name="MeleeEnemy" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(247, 47)
+
+[node name="SpawnPoint4" type="Marker2D" parent="."]
+position = Vector2(319, 36)
+script = ExtResource("3_kki1d")
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
