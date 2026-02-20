@@ -57,3 +57,9 @@ metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
 shape = SubResource("RectangleShape2D_navyr")
+
+[node name="SpawnPoint3" type="Marker2D" parent="."]
+position = Vector2(549, 455)
+script = ExtResource("3_kki1d")
+previous_scene_name = "29 Route2 Room331"
+metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
