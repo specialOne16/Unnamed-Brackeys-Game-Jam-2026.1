@@ -38,6 +38,9 @@ func _ready() -> void:
 	
 	_in_game_ui.scene_transition_in()
 
+func _process(_delta: float) -> void:
+	_in_game_ui.set_player_health(_player.current_health, _player.max_health)
+
 func _change_scene(target_scene_path: String, current_scene_name: String):
 	await _in_game_ui.scene_transition_out()
 	LevelLoader.change_scene(target_scene_path, current_scene_name)

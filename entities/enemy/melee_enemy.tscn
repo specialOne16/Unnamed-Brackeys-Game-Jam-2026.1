@@ -123,7 +123,6 @@ collision_layer = 2
 collision_mask = 147
 motion_mode = 1
 script = ExtResource("1_q1x8j")
-movement_speed = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xqbpr")
@@ -138,6 +137,9 @@ collision_mask = 17
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("3_4kqgd")
+damage = 20.0
+knockback = 50.0
+mini_stun_duration = 1.0
 metadata/_custom_type_script = "uid://dx02mvj1owgwd"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D"]
@@ -183,6 +185,7 @@ metadata/_custom_type_script = "uid://b5w8qmgc1ngwf"
 
 [node name="EnemyMeleeAttack" type="Node" parent="."]
 script = ExtResource("6_l4hvh")
+self_knockback = 100.0
 metadata/_custom_type_script = "uid://cj4j7ofvgh6b3"
 
 [node name="KnockbackTimer" type="Timer" parent="."]
