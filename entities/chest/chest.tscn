@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c20uvblmjsiic"]
+
+[ext_resource type="Script" uid="uid://detswmgnu4o2h" path="res://entities/chest/chest.gd" id="1_bbmqp"]
+[ext_resource type="Script" uid="uid://da61gkt0v6xos" path="res://combat/hurtbox.gd" id="1_vvkul"]
+[ext_resource type="Texture2D" uid="uid://hnvbr4ccr6ra" path="res://entities/chest/Chest.png" id="2_bbmqp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ektp4"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_32syd"]
+radius = 16.0
+
+[node name="Chest" type="StaticBody2D"]
+script = ExtResource("1_bbmqp")
+item = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ektp4")
+
+[node name="Hurtbox2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_vvkul")
+metadata/_custom_type_script = "uid://da61gkt0v6xos"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
+shape = SubResource("CircleShape2D_32syd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bbmqp")
+hframes = 2
+
+[connection signal="take_damage" from="Hurtbox2D" to="." method="_on_hurtbox_2d_take_damage"]

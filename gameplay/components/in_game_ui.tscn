@@ -59,6 +59,8 @@ process_mode = 3
 script = ExtResource("1_bgyea")
 
 [node name="TransitionOverlay" type="ColorRect" parent="."]
+visible = false
+z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -97,3 +99,10 @@ offset_bottom = 8.0
 grow_horizontal = 0
 value = 100.0
 show_percentage = false
+
+[node name="MainInventory" type="Label" parent="MarginContainer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 6
+text = "Test"

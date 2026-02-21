@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://5wr35unbj208"]
+[gd_scene load_steps=9 format=4 uid="uid://5wr35unbj208"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_ktb3l"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_41n4r"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="4_ktb3l"]
 [ext_resource type="PackedScene" uid="uid://dvwcwmdw7ekbr" path="res://entities/enemy/ranged_enemy.tscn" id="5_gvicd"]
 [ext_resource type="PackedScene" uid="uid://bl6jinchnypfx" path="res://entities/enemy/melee_enemy.tscn" id="6_7pdct"]
+[ext_resource type="PackedScene" uid="uid://c20uvblmjsiic" path="res://entities/chest/chest.tscn" id="7_uk44f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvicd"]
 
@@ -40,3 +41,7 @@ max_health = 1.0
 position = Vector2(139, 146)
 id = "a"
 max_health = 1.0
+
+[node name="Chest" parent="." instance=ExtResource("7_uk44f")]
+position = Vector2(188, 69)
+item = 0

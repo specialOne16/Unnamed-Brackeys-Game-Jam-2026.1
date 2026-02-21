@@ -2,6 +2,7 @@ extends CanvasLayer
 class_name InGameUi
 
 @onready var player_health: ProgressBar = %PlayerHealth
+@onready var main_inventory: Label = $MarginContainer/Control/MainInventory
 
 @onready var transition_overlay: ColorRect = $TransitionOverlay
 @onready var transition_animation_player: AnimationPlayer = $TransitionAnimationPlayer
@@ -9,6 +10,15 @@ class_name InGameUi
 func set_player_health(current: float, max_hp: float):
 	player_health.max_value = max_hp
 	player_health.value = current
+
+func _ready() -> void:
+	update_inventory()
+
+func _process(_delta: float) -> void:
+	update_inventory()
+
+func update_inventory():
+	main_inventory.text = "Shotgun: %d\nHealth Pack: %d" % [GameState.shotgun, GameState.healing_pack]
 
 func scene_transition_in():
 	get_tree().paused = true

@@ -29,7 +29,8 @@ func _ready() -> void:
 		if node is Enemy:
 			node.player = _player
 			node.enemy_died.connect(_enemy_died)
-			_alive_enemies += 1
+			if not GameState.died_enemy_ids.has(node.id):
+				_alive_enemies += 1
 	
 	if is_combat_room and _alive_enemies > 0:
 		_player.set_collision_mask_value(8, true)
@@ -41,13 +42,14 @@ func _ready() -> void:
 	
 	_in_game_ui = IN_GAME_UI.instantiate()
 	add_child(_in_game_ui)
+	_in_game_ui.set_player_health(GameState.player_health, _player.max_health)
 	
 	add_child(DARK_OVERLAY.instantiate())
 	
 	_in_game_ui.scene_transition_in()
 
 func _process(_delta: float) -> void:
-	_in_game_ui.set_player_health(_player.current_health, _player.max_health)
+	_in_game_ui.set_player_health(GameState.player_health, _player.max_health)
 
 func _enemy_died(_enemy: Enemy):
 	_alive_enemies -= 1

@@ -14,6 +14,8 @@ func _ready() -> void:
 	shotgun.visible = false
 
 func _process(_delta: float) -> void:
+	if GameState.shotgun <= 0: return
+	
 	if player.holding_attack == null:
 		if  not attacking and Input.is_action_just_pressed("ranged"):
 			player.holding_attack = self
@@ -26,6 +28,7 @@ func _process(_delta: float) -> void:
 				shotgun.visible = true
 				shotgun.play("attack")
 				ranged_hitbox.hit()
+				GameState.shotgun -= 1
 			else:
 				_release_attack()
 
