@@ -24,7 +24,7 @@ tile_map_data = PackedByteArray("AAAGAAEAAAADAAEAAAAGAAIAAAADAAEAAAAIAAEAAAAFAAE
 tile_set = ExtResource("1_rh78f")
 
 [node name="Props" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAHAAMAAQAEAAEAAAAHAAsAAQAFAAEAAAAHAA0AAQADAAEAAAAIABEAAQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAHAAMAAQAEAAEAAAAHAAsAAQAFAAEAAAAHAA0AAQADAAEAAAAIABEAAQACAAAAAAARABEAAAAIAAYAAAARABAAAAAIAAYAAAA=")
 tile_set = ExtResource("1_rh78f")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
@@ -64,3 +64,8 @@ metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="RangedEnemy" parent="." instance=ExtResource("5_0b5x2")]
 position = Vector2(246, 280)
+
+[node name="SpawnPoint3" type="Marker2D" parent="."]
+position = Vector2(120, 256)
+script = ExtResource("3_gocv3")
+metadata/_custom_type_script = "uid://b8lq8hy8jihqf"

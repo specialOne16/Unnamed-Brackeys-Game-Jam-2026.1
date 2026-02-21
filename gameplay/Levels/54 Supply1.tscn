@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://b450m2i0ne1gj"]
+[gd_scene load_steps=7 format=4 uid="uid://b450m2i0ne1gj"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_mc3ne"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_s01k5"]
 [ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="3_hqycw"]
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="4_wuh2m"]
+[ext_resource type="PackedScene" uid="uid://c20uvblmjsiic" path="res://entities/chest/chest.tscn" id="5_s01k5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jd212"]
 size = Vector2(16, 32)
@@ -54,3 +55,80 @@ position = Vector2(95, 98)
 script = ExtResource("3_hqycw")
 previous_scene_name = "55 Arena1"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
+
+[node name="Chest" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(92, 29)
+id = "54 1"
+item = 0
+
+[node name="Chest2" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(115, 29)
+id = "54 2"
+item = 1
+
+[node name="Chest3" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(138, 29)
+id = "54 3"
+item = 0
+
+[node name="Chest4" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(161, 29)
+id = "54 4"
+item = 1
+
+[node name="Chest5" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(184, 29)
+id = "54 5"
+item = 0
+
+[node name="Chest6" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(207, 29)
+id = "54 6"
+item = 1
+
+[node name="Chest7" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(228, 29)
+id = "54 7"
+item = 0
+
+[node name="Chest8" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(92, 161)
+rotation = 3.1415927
+id = "54 8"
+item = 1
+
+[node name="Chest9" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(115, 161)
+rotation = 3.1415927
+id = "54 9"
+item = 1
+
+[node name="Chest10" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(138, 161)
+rotation = 3.1415927
+id = "54 10"
+item = 1
+
+[node name="Chest11" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(161, 161)
+rotation = 3.1415927
+id = "54 11"
+item = 1
+
+[node name="Chest12" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(184, 161)
+rotation = 3.1415927
+id = "54 12"
+item = 1
+
+[node name="Chest13" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(207, 161)
+rotation = 3.1415927
+id = "54 13"
+item = 1
+
+[node name="Chest14" parent="." instance=ExtResource("5_s01k5")]
+position = Vector2(228, 161)
+rotation = 3.1415927
+id = "54 14"
+item = 1

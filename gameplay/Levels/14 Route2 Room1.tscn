@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://dx2jo1g0cafto"]
+[gd_scene load_steps=9 format=4 uid="uid://dx2jo1g0cafto"]
 
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="1_cf4lw"]
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_qb8ik"]
 [ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="3_qb8ik"]
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="5_5kw4x"]
 [ext_resource type="PackedScene" uid="uid://bl6jinchnypfx" path="res://entities/enemy/melee_enemy.tscn" id="5_plyp6"]
+[ext_resource type="PackedScene" uid="uid://dvwcwmdw7ekbr" path="res://entities/enemy/ranged_enemy.tscn" id="6_plyp6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plyp6"]
 size = Vector2(16, 32)
@@ -28,7 +29,7 @@ tile_map_data = PackedByteArray("AAAAAAQAAAAEAAUAAAABAAQAAAAEAAUAAAACAAQAAAABAAM
 tile_set = ExtResource("1_cf4lw")
 
 [node name="Props" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAMAAgAAgAHAAMAAAAMAAkAAgAHAAQAAAANAAgAAgAIAAMAAAANAAkAAgAIAAQAAAADAAAAAgAHAAMAAAADAAEAAgAHAAQAAAAEAAAAAgAIAAMAAAAEAAEAAgAIAAQAAAATAAMAAgAHAAMAAAATAAQAAgAHAAQAAAAUAAMAAgAIAAMAAAAUAAQAAgAIAAQAAAADAAQAAQADAAAAAAAFAAMAAQAEAAAAAAAJAAEAAQAFAAEAAAANAAUAAQADAAEAAAAQAAMAAQAEAAIAAAAKAAQAAQADAAIAAAA=")
+tile_map_data = PackedByteArray("AAAMAAgAAgAHAAMAAAAMAAkAAgAHAAQAAAANAAgAAgAIAAMAAAANAAkAAgAIAAQAAAADAAAAAgAHAAMAAAADAAEAAgAHAAQAAAAEAAAAAgAIAAMAAAAEAAEAAgAIAAQAAAATAAMAAgAHAAMAAAATAAQAAgAHAAQAAAAUAAMAAgAIAAMAAAAUAAQAAgAIAAQAAAADAAQAAQADAAAAAAAFAAMAAQAEAAAAAAAJAAEAAQAFAAEAAAANAAUAAQADAAEAAAAQAAMAAQAEAAIAAAAKAAQAAQADAAIAAAASAAoAAAAIAAYAAAATAAoAAAAIAAYAAAD//wUAAAAIAAYAAAD//wQAAAAIAAYAAAA=")
 tile_set = ExtResource("1_cf4lw")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
@@ -68,16 +69,28 @@ metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_plyp6")]
 position = Vector2(95, 81)
-is_on_platform = true
+id = "14 m1"
 
 [node name="MeleeEnemy2" parent="." instance=ExtResource("5_plyp6")]
 position = Vector2(109, 32)
-is_on_platform = true
+id = "14 m2"
 
 [node name="MeleeEnemy3" parent="." instance=ExtResource("5_plyp6")]
 position = Vector2(206, 68)
-is_on_platform = true
+id = "14 m3"
 
 [node name="MeleeEnemy4" parent="." instance=ExtResource("5_plyp6")]
 position = Vector2(304, 122)
-is_on_platform = true
+id = "14 m4"
+
+[node name="RangedEnemy" parent="." instance=ExtResource("6_plyp6")]
+position = Vector2(32, 32)
+id = "14 r1"
+
+[node name="RangedEnemy2" parent="." instance=ExtResource("6_plyp6")]
+position = Vector2(160, 79)
+id = "14 r2"
+
+[node name="RangedEnemy3" parent="." instance=ExtResource("6_plyp6")]
+position = Vector2(271, 48)
+id = "14 r3"

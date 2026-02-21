@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://bhit8j4txu62a"]
+[gd_scene load_steps=9 format=4 uid="uid://bhit8j4txu62a"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_p7iw7"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_navyr"]
 [ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="3_kki1d"]
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="4_34lec"]
 [ext_resource type="PackedScene" uid="uid://bl6jinchnypfx" path="res://entities/enemy/melee_enemy.tscn" id="5_navyr"]
+[ext_resource type="PackedScene" uid="uid://c20uvblmjsiic" path="res://entities/chest/chest.tscn" id="6_kki1d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7iw7"]
 size = Vector2(32, 16)
@@ -28,7 +29,7 @@ tile_map_data = PackedByteArray("AAATAAMAAAAHAAMAAAATAAQAAAAHAAQAAAAUAAMAAAAIAAM
 tile_set = ExtResource("2_navyr")
 
 [node name="Props" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAANAAkAAQADAAAAAAAKAA0AAQAEAAAAAAAVABAAAQACAAAAAAAiABEAAQAAAAEAAAAiABAAAQAAAAEAAAASAAUAAQAAAAIAADAFAAsAAQADAAAAAAADAA0AAQADAAAAAFAIABQAAQAEAAAAAAABAAwAAQAEAAAAAAAWABUAAQAEAAAAAAASABsAAQAEAAAAAAAIABsAAQADAAAAAAAOAA8AAQABAAAAAAAaABAAAQABAAAAAAALAAMAAQAFAAEAAAAHAAQAAQAEAAEAAAAFAAkAAQADAAEAAAAQABIAAQAFAAEAAAAMABgAAQADAAEAAAAdAB0AAQAEAAEAAAAeAAkAAQAFAAEAAAAaAAYAAQADAAAAAAAeAAQAAQACAAAAAAAOABQAAQAAAAEAAAATABYAAQAAAAEAAAABAB0AAQAAAAEAAAAKABIAAQAAAAEAAAADABAAAQAAAAEAAAABAAUAAQAAAAEAAAAUABMAAQADAAIAAAAJABcAAQADAAIAAGAFABAAAQAEAAIAAGAaAAwAAQAEAAIAADAfABIAAQAEAAIAADARABMAAQADAAMAAAAMABUAAQADAAMAAAANAAsAAQADAAMAAAAOAAwAAQADAAMAAAA=")
+tile_map_data = PackedByteArray("AAANAAkAAQADAAAAAAAKAA0AAQAEAAAAAAAVABAAAQACAAAAAAAiABEAAQAAAAEAAAAiABAAAQAAAAEAAAASAAUAAQAAAAIAADAFAAsAAQADAAAAAAADAA0AAQADAAAAAFAIABQAAQAEAAAAAAABAAwAAQAEAAAAAAAWABUAAQAEAAAAAAASABsAAQAEAAAAAAAIABsAAQADAAAAAAAOAA8AAQABAAAAAAAaABAAAQABAAAAAAALAAMAAQAFAAEAAAAHAAQAAQAEAAEAAAAFAAkAAQADAAEAAAAQABIAAQAFAAEAAAAMABgAAQADAAEAAAAdAB0AAQAEAAEAAAAeAAkAAQAFAAEAAAAaAAYAAQADAAAAAAAeAAQAAQACAAAAAAAOABQAAQAAAAEAAAATABYAAQAAAAEAAAABAB0AAQAAAAEAAAAKABIAAQAAAAEAAAADABAAAQAAAAEAAAABAAUAAQAAAAEAAAAUABMAAQADAAIAAAAJABcAAQADAAIAAGAFABAAAQAEAAIAAGAaAAwAAQAEAAIAADAfABIAAQAEAAIAADARABMAAQADAAMAAAAMABUAAQADAAMAAAANAAsAAQADAAMAAAAOAAwAAQADAAMAAAASAAAAAAAIAAYAAAATAAAAAAAIAAYAAAAjABsAAAAIAAYAAAAjABwAAAAIAAYAAAA=")
 tile_set = ExtResource("2_navyr")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
@@ -73,4 +74,68 @@ previous_scene_name = "29 Route2 Room331"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_navyr")]
-position = Vector2(247, 47)
+position = Vector2(206, 55)
+id = "28 m1"
+
+[node name="MeleeEnemy2" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(321, 118)
+id = "28 m2"
+
+[node name="MeleeEnemy3" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(359, 223)
+id = "28 m3"
+
+[node name="MeleeEnemy4" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(348, 306)
+id = "28 m4"
+
+[node name="MeleeEnemy5" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(214, 211)
+id = "28 m5"
+
+[node name="MeleeEnemy6" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(231, 220)
+id = "28 m6"
+
+[node name="MeleeEnemy7" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(73, 199)
+id = "28 m7"
+
+[node name="MeleeEnemy8" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(203, 289)
+id = "28 m8"
+
+[node name="MeleeEnemy9" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(162, 367)
+id = "28 m9"
+
+[node name="MeleeEnemy10" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(58, 399)
+id = "28 m10"
+
+[node name="MeleeEnemy11" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(191, 446)
+id = "28 m11"
+
+[node name="MeleeEnemy12" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(276, 435)
+id = "28 m12"
+
+[node name="MeleeEnemy13" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(372, 403)
+id = "28 m13"
+
+[node name="MeleeEnemy14" parent="." instance=ExtResource("5_navyr")]
+position = Vector2(448, 387)
+id = "28 m14"
+
+[node name="Chest" parent="." instance=ExtResource("6_kki1d")]
+position = Vector2(240, 25)
+id = "28 1"
+item = 0
+
+[node name="Chest2" parent="." instance=ExtResource("6_kki1d")]
+position = Vector2(72, 472)
+rotation = -3.1415927
+id = "28 m2"
+item = 1

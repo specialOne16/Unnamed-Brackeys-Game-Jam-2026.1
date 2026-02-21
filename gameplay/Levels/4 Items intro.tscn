@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://j6yngfnmkwis"]
+[gd_scene load_steps=7 format=4 uid="uid://j6yngfnmkwis"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_l6vvo"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_re4nq"]
 [ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="2_y7uf4"]
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="4_re4nq"]
+[ext_resource type="PackedScene" uid="uid://c20uvblmjsiic" path="res://entities/chest/chest.tscn" id="5_681n8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_681n8"]
 size = Vector2(32, 16)
@@ -39,3 +40,11 @@ metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 shape = SubResource("RectangleShape2D_681n8")
+
+[node name="Chest" parent="." instance=ExtResource("5_681n8")]
+position = Vector2(104, 104)
+item = 0
+
+[node name="Chest2" parent="." instance=ExtResource("5_681n8")]
+position = Vector2(184, 104)
+item = 1

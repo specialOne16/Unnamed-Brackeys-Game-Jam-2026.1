@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://d17w2dyhic0uj"]
+[gd_scene load_steps=8 format=4 uid="uid://d17w2dyhic0uj"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_v8vw5"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_k412i"]
 [ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="3_ppsyj"]
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="4_0kbds"]
+[ext_resource type="PackedScene" uid="uid://dvwcwmdw7ekbr" path="res://entities/enemy/ranged_enemy.tscn" id="5_k412i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8vw5"]
 size = Vector2(32, 16)
@@ -23,7 +24,7 @@ tile_map_data = PackedByteArray("AAALAAMAAAADAAAAAAAOAAMAAAAFAAAAAAALAAQAAAADAAE
 tile_set = ExtResource("2_k412i")
 
 [node name="Props" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAMAAcAAQABAAAAAAANAAgAAQAEAAAAAAAMAAsAAQADAAAAADASABIAAQAEAAEAAAAOAA8AAQAEAAIAAAALABEAAQAFAAEAAAAHABIAAQAAAAEAAAAIAA8AAQAAAAEAAAARAA8AAQAAAAAAAFAMAA4AAQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAMAAcAAQABAAAAAAANAAgAAQAEAAAAAAAMAAsAAQADAAAAADASABIAAQAEAAEAAAAOAA8AAQAEAAIAAAALABEAAQAFAAEAAAAHABIAAQAAAAEAAAAIAA8AAQAAAAEAAAARAA8AAQAAAAAAAFAMAA4AAQACAAAAAAAMABgAAAAIAAYAAAANABgAAAAIAAYAAAAMAAMAAAAIAAYAAAANAAMAAAAIAAYAAAA=")
 tile_set = ExtResource("2_k412i")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
@@ -59,3 +60,15 @@ position = Vector2(208, 363)
 script = ExtResource("3_ppsyj")
 previous_scene_name = "43 Route2 Room72"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
+
+[node name="RangedEnemy" parent="." instance=ExtResource("5_k412i")]
+position = Vector2(163, 213)
+id = "19 r1"
+
+[node name="RangedEnemy2" parent="." instance=ExtResource("5_k412i")]
+position = Vector2(251, 213)
+id = "19 r2"
+
+[node name="RangedEnemy3" parent="." instance=ExtResource("5_k412i")]
+position = Vector2(207, 311)
+id = "19 r3"

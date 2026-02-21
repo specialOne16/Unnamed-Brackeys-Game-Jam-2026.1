@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://cumosvrnrqe17"]
+[gd_scene load_steps=7 format=4 uid="uid://cumosvrnrqe17"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_1em5g"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_o0v7x"]
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="3_3xeb7"]
 [ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="4_1td1s"]
+[ext_resource type="PackedScene" uid="uid://c20uvblmjsiic" path="res://entities/chest/chest.tscn" id="5_o0v7x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vpgp"]
 size = Vector2(16, 32)
@@ -48,3 +49,9 @@ position = Vector2(28, 81)
 script = ExtResource("4_1td1s")
 previous_scene_name = "30 Route2 Room332"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
+
+[node name="Chest" parent="." instance=ExtResource("5_o0v7x")]
+position = Vector2(117, 78)
+rotation = 1.5707964
+id = "33 1"
+item = 0

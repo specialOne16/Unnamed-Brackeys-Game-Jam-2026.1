@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://dqtaq84lvs1ns"]
+[gd_scene load_steps=8 format=4 uid="uid://dqtaq84lvs1ns"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_s1smj"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_575ou"]
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="3_i1osq"]
 [ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="4_egrjv"]
 [ext_resource type="PackedScene" uid="uid://bl6jinchnypfx" path="res://entities/enemy/melee_enemy.tscn" id="5_575ou"]
+[ext_resource type="PackedScene" uid="uid://c20uvblmjsiic" path="res://entities/chest/chest.tscn" id="6_i1osq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rldci"]
 size = Vector2(16, 32)
@@ -21,7 +22,7 @@ tile_map_data = PackedByteArray("AAAOAAQAAAADAAAAAAAOAAcAAAADAAIAAAAPAAQAAAAEAAA
 tile_set = ExtResource("2_575ou")
 
 [node name="Props" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAUAAUAAQAEAAEAAAAWAAcAAQAEAAEAAAAVAAIAAQAEAAEAAAA=")
+tile_map_data = PackedByteArray("AAAUAAUAAQAEAAEAAAAWAAcAAQAEAAEAAAAVAAIAAQAEAAEAAAAOAAYAAAAIAAYAAAAOAAUAAAAIAAYAAAA=")
 tile_set = ExtResource("2_575ou")
 
 [node name="Door3" type="Area2D" parent="."]
@@ -44,9 +45,46 @@ metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_575ou")]
 position = Vector2(301, 97)
+id = "27 m1"
 
 [node name="MeleeEnemy2" parent="." instance=ExtResource("5_575ou")]
 position = Vector2(311, 88)
+id = "27 m2"
 
 [node name="MeleeEnemy3" parent="." instance=ExtResource("5_575ou")]
 position = Vector2(311, 105)
+id = "27 m3"
+
+[node name="Chest" parent="." instance=ExtResource("6_i1osq")]
+position = Vector2(472, 11)
+id = "27 1"
+item = 1
+
+[node name="Chest2" parent="." instance=ExtResource("6_i1osq")]
+position = Vector2(504, 11)
+id = "27 2"
+item = 0
+
+[node name="Chest3" parent="." instance=ExtResource("6_i1osq")]
+position = Vector2(472, 177)
+rotation = 3.1415927
+id = "27 3"
+item = 1
+
+[node name="Chest4" parent="." instance=ExtResource("6_i1osq")]
+position = Vector2(504, 177)
+rotation = 3.1415927
+id = "27 4"
+item = 0
+
+[node name="Chest5" parent="." instance=ExtResource("6_i1osq")]
+position = Vector2(611, 89)
+rotation = 1.5707964
+id = "27 5"
+item = 1
+
+[node name="Chest6" parent="." instance=ExtResource("6_i1osq")]
+position = Vector2(611, 104)
+rotation = 1.5707964
+id = "27 6"
+item = 0

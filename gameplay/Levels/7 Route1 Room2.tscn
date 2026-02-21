@@ -63,12 +63,19 @@ metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="MeleeEnemy3" parent="." instance=ExtResource("5_oexaw")]
 position = Vector2(184, 135)
+id = "7 m1"
+
+[node name="MeleeEnemy5" parent="." instance=ExtResource("5_oexaw")]
+position = Vector2(86, 43)
+id = "7 m2"
 
 [node name="MeleeEnemy4" parent="." instance=ExtResource("5_oexaw")]
 position = Vector2(199, 135)
+id = "7 m3"
 
 [node name="MeleeEnemy2" parent="." instance=ExtResource("5_oexaw")]
 position = Vector2(25, 152)
+id = "7 m4"
 
 [node name="SpawnPoint3" type="Marker2D" parent="."]
 position = Vector2(32, 29)

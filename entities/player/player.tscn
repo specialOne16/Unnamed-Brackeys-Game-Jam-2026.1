@@ -57,10 +57,11 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_26q78"]
-radius = 17.0
+radius = 13.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bectd"]
-radius = 20.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bectd"]
+radius = 14.999997
+height = 56.249977
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7thud"]
 radius = 5.0
@@ -180,13 +181,15 @@ position = Vector2(6, 0)
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("3_qiwj3")
-damage = 10.0
+damage = 1000000.0
 knockback = 300.0
 mini_stun_duration = 0.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangedHitbox"]
-position = Vector2(10, 0)
-shape = SubResource("CircleShape2D_bectd")
+position = Vector2(30.999998, 0)
+rotation = 1.5707941
+scale = Vector2(1, 1.2800004)
+shape = SubResource("CapsuleShape2D_bectd")
 
 [node name="Hurtbox2D" type="Area2D" parent="."]
 collision_layer = 4
@@ -237,6 +240,7 @@ texture = SubResource("GradientTexture2D_bls4j")
 texture_scale = 0.5
 
 [node name="SpotLight" type="PointLight2D" parent="Lights"]
+position = Vector2(1.4466314, -6.771088e-05)
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true

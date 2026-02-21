@@ -57,3 +57,4 @@ shape = SubResource("RectangleShape2D_adx3o")
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_nvukt")]
 position = Vector2(145, 149)
+id = "3 m1"
