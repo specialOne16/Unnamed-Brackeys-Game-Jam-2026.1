@@ -12,7 +12,7 @@
 radius = 3.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q1x8j"]
-radius = 11.0
+radius = 4.1231055
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wjpws"]
 radius = 6.0
@@ -123,6 +123,7 @@ collision_layer = 2
 collision_mask = 147
 motion_mode = 1
 script = ExtResource("1_q1x8j")
+movement_speed = 35.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xqbpr")
