@@ -6,6 +6,7 @@ class_name EnemyHealth
 @onready var knockback_timer: Timer = $"../KnockbackTimer"
 @onready var stun_timer: Timer = $"../StunTimer"
 @onready var pit_detector: Area2D = $"../PitDetector"
+@onready var near_pit_detector: Area2D = $"../NearPitDetector"
 @onready var vertical_animation: AnimationPlayer = $"../VerticalAnimation"
 
 var _current_health: float
@@ -13,6 +14,7 @@ var _current_health: float
 func _ready() -> void:
 	hurtbox_2d.take_damage.connect(_hurt)
 	pit_detector.body_entered.connect(_pit_entered)
+	near_pit_detector.body_exited.connect(_pit_entered)
 	knockback_timer.timeout.connect(_stop_knockback)
 	stun_timer.timeout.connect(_stop_stun)
 	vertical_animation.animation_finished.connect(_fallen)
@@ -50,11 +52,12 @@ func _stop_stun():
 	enemy.movement_override = null
 
 func _pit_entered(_body: Node2D):
-	enemy.movement_override = self
-	vertical_animation.play("falling")
+	if pit_detector.has_overlapping_bodies() and not near_pit_detector.has_overlapping_bodies():
+		enemy.movement_override = self
+		vertical_animation.play("falling")
 	
-	knockback_timer.stop()
-	stun_timer.stop()
+		knockback_timer.stop()
+		stun_timer.stop()
 
 func _fallen(anim_name: String):
 	if anim_name == "falling": enemy.queue_free()

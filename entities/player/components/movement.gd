@@ -12,7 +12,7 @@ var falling_in_pit: bool = false
 
 func _ready() -> void:
 	pit_detector.body_entered.connect(_pit_touched)
-	near_pit_detector.body_entered.connect(_near_pit_entered)
+	near_pit_detector.body_exited.connect(_pit_touched)
 	jump_timer.timeout.connect(_on_land)
 
 func _process(_delta: float) -> void:
@@ -41,17 +41,17 @@ func _process(_delta: float) -> void:
 		player.velocity = player.velocity.normalized() * player.jump_movement_speed
  
 func _pit_touched(_body: Node2D):
-	falling_in_pit = true
-	
-	vertical_animation.play("falling")
-	await get_tree().create_timer(1).timeout
-	vertical_animation.play("RESET")
-	player.position = near_pit_position
-	
-	falling_in_pit = false
-
-func _near_pit_entered(_body: Node2D):
-	near_pit_position = (player.position / 16).floor() * 16 + Vector2.ONE * 8
+	if pit_detector.has_overlapping_bodies() and not near_pit_detector.has_overlapping_bodies():
+		falling_in_pit = true
+		
+		vertical_animation.play("falling")
+		await get_tree().create_timer(1).timeout
+		vertical_animation.play("RESET")
+		player.position = near_pit_position
+		
+		falling_in_pit = false
+	else:
+		near_pit_position = (player.position / 16).floor() * 16 + Vector2.ONE * 8
 
 func _on_land():
 	pit_detector.process_mode = Node.PROCESS_MODE_INHERIT
