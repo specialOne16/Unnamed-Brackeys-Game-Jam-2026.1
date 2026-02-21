@@ -7,9 +7,8 @@ class_name InGameUi
 @onready var transition_overlay: ColorRect = $TransitionOverlay
 @onready var transition_animation_player: AnimationPlayer = $TransitionAnimationPlayer
 
-func set_player_health(current: float, max_hp: float):
+func set_player_health(max_hp: float):
 	player_health.max_value = max_hp
-	player_health.value = current
 
 func _ready() -> void:
 	update_inventory()
@@ -19,6 +18,7 @@ func _process(_delta: float) -> void:
 
 func update_inventory():
 	main_inventory.text = "Shotgun: %d\nHealth Pack: %d" % [GameState.shotgun, GameState.healing_pack]
+	player_health.value = GameState.player_health
 
 func scene_transition_in():
 	get_tree().paused = true

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name TD2Player
 
+signal dead
+
 @export var max_health: float = 100
 @export var health_pack_heal_amount: float = 50
 @export var movement_speed: float = 100
@@ -39,5 +41,8 @@ func take_damage(source: HitBox2D):
 	if invincibility < 0:
 		invincibility = invincibility_duration
 		GameState.player_health -= source.damage
+		
+		if GameState.player_health <= 0:
+			dead.emit()
 		
 		movement.knockback(source.global_position, source.damage, source.mini_stun_duration)
