@@ -148,6 +148,7 @@ cone_vision_scale = 0.7
 charge_cone_vision_scale = 0.3
 charge_duration = 0.5
 jump_duration = 0.5
+invincibility_duration = 1.25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xbce5")
