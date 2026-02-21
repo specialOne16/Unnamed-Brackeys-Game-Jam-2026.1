@@ -85,8 +85,3 @@ position = Vector2(15, 162)
 script = ExtResource("4_q7yo5")
 previous_scene_name = "10 Route1 Room42"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
-
-[node name="SpawnPoint5" type="Marker2D" parent="."]
-position = Vector2(145, 35)
-script = ExtResource("4_q7yo5")
-metadata/_custom_type_script = "uid://b8lq8hy8jihqf"

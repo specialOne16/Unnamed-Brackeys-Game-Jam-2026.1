@@ -500,6 +500,8 @@ texture = ExtResource("2_226s2")
 3:3/0/physics_layer_2/polygon_0/points = PackedVector2Array(-6, -6, -3, -6, 0, -3, 5, -3, 8, 0, 5, 2, 1, 3, -2, 6, -6, 6)
 2:3/0 = 0
 2:3/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+4:2/0 = 0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_f403m"]
 
