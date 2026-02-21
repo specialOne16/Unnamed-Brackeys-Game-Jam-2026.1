@@ -33,6 +33,9 @@ shape = SubResource("CircleShape2D_gvicd")
 
 [node name="RangedEnemy" parent="." instance=ExtResource("5_gvicd")]
 position = Vector2(137, 101)
+max_health = 1.0
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("6_7pdct")]
 position = Vector2(139, 146)
+id = "a"
+max_health = 1.0

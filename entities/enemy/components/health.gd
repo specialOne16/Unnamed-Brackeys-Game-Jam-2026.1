@@ -31,7 +31,7 @@ func _physics_process(_delta: float) -> void:
 func _hurt(source: HitBox2D):
 	_current_health -= source.damage
 	if _current_health <= 0:
-		enemy.queue_free()
+		enemy.died()
 	
 	knockback_timer.stop()
 	stun_timer.stop()
@@ -60,4 +60,4 @@ func _pit_entered(_body: Node2D):
 		stun_timer.stop()
 
 func _fallen(anim_name: String):
-	if anim_name == "falling": enemy.queue_free()
+	if anim_name == "falling": enemy.died()

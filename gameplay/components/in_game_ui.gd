@@ -6,8 +6,8 @@ class_name InGameUi
 @onready var transition_overlay: ColorRect = $TransitionOverlay
 @onready var transition_animation_player: AnimationPlayer = $TransitionAnimationPlayer
 
-func set_player_health(current: float, max: float):
-	player_health.max_value = max
+func set_player_health(current: float, max_hp: float):
+	player_health.max_value = max_hp
 	player_health.value = current
 
 func scene_transition_in():
