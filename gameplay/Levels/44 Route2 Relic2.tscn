@@ -30,6 +30,7 @@ position = Vector2(320, -8)
 script = ExtResource("3_w0b8y")
 current_scene_name = "44 Route2 Relic2"
 target_scene_path = "res://gameplay/Levels/43 Route2 Room72.tscn"
+asset_size = 32
 metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
@@ -40,6 +41,8 @@ position = Vector2(552, 16)
 script = ExtResource("3_w0b8y")
 current_scene_name = "44 Route2 Relic2"
 target_scene_path = "res://gameplay/Levels/44 Route2 Relic2 Deadend.tscn"
+asset_size = 32
+is_horizontal = false
 metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
@@ -50,6 +53,8 @@ position = Vector2(280, 160)
 script = ExtResource("3_w0b8y")
 current_scene_name = "44 Route2 Relic2"
 target_scene_path = "res://gameplay/Levels/45 Route2 Trap12.tscn"
+asset_size = 32
+is_horizontal = false
 metadata/_custom_type_script = "uid://d33ikxrahs0fk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door3"]

@@ -74,8 +74,3 @@ metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_navyr")]
 position = Vector2(247, 47)
-
-[node name="SpawnPoint4" type="Marker2D" parent="."]
-position = Vector2(319, 36)
-script = ExtResource("3_kki1d")
-metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
