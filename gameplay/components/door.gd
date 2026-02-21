@@ -3,7 +3,7 @@ class_name Door
 
 const DOOR_SPRITE = preload("uid://cvix6p57sjjo8")
 
-signal change_scene(target: String, current: String)
+signal change_scene(door: Door)
 
 @export var current_scene_name: String
 @export var target_scene_path: String
@@ -27,7 +27,8 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is TD2Player:
-		if sprite.animation == "closed_%d" % asset_size:
-			sprite.play("opening_%d" % asset_size)
-		
-		change_scene.emit(target_scene_path, current_scene_name)
+		change_scene.emit(self)
+
+func open_the_door():
+	if sprite.animation == "closed_%d" % asset_size:
+		sprite.play("opening_%d" % asset_size)

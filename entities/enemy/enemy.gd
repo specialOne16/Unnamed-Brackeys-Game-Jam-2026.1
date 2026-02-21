@@ -9,6 +9,8 @@ const LIGHT_ONLY = preload("uid://bnu2oiso3alir")
 @export var player_detection_range: float = 50
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 
+signal enemy_died(enemy: Enemy)
+
 var player: TD2Player
 var current_health: float
 var movement_override: Node
@@ -35,4 +37,5 @@ func _ready() -> void:
 
 func died():
 	if id != "": GameState.died_enemy_ids.append(id)
+	enemy_died.emit(self)
 	queue_free()
