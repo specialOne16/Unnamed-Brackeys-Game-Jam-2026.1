@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_61ok0")
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("3_t361p")
-damage = 5.0
+damage = 10.0
 knockback = 20.0
 metadata/_custom_type_script = "uid://dx02mvj1owgwd"
 
