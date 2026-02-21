@@ -2,9 +2,9 @@ extends Node
 class_name MeleeAttack
 
 @onready var player: TD2Player = $"../.."
-@onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
+@onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 @onready var animation_manager: TD2AnimationManager = $"../AnimationManager"
-@onready var hitbox: HitBox2D = $"../../Hitbox"
+@onready var melee_hitbox: HitBox2D = $"../../MeleeHitbox"
 @onready var light_occluder_2d: LightOccluder2D = $"../../Lights/SpotLight/LightOccluder2D"
 
 var attacking = false
@@ -26,7 +26,7 @@ func _process(_delta: float) -> void:
 		if attacking and Input.is_action_just_released("melee"):
 			if player.holding_duration >= player.charge_duration:
 				animated_sprite_2d.play("attack_release")
-				hitbox.hit()
+				melee_hitbox.hit()
 			else:
 				_release_attack()
 

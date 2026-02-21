@@ -5,6 +5,7 @@ class_name TD2Movement
 @onready var pit_detector: Area2D = %PitDetector
 @onready var near_pit_detector: Area2D = %NearPitDetector
 @onready var jump_timer: Timer = %JumpTimer
+@onready var vertical_animation: AnimationPlayer = $"../../VerticalAnimation"
 
 var near_pit_position: Vector2
 var falling_in_pit: bool = false
@@ -34,6 +35,7 @@ func _process(_delta: float) -> void:
 		pit_detector.process_mode = Node.PROCESS_MODE_DISABLED
 		player.set_collision_mask_value(7, false)
 		
+		vertical_animation.play("jumping", -1, 1 / player.jump_duration)
 		jump_timer.start(player.jump_duration)
 		
 		player.velocity = player.velocity.normalized() * player.jump_movement_speed
@@ -41,7 +43,9 @@ func _process(_delta: float) -> void:
 func _pit_touched(_body: Node2D):
 	falling_in_pit = true
 	
+	vertical_animation.play("falling")
 	await get_tree().create_timer(1).timeout
+	vertical_animation.play("RESET")
 	player.position = near_pit_position
 	
 	falling_in_pit = false

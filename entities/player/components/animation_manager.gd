@@ -7,7 +7,7 @@ var face_direction: String = "down"
 var animation_override: Node = null
 
 @onready var player: TD2Player = $"../.."
-@onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
+@onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 @onready var light_occluder_2d: LightOccluder2D = $"../../Lights/SpotLight/LightOccluder2D"
 @onready var radial_light: PointLight2D = $"../../Lights/RadialLight"
 

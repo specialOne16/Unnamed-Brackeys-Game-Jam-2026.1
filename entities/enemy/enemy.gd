@@ -6,7 +6,7 @@ const LIGHT_ONLY = preload("uid://bnu2oiso3alir")
 @export var max_health: float = 30
 @export var movement_speed: float = 50
 @export var player_detection_range: float = 50
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 
 var player: TD2Player
 var current_health: float

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://iggh13u56wx8"]
+[gd_scene load_steps=29 format=3 uid="uid://iggh13u56wx8"]
 
 [ext_resource type="SpriteFrames" uid="uid://cf4hru5onum5g" path="res://entities/player/player.tres" id="1_bls4j"]
 [ext_resource type="Script" uid="uid://cf5hwjdaou6c3" path="res://entities/player/player.gd" id="2_fkugw"]
 [ext_resource type="Script" uid="uid://be8djsgk5wev3" path="res://entities/player/components/movement.gd" id="3_aix1t"]
+[ext_resource type="Texture2D" uid="uid://dw80l743ns37" path="res://combat/bullet/Shoot_Particles.png" id="3_bectd"]
 [ext_resource type="Script" uid="uid://dx02mvj1owgwd" path="res://combat/hitbox.gd" id="3_qiwj3"]
 [ext_resource type="Script" uid="uid://c0fyo0n2kffj0" path="res://entities/player/components/animation_manager.gd" id="4_0hsa5"]
 [ext_resource type="Script" uid="uid://da61gkt0v6xos" path="res://combat/hurtbox.gd" id="4_26q78"]
@@ -12,7 +13,53 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xbce5"]
 radius = 5.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvtmh"]
+atlas = ExtResource("3_bectd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7thud"]
+atlas = ExtResource("3_bectd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1qjk"]
+atlas = ExtResource("3_bectd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3ovn"]
+atlas = ExtResource("3_bectd")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afbqv"]
+atlas = ExtResource("3_bectd")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gx6sm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvtmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7thud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1qjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3ovn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afbqv")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_26q78"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bectd"]
 radius = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7thud"]
@@ -36,6 +83,58 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qiwj3"]
 polygon = PackedVector2Array(-8, -5, -8, 5, 6, 7, 0, 0, 6, -7)
 
+[sub_resource type="Animation" id="Animation_bectd"]
+resource_name = "falling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wvtmh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7thud"]
+resource_name = "jumping"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7thud"]
+_data = {
+&"RESET": SubResource("Animation_wvtmh"),
+&"falling": SubResource("Animation_bectd"),
+&"jumping": SubResource("Animation_7thud")
+}
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 16
 motion_mode = 1
@@ -52,18 +151,18 @@ jump_duration = 0.5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xbce5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(10, 0)
-rotation = 1.5708
-scale = Vector2(1, 1.17169)
-sprite_frames = ExtResource("1_bls4j")
-animation = &"idle"
-autoplay = "idle"
+[node name="Shotgun" type="AnimatedSprite2D" parent="."]
+position = Vector2(13, 4)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_gx6sm")
+animation = &"attack"
+frame = 4
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0.55336857, 6.771088e-05)
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="MeleeHitbox" type="Area2D" parent="."]
 position = Vector2(6, 0)
 collision_layer = 0
 collision_mask = 8
@@ -72,9 +171,22 @@ damage = 10.0
 knockback = 300.0
 mini_stun_duration = 0.4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitbox"]
 position = Vector2(10, 0)
 shape = SubResource("CircleShape2D_26q78")
+
+[node name="RangedHitbox" type="Area2D" parent="."]
+position = Vector2(6, 0)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_qiwj3")
+damage = 10.0
+knockback = 300.0
+mini_stun_duration = 0.4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangedHitbox"]
+position = Vector2(10, 0)
+shape = SubResource("CircleShape2D_bectd")
 
 [node name="Hurtbox2D" type="Area2D" parent="."]
 collision_layer = 4
@@ -100,6 +212,17 @@ collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NearPitDetector"]
 shape = SubResource("CircleShape2D_wvtmh")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+unique_name_in_owner = true
+position = Vector2(10, 0)
+rotation = 1.5708
+sprite_frames = ExtResource("1_bls4j")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.43134117
 
 [node name="Lights" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -146,5 +269,10 @@ metadata/_custom_type_script = "uid://b31kgxpwc63ht"
 [node name="JumpTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="VerticalAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7thud")
+}
 
 [connection signal="take_damage" from="Hurtbox2D" to="." method="take_damage"]

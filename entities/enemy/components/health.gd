@@ -34,12 +34,14 @@ func _hurt(source: HitBox2D):
 	knockback_timer.stop()
 	stun_timer.stop()
 	
-	if source.knockback != 0:
-		enemy.movement_override = self
-		
-		enemy.velocity = source.global_position.direction_to(enemy.global_position) * source.knockback
-		knockback_timer.start(0.1)
-		stun_timer.start(source.mini_stun_duration + 0.1)
+	knockback(source.global_position, source.knockback, source.mini_stun_duration)
+
+func knockback(source: Vector2, power: float, stun: float):
+	enemy.movement_override = self
+	
+	enemy.velocity = source.direction_to(enemy.global_position) * power
+	knockback_timer.start(0.1)
+	stun_timer.start(stun + 0.1)
 
 func _stop_knockback():
 	enemy.velocity = Vector2.ZERO

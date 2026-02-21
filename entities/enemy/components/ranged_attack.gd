@@ -6,7 +6,7 @@ const ENEMY_ARROW = preload("uid://dv5i2bgbracx1")
 @export var attack_cooldown: float = 3
 
 @onready var enemy: Enemy = $".."
-@onready var animated_sprite_2d: AnimatedSprite2D = $"../AnimatedSprite2D"
+@onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 @onready var arrow_spawn: Node2D = $"../ArrowSpawn"
 @onready var attack_range: Area2D = $"../AttackRange"
 @onready var attack_animation_timer: Timer = $"../AttackAnimationTimer"
