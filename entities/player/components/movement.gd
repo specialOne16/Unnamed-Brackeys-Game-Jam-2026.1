@@ -9,6 +9,17 @@ class_name TD2Movement
 
 var near_pit_position: Vector2
 var falling_in_pit: bool = false
+var knockbacking: bool = false
+
+func knockback(source: Vector2, power: float, stun: float):
+	knockbacking = true
+	
+	player.velocity = source.direction_to(player.global_position) * power
+	await get_tree().create_timer(0.1).timeout
+	player.velocity = Vector2.ZERO
+	await get_tree().create_timer(stun).timeout
+	
+	knockbacking = false
 
 func _ready() -> void:
 	pit_detector.body_entered.connect(_pit_touched)
@@ -20,6 +31,10 @@ func _process(_delta: float) -> void:
 	
 	if falling_in_pit: 
 		player.velocity = Vector2.ZERO
+		return
+	
+	if knockbacking:
+		player.move_and_slide()
 		return
 	
 	var direction = Input.get_vector("left", "right", "up", "down")

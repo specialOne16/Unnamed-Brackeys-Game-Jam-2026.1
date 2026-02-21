@@ -13,6 +13,7 @@ class_name TD2Player
 @export var invincibility_duration: float = 3
 
 @onready var hurtbox_2d: Hurtbox2D = $Hurtbox2D
+@onready var movement: TD2Movement = $Components/Movement
 
 var current_health: float
 var holding_attack: Node = null
@@ -32,4 +33,5 @@ func take_damage(source: HitBox2D):
 	if invincibility < 0:
 		invincibility = invincibility_duration
 		current_health -= source.damage
-		position += source.global_position.direction_to(global_position) * source.knockback
+		
+		movement.knockback(source.global_position, source.damage, source.mini_stun_duration)
