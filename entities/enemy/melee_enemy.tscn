@@ -1,15 +1,24 @@
-[gd_scene load_steps=17 format=3 uid="uid://bl6jinchnypfx"]
+[gd_scene load_steps=23 format=3 uid="uid://bl6jinchnypfx"]
 
+[ext_resource type="Script" uid="uid://bf2rx7ueornds" path="res://entities/enemy/enemy.gd" id="1_q1x8j"]
 [ext_resource type="Texture2D" uid="uid://dotx4xgyv20g2" path="res://entities/enemy/assets/Enemies.png" id="1_sw0m0"]
-[ext_resource type="Script" uid="uid://cmxbsva6snpn6" path="res://entities/enemy/melee_enemy.gd" id="1_xqbpr"]
 [ext_resource type="Script" uid="uid://dx02mvj1owgwd" path="res://combat/hitbox.gd" id="3_4kqgd"]
 [ext_resource type="Script" uid="uid://da61gkt0v6xos" path="res://combat/hurtbox.gd" id="4_wjpws"]
+[ext_resource type="Script" uid="uid://b5w8qmgc1ngwf" path="res://entities/enemy/components/movement.gd" id="5_odf7v"]
+[ext_resource type="Script" uid="uid://cj4j7ofvgh6b3" path="res://entities/enemy/components/melee_attack.gd" id="6_l4hvh"]
+[ext_resource type="Script" uid="uid://14kqedugb3uy" path="res://entities/enemy/components/health.gd" id="7_q1x8j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqbpr"]
 radius = 3.0
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4kqgd"]
-light_mode = 2
+[sub_resource type="CircleShape2D" id="CircleShape2D_q1x8j"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wjpws"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kqgd"]
+radius = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kqgd"]
 atlas = ExtResource("1_sw0m0")
@@ -73,44 +82,65 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wjpws"]
-radius = 6.0
+[sub_resource type="Animation" id="Animation_q1x8j"]
+resource_name = "falling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4kqgd"]
-radius = 1.0
+[sub_resource type="Animation" id="Animation_7mfi6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l2n41"]
+_data = {
+&"RESET": SubResource("Animation_7mfi6"),
+&"falling": SubResource("Animation_q1x8j")
+}
 
 [node name="MeleeEnemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 65
 motion_mode = 1
-script = ExtResource("1_xqbpr")
-max_health = 30.0
-movement_speed = 35.0
+script = ExtResource("1_q1x8j")
+movement_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xqbpr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("CanvasItemMaterial_4kqgd")
-rotation = 1.5707964
-sprite_frames = SubResource("SpriteFrames_6rvq5")
-animation = &"moving"
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)
+collision_mask = 17
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-navigation_layers = 0
-
-[node name="TargetUpdateHeartbeat" type="Timer" parent="."]
-wait_time = 0.2
-autostart = true
 
 [node name="HitBox2D" type="Area2D" parent="."]
 script = ExtResource("3_4kqgd")
 damage = 20.0
-knockback = 10.0
 metadata/_custom_type_script = "uid://dx02mvj1owgwd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D"]
+shape = SubResource("CircleShape2D_q1x8j")
 
 [node name="Hurtbox2D" type="Area2D" parent="."]
 collision_layer = 8
@@ -127,6 +157,37 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PitDetector"]
 shape = SubResource("CircleShape2D_4kqgd")
 
-[connection signal="timeout" from="TargetUpdateHeartbeat" to="." method="_on_target_update_heartbeat_timeout"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_6rvq5")
+animation = &"moving"
+
+[node name="EnemyHealth" type="Node" parent="."]
+script = ExtResource("7_q1x8j")
+metadata/_custom_type_script = "uid://14kqedugb3uy"
+
+[node name="EnemyMovement" type="Node" parent="."]
+script = ExtResource("5_odf7v")
+metadata/_custom_type_script = "uid://b5w8qmgc1ngwf"
+
+[node name="EnemyMeleeAttack" type="Node" parent="."]
+script = ExtResource("6_l4hvh")
+metadata/_custom_type_script = "uid://cj4j7ofvgh6b3"
+
+[node name="KnockbackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="TargetUpdateHeartbeat" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="VerticalAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_l2n41")
+}
+
 [connection signal="take_damage" from="Hurtbox2D" to="." method="_on_hurtbox_2d_take_damage"]
-[connection signal="body_entered" from="PitDetector" to="." method="_on_pit_detector_body_entered"]

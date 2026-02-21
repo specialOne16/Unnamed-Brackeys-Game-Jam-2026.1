@@ -23,10 +23,7 @@ func _ready() -> void:
 		if node is Door:
 			node.change_scene.connect(_change_scene)
 		
-		if node is MeleeEnemy:
-			node.player = _player
-		
-		if node is RangedEnemy:
+		if node is Enemy:
 			node.player = _player
 	
 	if spawn_point:

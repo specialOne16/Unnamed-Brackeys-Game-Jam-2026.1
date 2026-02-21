@@ -1,14 +1,26 @@
-[gd_scene load_steps=23 format=3 uid="uid://dvwcwmdw7ekbr"]
+[gd_scene load_steps=28 format=3 uid="uid://dvwcwmdw7ekbr"]
 
-[ext_resource type="Script" uid="uid://67nw2wlrb65l" path="res://entities/enemy/ranged_enemy.gd" id="1_tyock"]
+[ext_resource type="Script" uid="uid://bf2rx7ueornds" path="res://entities/enemy/enemy.gd" id="1_8psv0"]
 [ext_resource type="Texture2D" uid="uid://6e5nxglqvk5a" path="res://entities/enemy/assets/Shooting_Enemyt.png" id="2_tyock"]
 [ext_resource type="Script" uid="uid://da61gkt0v6xos" path="res://combat/hurtbox.gd" id="3_hk5ea"]
+[ext_resource type="Script" uid="uid://b5w8qmgc1ngwf" path="res://entities/enemy/components/movement.gd" id="5_nls5x"]
+[ext_resource type="Script" uid="uid://u6ptj0u7wjlo" path="res://entities/enemy/components/ranged_attack.gd" id="7_8psv0"]
+[ext_resource type="Script" uid="uid://14kqedugb3uy" path="res://entities/enemy/components/health.gd" id="7_rcqjw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xqbpr"]
-radius = 4.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_8psv0"]
+radius = 3.0
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tyock"]
-light_mode = 2
+[sub_resource type="CircleShape2D" id="CircleShape2D_nfk21"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nls5x"]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sjsod"]
+radius = 76.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cg1md"]
+radius = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6kp2s"]
 atlas = ExtResource("2_tyock")
@@ -112,44 +124,56 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wjpws"]
-radius = 6.0
+[sub_resource type="Animation" id="Animation_q1x8j"]
+resource_name = "falling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4kqgd"]
-radius = 1.0
+[sub_resource type="Animation" id="Animation_7mfi6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r13uc"]
-radius = 76.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_tyock"]
-radius = 32.0
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l2n41"]
+_data = {
+&"RESET": SubResource("Animation_7mfi6"),
+&"falling": SubResource("Animation_q1x8j")
+}
 
 [node name="RangedEnemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 65
 motion_mode = 1
-script = ExtResource("1_tyock")
-max_health = 50.0
+script = ExtResource("1_8psv0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xqbpr")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("CanvasItemMaterial_tyock")
-position = Vector2(5, -3)
-rotation = 1.5707964
-sprite_frames = SubResource("SpriteFrames_6rvq5")
-animation = &"idle"
-autoplay = "idle"
+shape = SubResource("CircleShape2D_8psv0")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(50, 0)
+target_position = Vector2(0, 0)
+collision_mask = 17
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-
-[node name="TargetUpdateHeartbeat" type="Timer" parent="."]
-wait_time = 0.2
-autostart = true
 
 [node name="Hurtbox2D" type="Area2D" parent="."]
 collision_layer = 8
@@ -157,27 +181,65 @@ collision_mask = 0
 script = ExtResource("3_hk5ea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
-shape = SubResource("CircleShape2D_wjpws")
+shape = SubResource("CircleShape2D_nfk21")
 
 [node name="PitDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PitDetector"]
-shape = SubResource("CircleShape2D_4kqgd")
+shape = SubResource("CircleShape2D_nls5x")
 
 [node name="AttackRange" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-shape = SubResource("CircleShape2D_r13uc")
+shape = SubResource("CircleShape2D_sjsod")
 
 [node name="FleeingRange" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FleeingRange"]
-shape = SubResource("CircleShape2D_tyock")
+shape = SubResource("CircleShape2D_cg1md")
 
-[connection signal="timeout" from="TargetUpdateHeartbeat" to="." method="_on_target_update_heartbeat_timeout"]
-[connection signal="take_damage" from="Hurtbox2D" to="." method="_on_hurtbox_2d_take_damage"]
-[connection signal="body_entered" from="PitDetector" to="." method="_on_pit_detector_body_entered"]
+[node name="ArrowSpawn" type="Node2D" parent="."]
+position = Vector2(7, 3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 0)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_6rvq5")
+animation = &"shooting"
+autoplay = "idle"
+
+[node name="EnemyHealth" type="Node" parent="."]
+script = ExtResource("7_rcqjw")
+metadata/_custom_type_script = "uid://14kqedugb3uy"
+
+[node name="EnemyMovement" type="Node" parent="."]
+script = ExtResource("5_nls5x")
+metadata/_custom_type_script = "uid://b5w8qmgc1ngwf"
+
+[node name="EnemyRangedAttack" type="Node" parent="."]
+script = ExtResource("7_8psv0")
+metadata/_custom_type_script = "uid://u6ptj0u7wjlo"
+
+[node name="KnockbackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="AttackAnimationTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="TargetUpdateHeartbeat" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="VerticalAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_l2n41")
+}

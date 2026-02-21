@@ -1,6 +1,9 @@
 extends AnimatableBody2D
 class_name Projectile2D
 
+const LIGHT_ONLY = preload("uid://bnu2oiso3alir")
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
 @export var hitbox: HitBox2D
 @export var explosion: GPUParticles2D
 @export var speed: float
@@ -8,6 +11,7 @@ class_name Projectile2D
 var direction: Vector2
 
 func _ready() -> void:
+	sprite_2d.material = LIGHT_ONLY
 	rotation = direction.angle()
 	#explosion.process_mode = Node.PROCESS_MODE_ALWAYS
 	#

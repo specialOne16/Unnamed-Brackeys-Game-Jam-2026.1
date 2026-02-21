@@ -22,5 +22,4 @@ func _shoot_projectile():
 	var bullet: Projectile2D = BULLET.instantiate()
 	bullet.position = player.position
 	bullet.direction = Vector2.from_angle(player.rotation)
-	bullet.speed = 200
 	player.get_parent().add_child(bullet)
