@@ -1,35 +1,39 @@
-[gd_scene load_steps=11 format=3 uid="uid://cibgqs6qyfyk7"]
+[gd_scene load_steps=12 format=3 uid="uid://cibgqs6qyfyk7"]
 
 [ext_resource type="Script" uid="uid://cj8q8ma1o2dyt" path="res://gameplay/components/coffin.gd" id="1_ilehu"]
-[ext_resource type="Texture2D" uid="uid://b3dgoex7d446j" path="res://gameplay/assets/Coffin_Close.png" id="2_pslo3"]
+[ext_resource type="Texture2D" uid="uid://cysklrosboanv" path="res://gameplay/assets/Coffin_Close_200.png" id="2_ilehu"]
+[ext_resource type="Texture2D" uid="uid://dnsmwa5j2673a" path="res://gameplay/assets/Coffin_parts_200.png" id="3_pslo3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pslo3"]
+atlas = ExtResource("2_ilehu")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hn1fu"]
-atlas = ExtResource("2_pslo3")
-region = Rect2(0, 0, 32, 32)
+atlas = ExtResource("2_ilehu")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7iae"]
-atlas = ExtResource("2_pslo3")
-region = Rect2(32, 0, 32, 32)
+atlas = ExtResource("2_ilehu")
+region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4n2mq"]
-atlas = ExtResource("2_pslo3")
-region = Rect2(64, 0, 32, 32)
+atlas = ExtResource("2_ilehu")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_go20c"]
-atlas = ExtResource("2_pslo3")
-region = Rect2(96, 0, 32, 32)
+atlas = ExtResource("2_ilehu")
+region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwqie"]
-atlas = ExtResource("2_pslo3")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_va0la"]
-atlas = ExtResource("2_pslo3")
-region = Rect2(160, 0, 32, 32)
+atlas = ExtResource("2_ilehu")
+region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_optmq"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pslo3")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hn1fu")
 }, {
@@ -44,9 +48,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bwqie")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_va0la")
 }],
 "loop": false,
 "name": &"close",
@@ -63,19 +64,25 @@ script = ExtResource("1_ilehu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 process_mode = 3
-position = Vector2(0.40000153, -6.200001)
+z_index = 2
+position = Vector2(-0.2, -3.2)
 sprite_frames = SubResource("SpriteFrames_optmq")
 animation = &"close"
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.2, -3.2)
+texture = ExtResource("3_pslo3")
+hframes = 3
+frame = 1
+
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(0.40000153, 5.799999)
-polygon = PackedVector2Array(-11, -24, 10, -24, 14, 2, 10, 2, 6, -10, -6, -10, -10, 2, -14, 2)
+position = Vector2(0.2, 20.6)
+polygon = PackedVector2Array(-24.400002, -44.8, 23.599998, -43.8, 27.599998, 4.200001, 11.599998, 2.2000008, 11.599998, -19.8, -12.400002, -19.8, -12.400002, 2.2000008, -28.400002, 4.200001)
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_ilehu")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
