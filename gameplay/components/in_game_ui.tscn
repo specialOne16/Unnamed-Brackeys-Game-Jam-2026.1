@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ccgswg3ymqkwg"]
+[gd_scene load_steps=15 format=3 uid="uid://ccgswg3ymqkwg"]
 
 [ext_resource type="Script" uid="uid://c4ubct4l1kiw0" path="res://gameplay/components/in_game_ui.gd" id="1_bgyea"]
 [ext_resource type="Texture2D" uid="uid://by82mgd4bf5ob" path="res://gameplay/components/Health_bar_Icon.png" id="2_s73q5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bwvgvv5mbvj7c" path="res://entities/item/Relics.png" id="3_hjqug"]
 [ext_resource type="Texture2D" uid="uid://qlix7pmtp7g4" path="res://gameplay/components/Health_bar.png" id="3_xf4xe"]
 [ext_resource type="FontFile" uid="uid://bi4v2awwx8dm6" path="res://gameplay/assets/pixel.ttf" id="6_xf4xe"]
+[ext_resource type="Theme" uid="uid://d2jvp43vhan4n" path="res://menu.tres" id="7_tib38"]
 
 [sub_resource type="Animation" id="Animation_r5dlg"]
 length = 0.001
@@ -67,6 +68,9 @@ colors = PackedColorArray(0.49424517, 1.4018082e-06, 2.4065375e-07, 1)
 gradient = SubResource("Gradient_tib38")
 width = 71
 height = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tib38"]
+bg_color = Color(0, 0, 0, 0.54901963)
 
 [node name="InGameUi" type="CanvasLayer"]
 process_mode = 3
@@ -238,3 +242,44 @@ theme_override_font_sizes/font_size = 5
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="PauseMenu" type="PanelContainer" parent="."]
+visible = false
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tib38")
+
+[node name="Control" type="Control" parent="PauseMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Control"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 43.0
+offset_right = 229.0
+offset_bottom = 137.0
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/Control/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_tib38")
+text = "Resume"
+
+[node name="RestartCheckpointButton" type="Button" parent="PauseMenu/Control/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_tib38")
+text = "Restart Checkpoint"
+
+[node name="VolumeSlider" type="HSlider" parent="PauseMenu/Control/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_tib38")
+min_value = -50.0
+max_value = 10.0
+value = -23.0
+
+[connection signal="pressed" from="PauseMenu/Control/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Control/VBoxContainer/RestartCheckpointButton" to="." method="_on_restart_checkpoint_button_pressed"]
+[connection signal="value_changed" from="PauseMenu/Control/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
