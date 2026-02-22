@@ -45,6 +45,7 @@ position = Vector2(-8, 80)
 script = ExtResource("5_5kw4x")
 current_scene_name = "14 Route2 Room1"
 target_scene_path = "res://gameplay/Levels/13 Hub1.tscn"
+relic_2_target_scene_path = "res://gameplay/Levels/52 Hub2.tscn"
 asset_size = 32
 is_horizontal = false
 metadata/_custom_type_script = "uid://d33ikxrahs0fk"

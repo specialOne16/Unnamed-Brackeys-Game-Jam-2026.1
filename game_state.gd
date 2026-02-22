@@ -19,7 +19,7 @@ func gain_item(item: GroundItem.Type) -> bool:
 		GroundItem.Type.HEALTH_PACK:
 			health_pack += 1
 		GroundItem.Type.SHOTGUN_AMMO:
-			shotgun_ammo += 1
+			shotgun_ammo += 2
 		GroundItem.Type.RELIC_1: 
 			relic_1_collected = true
 		GroundItem.Type.RELIC_2:

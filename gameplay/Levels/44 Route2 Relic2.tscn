@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://bk48q4ceydejb"]
+[gd_scene load_steps=9 format=4 uid="uid://bk48q4ceydejb"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_46fen"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_cgqp4"]
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="3_w0b8y"]
 [ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="4_1mw7w"]
+[ext_resource type="PackedScene" uid="uid://d2r4arw47toyq" path="res://entities/item/item.tscn" id="5_cgqp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8v4ll"]
 size = Vector2(32, 16)
@@ -94,3 +95,8 @@ script = ExtResource("4_1mw7w")
 previous_scene_name = "spawn5"
 spawn_direction = Vector2(0, 1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
+
+[node name="Item" parent="." instance=ExtResource("5_cgqp4")]
+position = Vector2(310, 157)
+id = "relic 21"
+type = 1
