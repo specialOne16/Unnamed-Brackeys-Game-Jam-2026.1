@@ -160,6 +160,7 @@ max_polyphony = 8
 [node name="NearRelics" type="AudioStreamPlayer" parent="World"]
 unique_name_in_owner = true
 stream = ExtResource("19_550dd")
+volume_db = 10.0
 max_polyphony = 8
 
 [node name="PlayerTakingDamage" type="AudioStreamPlayer" parent="World"]

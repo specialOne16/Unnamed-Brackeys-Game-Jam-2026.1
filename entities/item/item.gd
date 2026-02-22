@@ -11,6 +11,7 @@ const UI_CONSUMABLES_I = preload("uid://dky00adsgbg5i")
 
 @export var id: String
 @export var type: Type
+@export var play_relic_sound: bool = true
 
 func _ready() -> void:
 	match type:
@@ -33,10 +34,13 @@ func _ready() -> void:
 			sprite_2d.vframes = 3
 			sprite_2d.frame = 5
 
-func _process(_delta: float) -> void:
-	if pickup_area.has_overlapping_bodies():
-		if Input.is_action_just_pressed("interact"):
-			if GameState.gain_item(type):
-				if id != "": GameState.collected_chest.append(id)
-				AudioPlayer.taking_item.play()
-				queue_free()
+func _on_pickup_area_body_entered(body: Node2D) -> void:
+	if body is TD2Player:
+		if GameState.gain_item(type):
+			if id != "": GameState.collected_chest.append(id)
+			AudioPlayer.taking_item.play()
+			queue_free()
+
+func _on_relic_sound_area_body_entered(body: Node2D) -> void:
+	if body is TD2Player and not AudioPlayer.near_relics.playing:
+		AudioPlayer.near_relics.play()
