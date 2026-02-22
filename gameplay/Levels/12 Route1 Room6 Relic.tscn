@@ -76,3 +76,4 @@ metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="Item" parent="." instance=ExtResource("5_f4h1e")]
 position = Vector2(357, 81)
+id = "12 relic"
