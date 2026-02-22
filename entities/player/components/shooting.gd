@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 	if not GameState.has_shotgun_ammo(): return
 	
 	if player.holding_attack == null:
-		if  not attacking and Input.is_action_just_pressed("ranged"):
+		if  not attacking and Input.is_action_pressed("ranged"):
 			player.holding_attack = self
 			player.holding_duration = 0
 			attacking = true
@@ -37,6 +37,10 @@ func _on_animation_finished():
 		_release_attack()
 
 func _release_attack():
+	if Input.is_action_pressed("ranged"): 
+		player.holding_duration = 0
+		return
+	
 	attacking = false
 	player.holding_attack = null
 	shotgun.visible = false

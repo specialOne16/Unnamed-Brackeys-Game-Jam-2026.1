@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if player.holding_attack == null:
-		if  not attacking and Input.is_action_just_pressed("melee"):
+		if  not attacking and Input.is_action_pressed("melee"):
 			player.holding_attack = self
 			player.holding_duration = 0
 			attacking = true
@@ -41,5 +41,11 @@ func _on_animation_finished():
 		_release_attack()
 
 func _release_attack():
+	if Input.is_action_pressed("melee"): 
+		player.holding_duration = 0
+		animated_sprite_2d.play("attack_hold")
+		attacking = true
+		return
+	
 	player.holding_attack = null
 	animation_manager.release_override(self)
