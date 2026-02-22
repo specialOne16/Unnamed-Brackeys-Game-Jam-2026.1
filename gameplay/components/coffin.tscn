@@ -65,12 +65,13 @@ script = ExtResource("1_ilehu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 process_mode = 3
 z_index = 2
-position = Vector2(-0.2, -3.2)
+position = Vector2(0, 1)
+scale = Vector2(0.72000027, 0.72000015)
 sprite_frames = SubResource("SpriteFrames_optmq")
 animation = &"close"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.2, -3.2)
+scale = Vector2(0.8000002, 0.8400001)
 texture = ExtResource("3_pslo3")
 hframes = 3
 frame = 1
