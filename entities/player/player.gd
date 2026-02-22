@@ -20,6 +20,7 @@ signal dead
 @onready var movement: TD2Movement = $Components/Movement
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 @onready var healing: AnimatedSprite2D = $Healing
+@onready var lights: Node2D = %Lights
 
 var holding_attack: Node = null
 var holding_duration = 0.0

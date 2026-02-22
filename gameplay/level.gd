@@ -111,6 +111,7 @@ func _win():
 	_win_ui.position = _player.position
 	
 	get_tree().paused = true
+	_player.lights.visible = false
 	_dark_overlay.color = Color.WHITE
 	_in_game_ui.visible = false
 	await _win_ui.play()
