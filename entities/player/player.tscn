@@ -1,9 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://iggh13u56wx8"]
+[gd_scene load_steps=31 format=3 uid="uid://iggh13u56wx8"]
 
 [ext_resource type="SpriteFrames" uid="uid://cf4hru5onum5g" path="res://entities/player/player.tres" id="1_bls4j"]
+[ext_resource type="Texture2D" uid="uid://tcq2e6v3denx" path="res://entities/player/assets/Shoot_Particles_2.png" id="2_bectd"]
 [ext_resource type="Script" uid="uid://cf5hwjdaou6c3" path="res://entities/player/player.gd" id="2_fkugw"]
 [ext_resource type="Script" uid="uid://be8djsgk5wev3" path="res://entities/player/components/movement.gd" id="3_aix1t"]
-[ext_resource type="Texture2D" uid="uid://dw80l743ns37" path="res://combat/bullet/Shoot_Particles.png" id="3_bectd"]
 [ext_resource type="Script" uid="uid://dx02mvj1owgwd" path="res://combat/hitbox.gd" id="3_qiwj3"]
 [ext_resource type="Script" uid="uid://c0fyo0n2kffj0" path="res://entities/player/components/animation_manager.gd" id="4_0hsa5"]
 [ext_resource type="Script" uid="uid://da61gkt0v6xos" path="res://combat/hurtbox.gd" id="4_26q78"]
@@ -14,24 +14,32 @@
 radius = 5.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvtmh"]
-atlas = ExtResource("3_bectd")
-region = Rect2(0, 0, 16, 16)
+atlas = ExtResource("2_bectd")
+region = Rect2(48, 0, 48, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7thud"]
-atlas = ExtResource("3_bectd")
-region = Rect2(16, 0, 16, 16)
+atlas = ExtResource("2_bectd")
+region = Rect2(96, 0, 48, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a1qjk"]
-atlas = ExtResource("3_bectd")
-region = Rect2(32, 0, 16, 16)
+atlas = ExtResource("2_bectd")
+region = Rect2(144, 0, 48, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3ovn"]
-atlas = ExtResource("3_bectd")
-region = Rect2(48, 0, 16, 16)
+atlas = ExtResource("2_bectd")
+region = Rect2(192, 0, 48, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afbqv"]
-atlas = ExtResource("3_bectd")
-region = Rect2(64, 0, 16, 16)
+atlas = ExtResource("2_bectd")
+region = Rect2(240, 0, 48, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx6sm"]
+atlas = ExtResource("2_bectd")
+region = Rect2(288, 0, 48, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqrof"]
+atlas = ExtResource("2_bectd")
+region = Rect2(0, 0, 48, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gx6sm"]
 animations = [{
@@ -50,6 +58,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_afbqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx6sm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqrof")
 }],
 "loop": false,
 "name": &"attack",
@@ -137,6 +151,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+process_mode = 3
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("2_fkugw")
@@ -155,11 +170,11 @@ invincibility_duration = 1.25
 shape = SubResource("CircleShape2D_xbce5")
 
 [node name="Shotgun" type="AnimatedSprite2D" parent="."]
-position = Vector2(13, 4)
-rotation = -1.5707964
+position = Vector2(36, 0)
+rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_gx6sm")
 animation = &"attack"
-frame = 4
+frame = 6
 frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -222,12 +237,12 @@ shape = SubResource("CircleShape2D_wvtmh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
 unique_name_in_owner = true
+process_mode = 3
 position = Vector2(10, 0)
 rotation = 1.5708
 sprite_frames = ExtResource("1_bls4j")
-animation = &"idle"
+animation = &"died"
 autoplay = "idle"
-frame_progress = 0.43134117
 
 [node name="Lights" type="Node2D" parent="."]
 unique_name_in_owner = true

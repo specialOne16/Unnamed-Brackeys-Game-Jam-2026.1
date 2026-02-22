@@ -8,6 +8,7 @@ class_name EnemyHealth
 @onready var pit_detector: Area2D = $"../PitDetector"
 @onready var near_pit_detector: Area2D = $"../NearPitDetector"
 @onready var vertical_animation: AnimationPlayer = $"../VerticalAnimation"
+@onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 
 var _current_health: float
 
@@ -31,6 +32,9 @@ func _physics_process(_delta: float) -> void:
 func _hurt(source: HitBox2D):
 	_current_health -= source.damage
 	if _current_health <= 0:
+		enemy.process_mode = Node.PROCESS_MODE_DISABLED
+		animated_sprite_2d.play("died")
+		await animated_sprite_2d.animation_finished
 		enemy.died()
 	
 	knockback_timer.stop()

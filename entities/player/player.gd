@@ -17,6 +17,7 @@ signal dead
 
 @onready var hurtbox_2d: Hurtbox2D = $Hurtbox2D
 @onready var movement: TD2Movement = $Components/Movement
+@onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 
 var holding_attack: Node = null
 var holding_duration = 0.0
@@ -42,6 +43,9 @@ func take_damage(source: HitBox2D):
 		GameState.player_health -= source.damage
 		
 		if GameState.player_health <= 0:
+			process_mode = Node.PROCESS_MODE_DISABLED
+			animated_sprite_2d.play("died")
+			await animated_sprite_2d.animation_finished
 			dead.emit()
-		
-		movement.knockback(source.global_position, source.damage, source.mini_stun_duration)
+		else:
+			movement.knockback(source.global_position, source.damage, source.mini_stun_duration)

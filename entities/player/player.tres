@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=19 format=3 uid="uid://cf4hru5onum5g"]
+[gd_resource type="SpriteFrames" load_steps=26 format=3 uid="uid://cf4hru5onum5g"]
 
 [ext_resource type="Texture2D" uid="uid://cc5iuo0uoird3" path="res://entities/player/assets/MC_animations.png" id="1_gybsv"]
+[ext_resource type="Texture2D" uid="uid://611fmv4jj8dv" path="res://entities/Die_Animations.png" id="2_irhpw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_irhpw"]
 atlas = ExtResource("1_gybsv")
@@ -21,6 +22,30 @@ region = Rect2(48, 64, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ajks"]
 atlas = ExtResource("1_gybsv")
 region = Rect2(64, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx1ia"]
+atlas = ExtResource("2_irhpw")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg04f"]
+atlas = ExtResource("2_irhpw")
+region = Rect2(16, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw457"]
+atlas = ExtResource("2_irhpw")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f2go"]
+atlas = ExtResource("2_irhpw")
+region = Rect2(48, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_865y0"]
+atlas = ExtResource("2_irhpw")
+region = Rect2(64, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxfjj"]
+atlas = ExtResource("2_irhpw")
+region = Rect2(80, 64, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mh4hr"]
 atlas = ExtResource("1_gybsv")
@@ -95,6 +120,29 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_release",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx1ia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg04f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fw457")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f2go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_865y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxfjj")
+}],
+"loop": false,
+"name": &"died",
 "speed": 5.0
 }, {
 "frames": [{

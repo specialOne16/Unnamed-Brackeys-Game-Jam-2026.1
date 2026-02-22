@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccgswg3ymqkwg"]
+[gd_scene load_steps=12 format=3 uid="uid://ccgswg3ymqkwg"]
 
 [ext_resource type="Script" uid="uid://c4ubct4l1kiw0" path="res://gameplay/components/in_game_ui.gd" id="1_bgyea"]
-[ext_resource type="Texture2D" uid="uid://xtkwgay7bjjo" path="res://gameplay/assets/Health_bar.png" id="2_r5dlg"]
+[ext_resource type="Texture2D" uid="uid://by82mgd4bf5ob" path="res://gameplay/components/Health_bar_Icon.png" id="2_s73q5"]
 [ext_resource type="Texture2D" uid="uid://dky00adsgbg5i" path="res://entities/item/UI_ConsumablesI.png" id="3_e3yd8"]
 [ext_resource type="Texture2D" uid="uid://bwvgvv5mbvj7c" path="res://entities/item/Relics.png" id="3_hjqug"]
+[ext_resource type="Texture2D" uid="uid://qlix7pmtp7g4" path="res://gameplay/components/Health_bar.png" id="3_xf4xe"]
 
 [sub_resource type="Animation" id="Animation_r5dlg"]
 length = 0.001
@@ -57,6 +58,14 @@ _data = {
 &"fade_out": SubResource("Animation_e3yd8")
 }
 
+[sub_resource type="Gradient" id="Gradient_tib38"]
+colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nfp5b"]
+gradient = SubResource("Gradient_tib38")
+width = 71
+height = 8
+
 [node name="InGameUi" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_bgyea")
@@ -91,16 +100,26 @@ theme_override_constants/margin_bottom = 6
 [node name="Control" type="Control" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="PlayerHealth" type="TextureProgressBar" parent="MarginContainer/Control"]
-unique_name_in_owner = true
-layout_mode = 1
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 0
 offset_right = 87.0
 offset_bottom = 16.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_s73q5")
+
+[node name="PlayerHealth" type="TextureProgressBar" parent="MarginContainer/Control/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 value = 100.0
 stretch_margin_left = 125
 stretch_margin_top = 10
 stretch_margin_right = 185
-texture_over = ExtResource("2_r5dlg")
+texture_over = ExtResource("3_xf4xe")
+texture_progress = SubResource("GradientTexture2D_nfp5b")
+texture_progress_offset = Vector2(0, 4)
 
 [node name="Relics" type="HBoxContainer" parent="MarginContainer/Control"]
 layout_mode = 1

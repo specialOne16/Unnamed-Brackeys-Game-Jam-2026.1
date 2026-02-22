@@ -14,7 +14,7 @@ func _ready() -> void:
 	shotgun.visible = false
 
 func _process(_delta: float) -> void:
-	if GameState.has_shotgun_ammo(): return
+	if not GameState.has_shotgun_ammo(): return
 	
 	if player.holding_attack == null:
 		if  not attacking and Input.is_action_just_pressed("ranged"):
