@@ -132,11 +132,13 @@ unique_name_in_owner = true
 [node name="Charged" type="AudioStreamPlayer" parent="Weapon"]
 unique_name_in_owner = true
 stream = ExtResource("15_wtwrb")
+volume_db = -3.0
 max_polyphony = 8
 
 [node name="Charging" type="AudioStreamPlayer" parent="Weapon"]
 unique_name_in_owner = true
 stream = ExtResource("16_rdyvd")
+volume_db = 21.0
 max_polyphony = 8
 
 [node name="Heal2" type="AudioStreamPlayer" parent="Weapon"]
@@ -238,5 +240,5 @@ max_polyphony = 8
 [node name="MainLoopFinal" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("27_4hoy6")
-volume_db = 5.0
+volume_db = -1.0
 max_polyphony = 8
