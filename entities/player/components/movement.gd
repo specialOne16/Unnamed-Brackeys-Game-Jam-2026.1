@@ -24,6 +24,7 @@ func knockback(source: Vector2, power: float, stun: float):
 func _ready() -> void:
 	pit_detector.body_entered.connect(_pit_touched)
 	near_pit_detector.body_exited.connect(_pit_touched)
+	near_pit_detector.body_entered.connect(_pit_touched)
 	jump_timer.timeout.connect(_on_land)
 
 func _process(_delta: float) -> void:
@@ -47,16 +48,20 @@ func _process(_delta: float) -> void:
 			player.rotation = direction.angle()
 	
 	if Input.is_action_just_pressed("jump"):
-		pit_detector.process_mode = Node.PROCESS_MODE_DISABLED
 		player.set_collision_mask_value(7, false)
 		
 		vertical_animation.play("jumping", -1, 1 / player.jump_duration)
 		jump_timer.start(player.jump_duration)
 		
 		player.velocity = player.velocity.normalized() * player.jump_movement_speed
+	
+	if not pit_detector.has_overlapping_bodies():
+		near_pit_position = (player.position / 16).floor() * 16 + Vector2.ONE * 8
  
 func _pit_touched(_body: Node2D):
 	if pit_detector.has_overlapping_bodies() and not near_pit_detector.has_overlapping_bodies():
+		if jump_timer.time_left > 0: return
+		
 		falling_in_pit = true
 		
 		vertical_animation.play("falling")
@@ -65,8 +70,6 @@ func _pit_touched(_body: Node2D):
 		player.position = near_pit_position
 		
 		falling_in_pit = false
-	else:
-		near_pit_position = (player.position / 16).floor() * 16 + Vector2.ONE * 8
 
 func _on_land():
-	pit_detector.process_mode = Node.PROCESS_MODE_INHERIT
+	_pit_touched(null)
