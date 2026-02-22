@@ -87,6 +87,7 @@ interact={
 2d_physics/layer_6="Pit"
 2d_physics/layer_7="NearPit"
 2d_physics/layer_8="Door"
+2d_physics/layer_9="Platform"
 
 [rendering]
 
