@@ -23,10 +23,6 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		game_paused = true
 	
-	pause_menu.visible = game_paused
-	if game_paused:
-		get_tree().paused = true
-	
 	update_inventory()
 
 func update_inventory():
@@ -36,6 +32,10 @@ func update_inventory():
 	
 	health_pack_label.text = str(GameState.health_pack)
 	shotgun_ammo_label.text = str(GameState.shotgun_ammo)
+	
+	pause_menu.visible = game_paused
+	if game_paused:
+		get_tree().paused = true
 
 func scene_transition_in():
 	get_tree().paused = true

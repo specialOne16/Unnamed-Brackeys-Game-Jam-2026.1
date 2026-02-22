@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ccgswg3ymqkwg"]
+[gd_scene load_steps=15 format=3 uid="uid://ccgswg3ymqkwg"]
 
 [ext_resource type="Script" uid="uid://c4ubct4l1kiw0" path="res://gameplay/components/in_game_ui.gd" id="1_bgyea"]
 [ext_resource type="Texture2D" uid="uid://by82mgd4bf5ob" path="res://gameplay/components/Health_bar_Icon.png" id="2_s73q5"]
@@ -68,6 +68,9 @@ colors = PackedColorArray(0.49424517, 1.4018082e-06, 2.4065375e-07, 1)
 gradient = SubResource("Gradient_tib38")
 width = 71
 height = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tib38"]
+bg_color = Color(0, 0, 0, 0.54901963)
 
 [node name="InGameUi" type="CanvasLayer"]
 process_mode = 3
@@ -241,11 +244,14 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="PauseMenu" type="PanelContainer" parent="."]
+visible = false
+z_index = 10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tib38")
 
 [node name="Control" type="Control" parent="PauseMenu"]
 layout_mode = 2
