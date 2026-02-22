@@ -39,16 +39,19 @@ unique_name_in_owner = true
 [node name="EnemyAggro" type="AudioStreamPlayer" parent="Enemies"]
 unique_name_in_owner = true
 stream = ExtResource("1_7u1k8")
+volume_db = 12.0
 max_polyphony = 8
 
 [node name="EnemyCrossbow" type="AudioStreamPlayer" parent="Enemies"]
 unique_name_in_owner = true
 stream = ExtResource("2_qqvpm")
+volume_db = 15.0
 max_polyphony = 8
 
 [node name="EnemyDeath" type="AudioStreamPlayer" parent="Enemies"]
 unique_name_in_owner = true
 stream = ExtResource("3_4k3ah")
+volume_db = 8.0
 max_polyphony = 8
 
 [node name="Jumps" type="Node" parent="."]
@@ -57,11 +60,13 @@ unique_name_in_owner = true
 [node name="Fall" type="AudioStreamPlayer" parent="Jumps"]
 unique_name_in_owner = true
 stream = ExtResource("4_65uy7")
+volume_db = 4.0
 max_polyphony = 8
 
 [node name="Jump" type="AudioStreamPlayer" parent="Jumps"]
 unique_name_in_owner = true
 stream = ExtResource("5_a8716")
+volume_db = 4.0
 max_polyphony = 8
 
 [node name="Movement" type="Node" parent="."]
@@ -73,11 +78,13 @@ unique_name_in_owner = true
 [node name="ChestOpening" type="AudioStreamPlayer" parent="Movement/Looting"]
 unique_name_in_owner = true
 stream = ExtResource("6_g8ec4")
+volume_db = 9.0
 max_polyphony = 8
 
 [node name="TakingItem" type="AudioStreamPlayer" parent="Movement/Looting"]
 unique_name_in_owner = true
 stream = ExtResource("7_wtwrb")
+volume_db = 7.0
 max_polyphony = 8
 
 [node name="Steps" type="Node" parent="."]
@@ -119,15 +126,18 @@ unique_name_in_owner = true
 [node name="MeleeNoImpact" type="AudioStreamPlayer" parent="Weapon"]
 unique_name_in_owner = true
 stream = ExtResource("14_fu7qo")
+volume_db = 6.0
 max_polyphony = 8
 
 [node name="MeleeWithImpact" type="AudioStreamPlayer" parent="Weapon"]
 unique_name_in_owner = true
 stream = ExtResource("15_7ov8c")
+volume_db = 10.0
 
 [node name="Shot1" type="AudioStreamPlayer" parent="Weapon"]
 unique_name_in_owner = true
 stream = ExtResource("16_6a0d3")
+volume_db = 20.0
 max_polyphony = 8
 
 [node name="World" type="Node" parent="."]
@@ -154,39 +164,47 @@ max_polyphony = 8
 [node name="PlayerTakingDamage" type="AudioStreamPlayer" parent="World"]
 unique_name_in_owner = true
 stream = ExtResource("20_jrnjl")
+volume_db = 15.0
 max_polyphony = 8
 
 [node name="Ambient1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("21_qpmm6")
+volume_db = 5.0
 max_polyphony = 8
 
 [node name="Ambient2" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("22_6e63m")
+volume_db = 5.0
 max_polyphony = 8
 
 [node name="Ambient3" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("23_u6mqj")
+volume_db = 5.0
 max_polyphony = 8
 
 [node name="Artifact1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("24_oigdh")
+volume_db = 5.0
 max_polyphony = 8
 
 [node name="Artifact2" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("25_qbcnh")
+volume_db = 5.0
 max_polyphony = 8
 
 [node name="BattleAmbientLoopFinal" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("26_in1o3")
+volume_db = 5.0
 max_polyphony = 8
 
 [node name="MainLoopFinal" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("27_4hoy6")
+volume_db = 5.0
 max_polyphony = 8
