@@ -67,11 +67,6 @@ script = ExtResource("3_md4di")
 previous_scene_name = "41 Route2 Room52"
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
-[node name="SpawnPoint3" type="Marker2D" parent="."]
-position = Vector2(560, -594)
-script = ExtResource("3_md4di")
-metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
-
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_g5w1u")]
 position = Vector2(281, -80)
 id = "16 m1"
@@ -83,6 +78,14 @@ id = "16 m2"
 [node name="MeleeEnemy3" parent="." instance=ExtResource("5_g5w1u")]
 position = Vector2(632, -135)
 id = "16 m3"
+
+[node name="MeleeEnemy4" parent="." instance=ExtResource("5_g5w1u")]
+position = Vector2(215, -25)
+id = "16 m4"
+
+[node name="MeleeEnemy5" parent="." instance=ExtResource("5_g5w1u")]
+position = Vector2(377, 8)
+id = "16 m5"
 
 [node name="RangedEnemy" parent="." instance=ExtResource("6_md4di")]
 position = Vector2(213, -310)

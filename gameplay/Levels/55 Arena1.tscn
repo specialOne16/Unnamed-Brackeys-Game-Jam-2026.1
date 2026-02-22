@@ -135,9 +135,9 @@ position = Vector2(-329, 232)
 id = "55 r6"
 
 [node name="RangedEnemy7" parent="." instance=ExtResource("6_wydmt")]
-position = Vector2(-421, 193)
+position = Vector2(-393, 199)
 id = "55 r7"
 
 [node name="RangedEnemy8" parent="." instance=ExtResource("6_wydmt")]
-position = Vector2(-424, 288)
+position = Vector2(-395, 284)
 id = "55 r8"

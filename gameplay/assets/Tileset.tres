@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=49 format=3 uid="uid://cpl1ssg6qxube"]
+[gd_resource type="TileSet" load_steps=50 format=3 uid="uid://cpl1ssg6qxube"]
 
 [ext_resource type="Texture2D" uid="uid://cfnsvv4jfp6bw" path="res://gameplay/assets/Tilesets.png" id="1_p2xdf"]
 [ext_resource type="Texture2D" uid="uid://bc18ar3rwjguj" path="res://gameplay/assets/Props.png" id="2_226s2"]
@@ -40,6 +40,12 @@ polygon = PackedVector2Array(-2.7878094, -3.4173155, 8, -3.057598, 8, 2.877739, 
 polygon = PackedVector2Array(-2.7878094, -8, 2.428093, -8, 3.1475277, -2.5180216, 8, -3.057598, 8, 2.877739, -2.607952, 3.057598)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_20xj2"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cl5ca"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_116u3"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -4, 8, -4)
@@ -345,7 +351,7 @@ texture = ExtResource("1_p2xdf")
 12:2/0 = 0
 12:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_20xj2")
 12:1/0 = 0
-12:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_20xj2")
+12:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_cl5ca")
 11:1/0 = 0
 11:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_20xj2")
 11:0/0 = 0

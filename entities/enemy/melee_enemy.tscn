@@ -123,6 +123,7 @@ collision_layer = 2
 collision_mask = 147
 motion_mode = 1
 script = ExtResource("1_q1x8j")
+max_health = 20.0
 movement_speed = 35.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

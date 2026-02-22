@@ -60,8 +60,8 @@ animations = [{
 radius = 13.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bectd"]
-radius = 14.999997
-height = 56.249977
+radius = 21.999998
+height = 70.31247
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7thud"]
 radius = 5.0
@@ -140,6 +140,7 @@ _data = {
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("2_fkugw")
+max_health = 120.0
 movement_speed = 50.0
 charge_movement_speed = 25.0
 jump_movement_speed = 75.0
@@ -187,7 +188,7 @@ knockback = 300.0
 mini_stun_duration = 0.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangedHitbox"]
-position = Vector2(30.999998, 0)
+position = Vector2(37.999996, 0)
 rotation = 1.5707941
 scale = Vector2(1, 1.2800004)
 shape = SubResource("CapsuleShape2D_bectd")
