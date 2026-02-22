@@ -21,7 +21,7 @@ tile_map_data = PackedByteArray("AAAHAAEAAAADAAEAAAAIAAEAAAAGAAEAAAAJAAEAAAAGAAE
 tile_set = ExtResource("2_re4nq")
 
 [node name="Props" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAIAAQAAAAPAAcAAAAJAAQAAAAPAAcAAAALAAcAAAAPAAYAAAAGAAcAAAAQAAYAAAAIAAAAAAAIAAIAAAAJAAAAAAAIAAIAAAAIAAcAAQABAAAAAAAMAAcAAQAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAAIAAQAAAAPAAcAAAAJAAQAAAAPAAcAAAALAAcAAAAPAAYAAAAGAAcAAAARAAYAAAAIAAAAAAAIAAIAAAAJAAAAAAAIAAIAAAAIAAcAAQABAAAAAAAMAAcAAQAAAAEAAAA=")
 tile_set = ExtResource("2_re4nq")
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
@@ -48,4 +48,3 @@ item = 0
 
 [node name="Chest2" parent="." instance=ExtResource("5_681n8")]
 position = Vector2(184, 104)
-item = 1
