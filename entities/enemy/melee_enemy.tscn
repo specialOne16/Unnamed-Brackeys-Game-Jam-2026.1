@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://bl6jinchnypfx"]
+[gd_scene load_steps=28 format=3 uid="uid://bl6jinchnypfx"]
 
 [ext_resource type="Script" uid="uid://bf2rx7ueornds" path="res://entities/enemy/enemy.gd" id="1_q1x8j"]
 [ext_resource type="Texture2D" uid="uid://dotx4xgyv20g2" path="res://entities/enemy/assets/Enemies.png" id="1_sw0m0"]
 [ext_resource type="Script" uid="uid://dx02mvj1owgwd" path="res://combat/hitbox.gd" id="3_4kqgd"]
+[ext_resource type="Texture2D" uid="uid://611fmv4jj8dv" path="res://entities/Die_Animations.png" id="4_7mfi6"]
 [ext_resource type="Script" uid="uid://da61gkt0v6xos" path="res://combat/hurtbox.gd" id="4_wjpws"]
 [ext_resource type="Script" uid="uid://b5w8qmgc1ngwf" path="res://entities/enemy/components/movement.gd" id="5_odf7v"]
 [ext_resource type="Script" uid="uid://cj4j7ofvgh6b3" path="res://entities/enemy/components/melee_attack.gd" id="6_l4hvh"]
@@ -19,6 +20,22 @@ radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kqgd"]
 radius = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rvq5"]
+atlas = ExtResource("4_7mfi6")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3370"]
+atlas = ExtResource("4_7mfi6")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsonw"]
+atlas = ExtResource("4_7mfi6")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ivj3"]
+atlas = ExtResource("4_7mfi6")
+region = Rect2(48, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kqgd"]
 atlas = ExtResource("1_sw0m0")
@@ -50,6 +67,23 @@ region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6rvq5"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rvq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3370")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsonw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ivj3")
+}],
+"loop": false,
+"name": &"died",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4kqgd")
@@ -173,9 +207,11 @@ shape = SubResource("CircleShape2D_4kqgd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
 unique_name_in_owner = true
+process_mode = 3
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_6rvq5")
-animation = &"moving"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="EnemyHealth" type="Node" parent="."]
 script = ExtResource("7_q1x8j")

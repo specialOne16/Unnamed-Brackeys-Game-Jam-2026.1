@@ -18,7 +18,8 @@ func _ready() -> void:
 	hitbox.area_entered.connect(_on_area_entered)
 
 func _physics_process(delta: float) -> void:
-	move_and_collide(direction * speed * delta)
+	var collision = move_and_collide(direction * speed * delta)
+	if collision: queue_free()
 
 func _on_area_entered(_area: Area2D):
 	hitbox.hit()

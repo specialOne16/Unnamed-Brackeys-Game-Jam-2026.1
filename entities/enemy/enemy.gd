@@ -35,6 +35,11 @@ func _ready() -> void:
 	if GameState.died_enemy_ids.has(id): queue_free()
 	animated_sprite_2d.material = LIGHT_ONLY
 
+func _process(_delta: float) -> void:
+	if GameState.player_health <= 0:
+		animated_sprite_2d.play("idle")
+		process_mode = Node.PROCESS_MODE_DISABLED
+
 func died():
 	if id != "": GameState.died_enemy_ids.append(id)
 	enemy_died.emit(self)

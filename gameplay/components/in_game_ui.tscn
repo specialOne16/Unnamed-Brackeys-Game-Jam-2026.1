@@ -1,6 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccgswg3ymqkwg"]
+[gd_scene load_steps=12 format=3 uid="uid://ccgswg3ymqkwg"]
 
 [ext_resource type="Script" uid="uid://c4ubct4l1kiw0" path="res://gameplay/components/in_game_ui.gd" id="1_bgyea"]
+[ext_resource type="Texture2D" uid="uid://by82mgd4bf5ob" path="res://gameplay/components/Health_bar_Icon.png" id="2_s73q5"]
+[ext_resource type="Texture2D" uid="uid://dky00adsgbg5i" path="res://entities/item/UI_ConsumablesI.png" id="3_e3yd8"]
+[ext_resource type="Texture2D" uid="uid://bwvgvv5mbvj7c" path="res://entities/item/Relics.png" id="3_hjqug"]
+[ext_resource type="Texture2D" uid="uid://qlix7pmtp7g4" path="res://gameplay/components/Health_bar.png" id="3_xf4xe"]
 
 [sub_resource type="Animation" id="Animation_r5dlg"]
 length = 0.001
@@ -54,6 +58,14 @@ _data = {
 &"fade_out": SubResource("Animation_e3yd8")
 }
 
+[sub_resource type="Gradient" id="Gradient_tib38"]
+colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nfp5b"]
+gradient = SubResource("Gradient_tib38")
+width = 71
+height = 8
+
 [node name="InGameUi" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_bgyea")
@@ -88,21 +100,106 @@ theme_override_constants/margin_bottom = 6
 [node name="Control" type="Control" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="PlayerHealth" type="ProgressBar" parent="MarginContainer/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 0
+offset_right = 87.0
+offset_bottom = 16.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_s73q5")
+
+[node name="PlayerHealth" type="TextureProgressBar" parent="MarginContainer/Control/HBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+stretch_margin_left = 125
+stretch_margin_top = 10
+stretch_margin_right = 185
+texture_over = ExtResource("3_xf4xe")
+texture_progress = SubResource("GradientTexture2D_nfp5b")
+texture_progress_offset = Vector2(0, 4)
+
+[node name="Relics" type="HBoxContainer" parent="MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -94.0
-offset_bottom = 8.0
+offset_left = -36.0
+offset_bottom = 16.0
 grow_horizontal = 0
-value = 100.0
-show_percentage = false
 
-[node name="MainInventory" type="Label" parent="MarginContainer/Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 6
-text = "Test"
+[node name="Control" type="Control" parent="MarginContainer/Control/Relics"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Relics2" type="Sprite2D" parent="MarginContainer/Control/Relics/Control"]
+unique_name_in_owner = true
+texture = ExtResource("3_hjqug")
+centered = false
+hframes = 3
+
+[node name="Control2" type="Control" parent="MarginContainer/Control/Relics"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Relics1" type="Sprite2D" parent="MarginContainer/Control/Relics/Control2"]
+unique_name_in_owner = true
+texture = ExtResource("3_hjqug")
+centered = false
+hframes = 3
+frame = 1
+
+[node name="Items" type="VBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -20.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="MarginContainer/Control/Items"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 2
+
+[node name="Container" type="Sprite2D" parent="MarginContainer/Control/Items/Control"]
+texture = ExtResource("3_e3yd8")
+centered = false
+hframes = 4
+vframes = 3
+
+[node name="Inventory1" type="Sprite2D" parent="MarginContainer/Control/Items/Control"]
+unique_name_in_owner = true
+texture = ExtResource("3_e3yd8")
+centered = false
+hframes = 4
+vframes = 3
+frame = 4
+
+[node name="Control2" type="Control" parent="MarginContainer/Control/Items"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 2
+
+[node name="Container" type="Sprite2D" parent="MarginContainer/Control/Items/Control2"]
+texture = ExtResource("3_e3yd8")
+centered = false
+hframes = 4
+vframes = 3
+
+[node name="Inventory2" type="Sprite2D" parent="MarginContainer/Control/Items/Control2"]
+unique_name_in_owner = true
+texture = ExtResource("3_e3yd8")
+centered = false
+hframes = 4
+vframes = 3
+frame = 5
