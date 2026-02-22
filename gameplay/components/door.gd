@@ -31,5 +31,6 @@ func _on_body_entered(body: Node2D) -> void:
 		change_scene.emit(self)
 
 func open_the_door():
+	AudioPlayer.door_opening.play()
 	if sprite.animation == "closed_%d" % asset_size:
 		sprite.play("opening_%d" % asset_size)

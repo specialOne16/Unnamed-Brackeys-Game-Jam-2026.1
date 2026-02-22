@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccgswg3ymqkwg"]
+[gd_scene load_steps=13 format=3 uid="uid://ccgswg3ymqkwg"]
 
 [ext_resource type="Script" uid="uid://c4ubct4l1kiw0" path="res://gameplay/components/in_game_ui.gd" id="1_bgyea"]
 [ext_resource type="Texture2D" uid="uid://by82mgd4bf5ob" path="res://gameplay/components/Health_bar_Icon.png" id="2_s73q5"]
 [ext_resource type="Texture2D" uid="uid://dky00adsgbg5i" path="res://entities/item/UI_ConsumablesI.png" id="3_e3yd8"]
 [ext_resource type="Texture2D" uid="uid://bwvgvv5mbvj7c" path="res://entities/item/Relics.png" id="3_hjqug"]
 [ext_resource type="Texture2D" uid="uid://qlix7pmtp7g4" path="res://gameplay/components/Health_bar.png" id="3_xf4xe"]
+[ext_resource type="FontFile" uid="uid://bi4v2awwx8dm6" path="res://gameplay/assets/pixel.ttf" id="6_xf4xe"]
 
 [sub_resource type="Animation" id="Animation_r5dlg"]
 length = 0.001
@@ -184,6 +185,18 @@ hframes = 4
 vframes = 3
 frame = 4
 
+[node name="HealthPackLabel" type="Label" parent="MarginContainer/Control/Items/Control"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_xf4xe")
+theme_override_font_sizes/font_size = 6
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Control2" type="Control" parent="MarginContainer/Control/Items"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
@@ -203,3 +216,15 @@ centered = false
 hframes = 4
 vframes = 3
 frame = 5
+
+[node name="ShotgunAmmoLabel" type="Label" parent="MarginContainer/Control/Items/Control2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_xf4xe")
+theme_override_font_sizes/font_size = 6
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2

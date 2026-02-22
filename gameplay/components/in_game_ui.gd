@@ -4,11 +4,11 @@ class_name InGameUi
 @onready var player_health: TextureProgressBar = %PlayerHealth
 @onready var relics_2: Sprite2D = %Relics2
 @onready var relics_1: Sprite2D = %Relics1
-@onready var inventory_1: Sprite2D = %Inventory1
-@onready var inventory_2: Sprite2D = %Inventory2
 
 @onready var transition_overlay: ColorRect = $TransitionOverlay
 @onready var transition_animation_player: AnimationPlayer = $TransitionAnimationPlayer
+@onready var health_pack_label: Label = $MarginContainer/Control/Items/Control/HealthPackLabel
+@onready var shotgun_ammo_label: Label = $MarginContainer/Control/Items/Control2/ShotgunAmmoLabel
 
 func set_player_health(max_hp: float):
 	player_health.max_value = max_hp
@@ -24,17 +24,8 @@ func update_inventory():
 	relics_1.visible = GameState.relic_1_collected
 	relics_2.visible = GameState.relic_2_collected
 	
-	match GameState.inventory_1:
-		GroundItem.Type.HEALTH_PACK: inventory_1.frame = 4
-		GroundItem.Type.SHOTGUN_AMMO: inventory_1.frame = 5
-		GroundItem.Type.HALF_SHOTGUN_AMMO: inventory_1.frame = 6
-		_: inventory_1.frame = 3
-	
-	match GameState.inventory_2:
-		GroundItem.Type.HEALTH_PACK: inventory_2.frame = 4
-		GroundItem.Type.SHOTGUN_AMMO: inventory_2.frame = 5
-		GroundItem.Type.HALF_SHOTGUN_AMMO: inventory_2.frame = 6
-		_: inventory_2.frame = 3
+	health_pack_label.text = str(GameState.health_pack)
+	shotgun_ammo_label.text = str(GameState.shotgun_ammo)
 
 func scene_transition_in():
 	get_tree().paused = true

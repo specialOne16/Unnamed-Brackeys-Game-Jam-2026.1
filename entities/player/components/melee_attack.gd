@@ -24,6 +24,7 @@ func _process(_delta: float) -> void:
 	
 	if player.holding_attack == self:
 		if attacking and Input.is_action_just_released("melee"):
+			attacking = false
 			if player.holding_duration >= player.charge_duration:
 				if melee_hitbox.has_overlapping_areas():
 					AudioPlayer.melee_with_impact.play()
@@ -40,6 +41,5 @@ func _on_animation_finished():
 		_release_attack()
 
 func _release_attack():
-	attacking = false
 	player.holding_attack = null
 	animation_manager.release_override(self)

@@ -7,6 +7,7 @@ class_name TD2Movement
 @onready var platform_detector: Area2D = %PlatformDetector
 @onready var jump_timer: Timer = %JumpTimer
 @onready var vertical_animation: AnimationPlayer = $"../../VerticalAnimation"
+@onready var footstep_timer: Timer = $"../../FootstepTimer"
 
 @onready var move_sound: Array[AudioStreamPlayer] = [
 	AudioPlayer.step_1,
@@ -35,10 +36,8 @@ func _ready() -> void:
 	pit_detector.body_entered.connect(_pit_touched)
 	near_pit_detector.body_exited.connect(_pit_touched)
 	platform_detector.body_exited.connect(_on_fall_from_platform)
+	footstep_timer.timeout.connect(sound_finished)
 	vertical_animation.animation_finished.connect(_on_vertical_animation_finished)
-	
-	for sound in move_sound:
-		sound.finished.connect(sound_finished)
 
 func _process(_delta: float) -> void:
 	if jump_timer.time_left > 0: return
@@ -55,8 +54,9 @@ func _process(_delta: float) -> void:
 	
 	if player.velocity == Vector2.ZERO and direction != Vector2.ZERO:
 		move_sound.pick_random().play()
+		footstep_timer.start()
 	elif direction == Vector2.ZERO:
-		for sound in move_sound: sound.stop()
+		footstep_timer.stop()
 	
 	if player.holding_attack:
 		player.velocity = direction * player.charge_movement_speed
@@ -67,6 +67,7 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("jump"):
 		AudioPlayer.jump.play()
+		AudioPlayer.steps.process_mode = Node.PROCESS_MODE_DISABLED
 		
 		player.set_collision_mask_value(9, false)
 		
@@ -88,12 +89,15 @@ func _pit_touched(_body: Node2D):
 		await get_tree().create_timer(1).timeout
 		vertical_animation.play("RESET")
 		player.position = near_pit_position
+		player.take_pure_damage(player.fall_damage)
 		
 		falling_in_pit = false
 
 func _on_vertical_animation_finished(anim_name: String):
 	match anim_name:
 		"jumping_up":
+			AudioPlayer.steps.process_mode = Node.PROCESS_MODE_PAUSABLE
+			
 			if not platform_detector.has_overlapping_bodies():
 				player.set_collision_mask_value(9, true)
 				vertical_animation.play("jumping_down", -1, 1 / player.jump_duration)
@@ -110,5 +114,4 @@ func _on_fall_from_platform(_body: Node2D):
 	vertical_animation.play("jumping_down", -1, 1 / player.jump_duration)
 
 func sound_finished():
-	if player.velocity != Vector2.ZERO and player.process_mode == PROCESS_MODE_PAUSABLE:
-		move_sound.pick_random().play()
+	move_sound.pick_random().play()

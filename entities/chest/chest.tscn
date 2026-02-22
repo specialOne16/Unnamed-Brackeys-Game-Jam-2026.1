@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c20uvblmjsiic"]
+[gd_scene load_steps=7 format=3 uid="uid://c20uvblmjsiic"]
 
 [ext_resource type="Script" uid="uid://detswmgnu4o2h" path="res://entities/chest/chest.gd" id="1_bbmqp"]
 [ext_resource type="Script" uid="uid://da61gkt0v6xos" path="res://combat/hurtbox.gd" id="1_vvkul"]
@@ -9,6 +9,9 @@ size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_32syd"]
 radius = 16.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bbmqp"]
+light_mode = 2
 
 [node name="Chest" type="StaticBody2D"]
 collision_layer = 16
@@ -28,6 +31,7 @@ metadata/_custom_type_script = "uid://da61gkt0v6xos"
 shape = SubResource("CircleShape2D_32syd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_bbmqp")
 texture = ExtResource("2_bbmqp")
 hframes = 2
 

@@ -89,6 +89,7 @@ max_polyphony = 8
 
 [node name="Steps" type="Node" parent="."]
 unique_name_in_owner = true
+process_mode = 1
 
 [node name="Step1" type="AudioStreamPlayer" parent="Steps"]
 unique_name_in_owner = true
