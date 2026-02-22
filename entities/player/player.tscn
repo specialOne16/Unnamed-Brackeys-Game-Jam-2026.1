@@ -262,7 +262,6 @@ sprite_frames = SubResource("SpriteFrames_221hk")
 animation = &"heal"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0.55336857, 6.771088e-05)
 
 [node name="MeleeHitbox" type="Area2D" parent="."]
 position = Vector2(4, 0)

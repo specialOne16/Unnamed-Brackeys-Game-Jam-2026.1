@@ -3,6 +3,7 @@ extends Node2D
 const PLAYER = preload("uid://iggh13u56wx8")
 const IN_GAME_UI = preload("uid://ccgswg3ymqkwg")
 const DARK_OVERLAY = preload("uid://c3gq6kvbs1q0c")
+const WIN_UI = preload("uid://0mmjdavrjgs2")
 
 @export var is_combat_room: bool = false
 @export var checkpoint_path: String
@@ -11,11 +12,17 @@ const DARK_OVERLAY = preload("uid://c3gq6kvbs1q0c")
 
 var _player: TD2Player
 var _in_game_ui: InGameUi
+var _win_ui: WinUi
+var _coffin: Coffin
+var _dark_overlay: CanvasModulate
 var _alive_enemies: int = 0
 
 func _ready() -> void:
 	var spawn_point: SpawnPoint = null
 	_player = PLAYER.instantiate()
+	_in_game_ui = IN_GAME_UI.instantiate()
+	_win_ui = WIN_UI.instantiate()
+	
 	_player.dead.connect(_dead)
 	
 	for node in get_children():
@@ -45,6 +52,10 @@ func _ready() -> void:
 		if node is GroundItem:
 			if GameState.collected_chest.has(node.id):
 				node.queue_free()
+		
+		if node is Coffin:
+			_coffin = node
+			_coffin.coffin_entered.connect(_win)
 	
 	if is_combat_room and _alive_enemies > 0:
 		_player.set_collision_mask_value(8, true)
@@ -61,11 +72,12 @@ func _ready() -> void:
 			else:
 				GameState.checkpoint_spawn = spawn_point.previous_scene_name
 	
-	_in_game_ui = IN_GAME_UI.instantiate()
 	add_child(_in_game_ui)
+	add_child(_win_ui)
 	_in_game_ui.set_player_health(_player.max_health)
 	
-	add_child(DARK_OVERLAY.instantiate())
+	_dark_overlay = DARK_OVERLAY.instantiate()
+	add_child(_dark_overlay)
 	
 	AudioPlayer.change_theme(ambient)
 	_in_game_ui.scene_transition_in()
@@ -91,3 +103,16 @@ func _change_scene(door: Door):
 func _dead():
 	await _in_game_ui.scene_transition_out()
 	GameState.respawn()
+
+func _win():
+	_player.z_index = 3
+	_coffin.z_index = 3
+	
+	_win_ui.position = _player.position
+	
+	get_tree().paused = true
+	_dark_overlay.color = Color.WHITE
+	_in_game_ui.visible = false
+	await _win_ui.play()
+	_player.visible = false
+	_coffin.visible = false

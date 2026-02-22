@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://cibgqs6qyfyk7"]
+
+[ext_resource type="Script" uid="uid://cj8q8ma1o2dyt" path="res://gameplay/components/coffin.gd" id="1_ilehu"]
+[ext_resource type="Texture2D" uid="uid://b3dgoex7d446j" path="res://gameplay/assets/Coffin_Close.png" id="2_pslo3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hn1fu"]
+atlas = ExtResource("2_pslo3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7iae"]
+atlas = ExtResource("2_pslo3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n2mq"]
+atlas = ExtResource("2_pslo3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go20c"]
+atlas = ExtResource("2_pslo3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwqie"]
+atlas = ExtResource("2_pslo3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va0la"]
+atlas = ExtResource("2_pslo3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_optmq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hn1fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7iae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n2mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go20c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwqie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va0la")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilehu"]
+radius = 6.0
+
+[node name="Coffin" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_ilehu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 3
+position = Vector2(0.40000153, -6.200001)
+sprite_frames = SubResource("SpriteFrames_optmq")
+animation = &"close"
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.40000153, 5.799999)
+polygon = PackedVector2Array(-11, -24, 10, -24, 14, 2, 10, 2, 6, -10, -6, -10, -10, 2, -14, 2)
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_ilehu")
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

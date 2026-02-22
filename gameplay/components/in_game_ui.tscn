@@ -69,6 +69,7 @@ height = 8
 
 [node name="InGameUi" type="CanvasLayer"]
 process_mode = 3
+layer = 0
 script = ExtResource("1_bgyea")
 
 [node name="TransitionOverlay" type="ColorRect" parent="."]
