@@ -32,9 +32,8 @@ func _physics_process(_delta: float) -> void:
 func _process(delta: float) -> void:
 	invincibility -= delta
 	
-	if GameState.player_health < max_health and GameState.healing_pack > 0:
-		if Input.is_action_just_pressed("heal"):
-			GameState.healing_pack -= 1
+	if GameState.player_health < max_health and GameState.has_health_pack():
+		if Input.is_action_just_pressed("heal") and GameState.use_health_pack():
 			GameState.player_health = clampf(GameState.player_health + health_pack_heal_amount, 0, max_health)
 
 func take_damage(source: HitBox2D):

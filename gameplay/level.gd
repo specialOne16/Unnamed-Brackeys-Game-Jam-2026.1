@@ -34,6 +34,16 @@ func _ready() -> void:
 			node.enemy_died.connect(_enemy_died)
 			if not GameState.died_enemy_ids.has(node.id):
 				_alive_enemies += 1
+		
+		if node is Chest:
+			if GameState.collected_chest.has(node.id):
+				node.open_chest(false, false)
+			elif GameState.opened_chest.has(node.id):
+				node.open_chest(true, false)
+		
+		if node is GroundItem:
+			if GameState.collected_chest.has(node.id):
+				node.queue_free()
 	
 	if is_combat_room and _alive_enemies > 0:
 		_player.set_collision_mask_value(8, true)

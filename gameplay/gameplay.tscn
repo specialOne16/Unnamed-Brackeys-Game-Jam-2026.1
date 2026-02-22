@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://5wr35unbj208"]
+[gd_scene load_steps=10 format=4 uid="uid://5wr35unbj208"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_ktb3l"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="2_41n4r"]
@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://dvwcwmdw7ekbr" path="res://entities/enemy/ranged_enemy.tscn" id="5_gvicd"]
 [ext_resource type="PackedScene" uid="uid://bl6jinchnypfx" path="res://entities/enemy/melee_enemy.tscn" id="6_7pdct"]
 [ext_resource type="PackedScene" uid="uid://c20uvblmjsiic" path="res://entities/chest/chest.tscn" id="7_uk44f"]
+[ext_resource type="PackedScene" uid="uid://d2r4arw47toyq" path="res://entities/item/item.tscn" id="8_yvprt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvicd"]
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_ktb3l")
-is_combat_room = true
 checkpoint_path = "res://gameplay/gameplay.tscn"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -36,18 +36,30 @@ shape = SubResource("CircleShape2D_gvicd")
 
 [node name="RangedEnemy" parent="." instance=ExtResource("5_gvicd")]
 position = Vector2(137, 101)
-max_health = 1.0
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("6_7pdct")]
 position = Vector2(139, 146)
-id = "a"
-max_health = 1.0
-
-[node name="HitBox2D" parent="MeleeEnemy" index="3"]
-damage = 100.0
 
 [node name="Chest" parent="." instance=ExtResource("7_uk44f")]
 position = Vector2(188, 69)
+id = "1"
 item = 0
 
-[editable path="MeleeEnemy"]
+[node name="Chest2" parent="." instance=ExtResource("7_uk44f")]
+position = Vector2(221, 46)
+id = "2"
+item = 0
+
+[node name="Chest3" parent="." instance=ExtResource("7_uk44f")]
+position = Vector2(255, 66)
+id = "3"
+item = 0
+
+[node name="Item" parent="." instance=ExtResource("8_yvprt")]
+position = Vector2(220, 135)
+id = "q"
+
+[node name="Item2" parent="." instance=ExtResource("8_yvprt")]
+position = Vector2(279, 99)
+id = "w"
+type = 1
