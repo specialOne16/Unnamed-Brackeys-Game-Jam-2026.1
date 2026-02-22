@@ -7,6 +7,7 @@ class_name Shooting
 @onready var light_occluder_2d: LightOccluder2D = $"../../Lights/SpotLight/LightOccluder2D"
 
 var attacking = false
+var charged = false
 
 func _ready() -> void:
 	shotgun.animation_finished.connect(_on_animation_finished)
@@ -21,6 +22,12 @@ func _process(_delta: float) -> void:
 			player.holding_attack = self
 			player.holding_duration = 0
 			attacking = true
+			charged = false
+			AudioPlayer.charging.play()
+	
+	if player.holding_duration >= player.charge_duration:
+		if not charged: AudioPlayer.charged.play()
+		charged = true
 	
 	if player.holding_attack == self:
 		if attacking and Input.is_action_just_released("ranged"):
@@ -39,6 +46,8 @@ func _on_animation_finished():
 func _release_attack():
 	if Input.is_action_pressed("ranged"): 
 		player.holding_duration = 0
+		charged = false
+		AudioPlayer.charging.play()
 		return
 	
 	attacking = false

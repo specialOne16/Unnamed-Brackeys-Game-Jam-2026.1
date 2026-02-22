@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c6xa4j6qyg7i1"]
+[gd_scene load_steps=34 format=3 uid="uid://c6xa4j6qyg7i1"]
 
 [ext_resource type="AudioStream" uid="uid://cr0b6gom8vrcb" path="res://sounds/DC SFX/Enemies/Enemy_Aggro.wav" id="1_7u1k8"]
 [ext_resource type="Script" uid="uid://bpgkm2ons6ev7" path="res://sounds/audio_player.gd" id="1_qqvpm"]
@@ -16,10 +16,15 @@
 [ext_resource type="AudioStream" uid="uid://15clj5iqi53w" path="res://sounds/DC SFX/Steps/Step_6.wav" id="13_si175"]
 [ext_resource type="AudioStream" uid="uid://bus5dr2ojjxrm" path="res://sounds/DC SFX/Weapon/Melee_No_Impact.wav" id="14_fu7qo"]
 [ext_resource type="AudioStream" uid="uid://3n8vcbbpnjqo" path="res://sounds/DC SFX/Weapon/Melee_With_Impact.wav" id="15_7ov8c"]
+[ext_resource type="AudioStream" uid="uid://c40qc20qrt4dt" path="res://sounds/DC SFX/Weapon/Charged.wav" id="15_wtwrb"]
 [ext_resource type="AudioStream" uid="uid://d3hxbesmgcv52" path="res://sounds/DC SFX/Weapon/Shot1.wav" id="16_6a0d3"]
+[ext_resource type="AudioStream" uid="uid://d3koh0ea0xl48" path="res://sounds/DC SFX/Weapon/Charging.wav" id="16_rdyvd"]
 [ext_resource type="AudioStream" uid="uid://b5oha7boley10" path="res://sounds/DC SFX/World/Door/Door_Opening.wav" id="17_8pi1m"]
+[ext_resource type="AudioStream" uid="uid://hlybgkvk0o5v" path="res://sounds/DC SFX/Weapon/Heal_2.wav" id="17_sfllo"]
 [ext_resource type="AudioStream" uid="uid://5s5day1uuxn" path="res://sounds/DC SFX/Ending Iron Maden.wav" id="18_5gays"]
+[ext_resource type="AudioStream" uid="uid://cdqex63qenskb" path="res://sounds/DC SFX/Weapon/Looting_Ammo.wav" id="18_lfu4e"]
 [ext_resource type="AudioStream" uid="uid://cqyrglwg6eoq0" path="res://sounds/DC SFX/Near relics.wav" id="19_550dd"]
+[ext_resource type="AudioStream" uid="uid://dw60cxm4v3fa7" path="res://sounds/DC SFX/Weapon/Looting_Package.wav" id="19_n2lva"]
 [ext_resource type="AudioStream" uid="uid://p0se2yuortgj" path="res://sounds/DC SFX/Player taking damage.wav" id="20_jrnjl"]
 [ext_resource type="AudioStream" uid="uid://tb7fxakkfbp1" path="res://sounds/Ambient1.mp3" id="21_qpmm6"]
 [ext_resource type="AudioStream" uid="uid://5mjhjwawnwth" path="res://sounds/Ambient2.mp3" id="22_6e63m"]
@@ -123,6 +128,31 @@ max_polyphony = 8
 
 [node name="Weapon" type="Node" parent="."]
 unique_name_in_owner = true
+
+[node name="Charged" type="AudioStreamPlayer" parent="Weapon"]
+unique_name_in_owner = true
+stream = ExtResource("15_wtwrb")
+max_polyphony = 8
+
+[node name="Charging" type="AudioStreamPlayer" parent="Weapon"]
+unique_name_in_owner = true
+stream = ExtResource("16_rdyvd")
+max_polyphony = 8
+
+[node name="Heal2" type="AudioStreamPlayer" parent="Weapon"]
+unique_name_in_owner = true
+stream = ExtResource("17_sfllo")
+max_polyphony = 8
+
+[node name="LootingAmmo" type="AudioStreamPlayer" parent="Weapon"]
+unique_name_in_owner = true
+stream = ExtResource("18_lfu4e")
+max_polyphony = 8
+
+[node name="LootingPackage" type="AudioStreamPlayer" parent="Weapon"]
+unique_name_in_owner = true
+stream = ExtResource("19_n2lva")
+max_polyphony = 8
 
 [node name="MeleeNoImpact" type="AudioStreamPlayer" parent="Weapon"]
 unique_name_in_owner = true

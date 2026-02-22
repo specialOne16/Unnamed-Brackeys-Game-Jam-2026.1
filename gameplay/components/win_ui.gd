@@ -11,3 +11,4 @@ func play():
 	animation_player.play("new_animation")
 	await animation_player.animation_finished
 	label.visible = true
+	AudioPlayer.change_theme("MainLoopFinal")

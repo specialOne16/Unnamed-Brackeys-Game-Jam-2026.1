@@ -30,6 +30,11 @@ extends Node
 @onready var artifact_2: AudioStreamPlayer = %Artifact2
 @onready var battle_ambient_loop_final: AudioStreamPlayer = %BattleAmbientLoopFinal
 @onready var main_loop_final: AudioStreamPlayer = %MainLoopFinal
+@onready var charged: AudioStreamPlayer = %Charged
+@onready var charging: AudioStreamPlayer = %Charging
+@onready var heal_2: AudioStreamPlayer = %Heal2
+@onready var looting_ammo: AudioStreamPlayer = %LootingAmmo
+@onready var looting_package: AudioStreamPlayer = %LootingPackage
 
 var active_theme: AudioStreamPlayer
 

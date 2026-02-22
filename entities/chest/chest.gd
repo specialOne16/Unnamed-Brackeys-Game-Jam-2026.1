@@ -14,15 +14,18 @@ const ITEM = preload("uid://d2r4arw47toyq")
 func _on_hurtbox_2d_take_damage(_source: HitBox2D) -> void:
 	if id != "": GameState.opened_chest.append(id)
 	open_chest(not GameState.collected_chest.has(id), true)
-	AudioPlayer.chest_opening.play()
 
 func open_chest(has_item: bool, immediate_pickup: bool):
-	var ground_item: GroundItem.Type
-	match item:
-		Item.HEALTH_PACK: ground_item = GroundItem.Type.HEALTH_PACK
-		Item.SHOTGUN_AMMO: ground_item = GroundItem.Type.SHOTGUN_AMMO
-	
 	if has_item:
+		var ground_item: GroundItem.Type
+		match item:
+			Item.HEALTH_PACK: 
+				ground_item = GroundItem.Type.HEALTH_PACK
+				AudioPlayer.looting_package.play()
+			Item.SHOTGUN_AMMO: 
+				ground_item = GroundItem.Type.SHOTGUN_AMMO
+				AudioPlayer.looting_ammo.play()
+		
 		var picked_up = false
 		if immediate_pickup:
 			AudioPlayer.taking_item.play()

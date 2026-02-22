@@ -8,6 +8,7 @@ class_name MeleeAttack
 @onready var light_occluder_2d: LightOccluder2D = $"../../Lights/SpotLight/LightOccluder2D"
 
 var attacking = false
+var charged = false
 
 func _ready() -> void:
 	animated_sprite_2d.animation_finished.connect(_on_animation_finished)
@@ -18,9 +19,15 @@ func _process(_delta: float) -> void:
 			player.holding_attack = self
 			player.holding_duration = 0
 			attacking = true
+			charged = false
 			
 			animation_manager.override_animation(self)
 			animated_sprite_2d.play("attack_hold")
+			AudioPlayer.charging.play()
+	
+	if player.holding_duration >= player.charge_duration:
+		if not charged: AudioPlayer.charged.play()
+		charged = true
 	
 	if player.holding_attack == self:
 		if attacking and Input.is_action_just_released("melee"):
@@ -45,6 +52,8 @@ func _release_attack():
 		player.holding_duration = 0
 		animated_sprite_2d.play("attack_hold")
 		attacking = true
+		charged = false
+		AudioPlayer.charging.play()
 		return
 	
 	player.holding_attack = null
