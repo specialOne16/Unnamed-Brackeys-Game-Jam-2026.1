@@ -41,12 +41,6 @@ previous_scene_name = "15 Route2 Room2"
 spawn_direction = Vector2(0, -1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
-[node name="SpawnPoint3" type="Marker2D" parent="."]
-position = Vector2(555, -347)
-script = ExtResource("3_md4di")
-spawn_direction = Vector2(0, -1)
-metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
-
 [node name="Door" type="Area2D" parent="."]
 position = Vector2(48, 72)
 script = ExtResource("4_4587n")
