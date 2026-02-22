@@ -128,3 +128,4 @@ id = "16 r3"
 
 [node name="Chest" parent="." instance=ExtResource("7_4587n")]
 position = Vector2(176, -281)
+id = "16 1"

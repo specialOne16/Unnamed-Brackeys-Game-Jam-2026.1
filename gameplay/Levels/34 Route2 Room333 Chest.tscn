@@ -55,3 +55,4 @@ metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 [node name="Chest" parent="." instance=ExtResource("5_7lpbu")]
 position = Vector2(125, 79)
 rotation = 1.5707964
+id = "34 1"

@@ -45,7 +45,9 @@ shape = SubResource("RectangleShape2D_681n8")
 
 [node name="Chest" parent="." instance=ExtResource("5_681n8")]
 position = Vector2(104, 104)
+id = "4 1"
 item = 0
 
 [node name="Chest2" parent="." instance=ExtResource("5_681n8")]
 position = Vector2(184, 104)
+id = "4 2"
