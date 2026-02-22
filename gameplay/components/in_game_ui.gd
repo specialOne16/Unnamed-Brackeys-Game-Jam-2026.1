@@ -9,6 +9,9 @@ class_name InGameUi
 @onready var transition_animation_player: AnimationPlayer = $TransitionAnimationPlayer
 @onready var health_pack_label: Label = $MarginContainer/Control/Items/Control/HealthPackLabel
 @onready var shotgun_ammo_label: Label = $MarginContainer/Control/Items/Control2/ShotgunAmmoLabel
+@onready var pause_menu: PanelContainer = $PauseMenu
+
+var game_paused = false
 
 func set_player_health(max_hp: float):
 	player_health.max_value = max_hp
@@ -17,6 +20,13 @@ func _ready() -> void:
 	update_inventory()
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		game_paused = true
+	
+	pause_menu.visible = game_paused
+	if game_paused:
+		get_tree().paused = true
+	
 	update_inventory()
 
 func update_inventory():
@@ -45,3 +55,20 @@ func scene_transition_out():
 	await transition_animation_player.animation_finished
 	
 	get_tree().paused = false
+
+
+func _on_resume_button_pressed() -> void:
+	game_paused = false
+	get_tree().paused = false
+
+
+func _on_restart_checkpoint_button_pressed() -> void:
+	await scene_transition_out()
+	GameState.respawn()
+
+
+func _on_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(
+		AudioServer.get_bus_index("Master"), 
+		value
+	)
