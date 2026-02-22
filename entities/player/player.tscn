@@ -232,7 +232,6 @@ process_mode = 1
 collision_mask = 272
 motion_mode = 1
 script = ExtResource("2_fkugw")
-max_health = 120.0
 health_pack_heal_amount = 60.0
 movement_speed = 50.0
 charge_movement_speed = 25.0
