@@ -36,12 +36,14 @@ tile_set = ExtResource("2_navyr")
 position = Vector2(303, 37)
 script = ExtResource("3_kki1d")
 previous_scene_name = "15 Route2 Room2"
+spawn_direction = Vector2(0, 1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="SpawnPoint2" type="Marker2D" parent="."]
 position = Vector2(549, 455)
 script = ExtResource("3_kki1d")
 previous_scene_name = "18 Route2 Room51"
+spawn_direction = Vector2(-1, 0)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="Door" type="Area2D" parent="."]
@@ -71,6 +73,7 @@ shape = SubResource("RectangleShape2D_navyr")
 position = Vector2(549, 455)
 script = ExtResource("3_kki1d")
 previous_scene_name = "29 Route2 Room331"
+spawn_direction = Vector2(-1, 0)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_navyr")]

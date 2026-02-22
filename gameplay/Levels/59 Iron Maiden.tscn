@@ -19,9 +19,5 @@ tile_set = ExtResource("2_t88ed")
 position = Vector2(207, 94)
 script = ExtResource("3_u1w66")
 previous_scene_name = "58 Final Fight"
-metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
-
-[node name="SpawnPoint2" type="Marker2D" parent="."]
-position = Vector2(207, 94)
-script = ExtResource("3_u1w66")
+spawn_direction = Vector2(-1, 0)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"

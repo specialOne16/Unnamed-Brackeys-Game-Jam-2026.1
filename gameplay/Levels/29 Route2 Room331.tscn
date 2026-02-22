@@ -75,34 +75,40 @@ shape = SubResource("RectangleShape2D_5vpgp")
 position = Vector2(29, 80)
 script = ExtResource("3_bg0fc")
 previous_scene_name = "28 Route2 Room32"
+spawn_direction = Vector2(1, 0)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="SpawnPoint2" type="Marker2D" parent="."]
 position = Vector2(145, 146)
 script = ExtResource("3_bg0fc")
 previous_scene_name = "30 Route2 Room332"
+spawn_direction = Vector2(1, 0)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="SpawnPoint3" type="Marker2D" parent="."]
 position = Vector2(30, 79)
 script = ExtResource("3_bg0fc")
 previous_scene_name = "32 Route2 Room331 Chestend"
+spawn_direction = Vector2(1, 0)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="SpawnPoint4" type="Marker2D" parent="."]
 position = Vector2(145, 16)
 script = ExtResource("3_bg0fc")
 previous_scene_name = "32 Route2 Room331 Chest"
+spawn_direction = Vector2(-1, 0)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="SpawnPoint5" type="Marker2D" parent="."]
 position = Vector2(145, 146)
 script = ExtResource("3_bg0fc")
 previous_scene_name = "33 Route2 Room332 Chest"
+spawn_direction = Vector2(-1, 0)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="SpawnPoint6" type="Marker2D" parent="."]
 position = Vector2(145, 16)
 script = ExtResource("3_bg0fc")
 previous_scene_name = "34 Route2 Room333 Chest"
+spawn_direction = Vector2(-1, 0)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"

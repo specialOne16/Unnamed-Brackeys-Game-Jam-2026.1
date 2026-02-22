@@ -35,4 +35,5 @@ shape = SubResource("RectangleShape2D_8v4ll")
 position = Vector2(221, 112)
 script = ExtResource("4_jb52d")
 previous_scene_name = "44 Route2 Relic2"
+spawn_direction = Vector2(1, 0)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"

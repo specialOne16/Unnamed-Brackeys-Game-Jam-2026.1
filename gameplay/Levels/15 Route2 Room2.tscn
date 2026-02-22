@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://bfeinodiixbis"]
+[gd_scene load_steps=10 format=4 uid="uid://bfeinodiixbis"]
 
 [ext_resource type="Script" uid="uid://dkd48qelx0wh5" path="res://gameplay/level.gd" id="1_i5yac"]
 [ext_resource type="TileSet" uid="uid://cpl1ssg6qxube" path="res://gameplay/assets/Tileset.tres" id="1_uc3f5"]
 [ext_resource type="Script" uid="uid://b8lq8hy8jihqf" path="res://gameplay/components/spawn_point.gd" id="4_uyjsw"]
 [ext_resource type="Script" uid="uid://d33ikxrahs0fk" path="res://gameplay/components/door.gd" id="5_dup7h"]
 [ext_resource type="PackedScene" uid="uid://bl6jinchnypfx" path="res://entities/enemy/melee_enemy.tscn" id="5_i5yac"]
+[ext_resource type="PackedScene" uid="uid://c20uvblmjsiic" path="res://entities/chest/chest.tscn" id="6_hhujt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ekdrm"]
 size = Vector2(32, 16)
@@ -34,6 +35,7 @@ tile_set = ExtResource("1_uc3f5")
 position = Vector2(33, 30)
 script = ExtResource("4_uyjsw")
 previous_scene_name = "14 Route2 Room1"
+spawn_direction = Vector2(0, 1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="Door" type="Area2D" parent="."]
@@ -73,12 +75,14 @@ shape = SubResource("RectangleShape2D_hhujt")
 position = Vector2(190, -68)
 script = ExtResource("4_uyjsw")
 previous_scene_name = "16 Route2 Room31"
+spawn_direction = Vector2(0, 1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="SpawnPoint3" type="Marker2D" parent="."]
 position = Vector2(190, 82)
 script = ExtResource("4_uyjsw")
 previous_scene_name = "28 Route2 Room32"
+spawn_direction = Vector2(0, -1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_i5yac")]
@@ -96,3 +100,9 @@ id = "15 m3"
 [node name="MeleeEnemy4" parent="." instance=ExtResource("5_i5yac")]
 position = Vector2(198, 20)
 id = "15 m4"
+
+[node name="Chest" parent="." instance=ExtResource("6_hhujt")]
+position = Vector2(174, 29)
+rotation = -3.1415927
+id = "15 1"
+item = 0

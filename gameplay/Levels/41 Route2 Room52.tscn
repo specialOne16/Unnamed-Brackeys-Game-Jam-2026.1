@@ -43,6 +43,7 @@ shape = SubResource("RectangleShape2D_5vpgp")
 position = Vector2(344, 31)
 script = ExtResource("4_sb6pk")
 previous_scene_name = "31 Route2 Room333"
+spawn_direction = Vector2(1, 0)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="Door" type="Area2D" parent="."]
@@ -60,6 +61,7 @@ shape = SubResource("RectangleShape2D_axlgm")
 position = Vector2(576, 241)
 script = ExtResource("4_sb6pk")
 previous_scene_name = "19 Route2 Room61"
+spawn_direction = Vector2(0, -1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="Chest" parent="." instance=ExtResource("5_10vub")]

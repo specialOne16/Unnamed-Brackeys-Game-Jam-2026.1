@@ -37,6 +37,7 @@ tile_set = ExtResource("2_k4uou")
 position = Vector2(464, 26)
 script = ExtResource("4_x0gn6")
 previous_scene_name = "42 Route2 Room62"
+spawn_direction = Vector2(0, 1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="Door" type="Area2D" parent="."]
@@ -54,6 +55,7 @@ shape = SubResource("RectangleShape2D_tb2xx")
 position = Vector2(464, 369)
 script = ExtResource("4_x0gn6")
 previous_scene_name = "44 Route2 Relic2"
+spawn_direction = Vector2(0, -1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="Door2" type="Area2D" parent="."]

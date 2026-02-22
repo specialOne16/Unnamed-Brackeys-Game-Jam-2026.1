@@ -56,12 +56,14 @@ shape = SubResource("RectangleShape2D_l5gue")
 position = Vector2(223, 77)
 script = ExtResource("3_y0vnk")
 previous_scene_name = "19 Route2 Room61"
+spawn_direction = Vector2(0, 1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="SpawnPoint2" type="Marker2D" parent="."]
 position = Vector2(317, 174)
 script = ExtResource("3_y0vnk")
 previous_scene_name = "21 Route2 Relic"
+spawn_direction = Vector2(0, -1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("5_l5gue")]

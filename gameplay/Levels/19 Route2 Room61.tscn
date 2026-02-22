@@ -31,6 +31,7 @@ tile_set = ExtResource("2_k412i")
 position = Vector2(209, 79)
 script = ExtResource("3_ppsyj")
 previous_scene_name = "18 Route2 Room51"
+spawn_direction = Vector2(0, 1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="Door" type="Area2D" parent="."]
@@ -59,6 +60,7 @@ shape = SubResource("RectangleShape2D_k412i")
 position = Vector2(208, 363)
 script = ExtResource("3_ppsyj")
 previous_scene_name = "43 Route2 Room72"
+spawn_direction = Vector2(0, -1)
 metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="RangedEnemy" parent="." instance=ExtResource("5_k412i")]
