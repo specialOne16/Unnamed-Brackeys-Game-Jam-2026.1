@@ -176,7 +176,7 @@ max_polyphony = 8
 [node name="Ambient2" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("22_6e63m")
-volume_db = 5.0
+volume_db = 7.0
 max_polyphony = 8
 
 [node name="Ambient3" type="AudioStreamPlayer" parent="."]
