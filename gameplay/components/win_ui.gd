@@ -7,6 +7,7 @@ class_name WinUi
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func play():
+	visible = true
 	animation_player.play("new_animation")
 	await animation_player.animation_finished
 	label.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ccgswg3ymqkwg"]
+[gd_scene load_steps=21 format=3 uid="uid://ccgswg3ymqkwg"]
 
 [ext_resource type="Script" uid="uid://c4ubct4l1kiw0" path="res://gameplay/components/in_game_ui.gd" id="1_bgyea"]
 [ext_resource type="Texture2D" uid="uid://by82mgd4bf5ob" path="res://gameplay/components/Health_bar_Icon.png" id="2_s73q5"]
@@ -6,7 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://bwvgvv5mbvj7c" path="res://entities/item/Relics.png" id="3_hjqug"]
 [ext_resource type="Texture2D" uid="uid://qlix7pmtp7g4" path="res://gameplay/components/Health_bar.png" id="3_xf4xe"]
 [ext_resource type="FontFile" uid="uid://bi4v2awwx8dm6" path="res://gameplay/assets/pixel.ttf" id="6_xf4xe"]
-[ext_resource type="Theme" uid="uid://d2jvp43vhan4n" path="res://menu.tres" id="7_tib38"]
+[ext_resource type="Texture2D" uid="uid://cn7f0gny4dlae" path="res://menu_assets/BTN_Play.png" id="7_g4yf7"]
+[ext_resource type="Texture2D" uid="uid://cinpep1a6iioy" path="res://menu_assets/BTN_Play_Pressed.png" id="8_x4kfb"]
+[ext_resource type="Texture2D" uid="uid://b1l3v5e34sts4" path="res://menu_assets/BTN_Reset.png" id="9_q4118"]
+[ext_resource type="Texture2D" uid="uid://dj3pm7wvacaaq" path="res://menu_assets/BTN_Reset_Pressed.png" id="10_8wc4x"]
+[ext_resource type="Texture2D" uid="uid://ppijbghfjqex" path="res://menu_assets/Volume_Icon.png" id="11_r0wpj"]
 
 [sub_resource type="Animation" id="Animation_r5dlg"]
 length = 0.001
@@ -72,6 +76,36 @@ height = 8
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tib38"]
 bg_color = Color(0, 0, 0, 0.54901963)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scx21"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6313726, 0.5411765, 0.4392157, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4yf7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
 [node name="InGameUi" type="CanvasLayer"]
 process_mode = 3
 layer = 0
@@ -79,7 +113,7 @@ script = ExtResource("1_bgyea")
 
 [node name="TransitionOverlay" type="ColorRect" parent="."]
 visible = false
-z_index = 1
+z_index = 12
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -244,7 +278,6 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="PauseMenu" type="PanelContainer" parent="."]
-visible = false
 z_index = 10
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,24 +291,36 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Control"]
 layout_mode = 0
-offset_left = 91.0
-offset_top = 43.0
-offset_right = 229.0
-offset_bottom = 137.0
+offset_left = 78.0
+offset_top = 48.0
+offset_right = 242.0
+offset_bottom = 132.0
 
-[node name="ResumeButton" type="Button" parent="PauseMenu/Control/VBoxContainer"]
+[node name="ResumeButton" type="TextureButton" parent="PauseMenu/Control/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("7_tib38")
-text = "Resume"
+size_flags_horizontal = 4
+size_flags_vertical = 7
+texture_normal = ExtResource("7_g4yf7")
+texture_pressed = ExtResource("7_g4yf7")
+texture_hover = ExtResource("8_x4kfb")
+stretch_mode = 5
 
-[node name="RestartCheckpointButton" type="Button" parent="PauseMenu/Control/VBoxContainer"]
+[node name="RestartCheckpointButton" type="TextureButton" parent="PauseMenu/Control/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("7_tib38")
-text = "Restart Checkpoint"
+size_flags_horizontal = 4
+size_flags_vertical = 7
+texture_normal = ExtResource("9_q4118")
+texture_hover = ExtResource("10_8wc4x")
+stretch_mode = 5
 
 [node name="VolumeSlider" type="HSlider" parent="PauseMenu/Control/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("7_tib38")
+size_flags_vertical = 6
+theme_override_icons/grabber = ExtResource("11_r0wpj")
+theme_override_icons/grabber_highlight = ExtResource("11_r0wpj")
+theme_override_styles/slider = SubResource("StyleBoxFlat_scx21")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_g4yf7")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_g4yf7")
 min_value = -50.0
 max_value = 10.0
 value = -23.0
