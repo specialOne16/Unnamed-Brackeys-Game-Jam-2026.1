@@ -154,7 +154,7 @@ _data = {
 
 [node name="MeleeEnemy" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 147
+collision_mask = 403
 motion_mode = 1
 script = ExtResource("1_q1x8j")
 max_health = 20.0
@@ -207,7 +207,7 @@ shape = SubResource("CircleShape2D_4kqgd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
 unique_name_in_owner = true
-process_mode = 3
+process_mode = 1
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_6rvq5")
 animation = &"idle"

@@ -212,7 +212,7 @@ _data = {
 
 [node name="RangedEnemy" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 147
+collision_mask = 403
 motion_mode = 1
 script = ExtResource("1_8psv0")
 max_health = 10.0
@@ -270,7 +270,7 @@ position = Vector2(7, 3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
 unique_name_in_owner = true
-process_mode = 3
+process_mode = 1
 position = Vector2(8, 0)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_6rvq5")
