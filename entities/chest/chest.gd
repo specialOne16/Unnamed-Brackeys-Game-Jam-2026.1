@@ -4,14 +4,16 @@ class_name Chest
 enum Item { HEALTH_PACK, SHOTGUN_AMMO }
 
 const ITEM = preload("uid://d2r4arw47toyq")
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var hurtbox_2d: Hurtbox2D = $Hurtbox2D
 
 @export var id: String
 @export var item: Item = Item.SHOTGUN_AMMO
 
 func _on_hurtbox_2d_take_damage(_source: HitBox2D) -> void:
 	if id != "": GameState.opened_chest.append(id)
-	open_chest(true, true)
+	open_chest(not GameState.collected_chest.has(id), true)
 	AudioPlayer.chest_opening.play()
 
 func open_chest(has_item: bool, immediate_pickup: bool):
