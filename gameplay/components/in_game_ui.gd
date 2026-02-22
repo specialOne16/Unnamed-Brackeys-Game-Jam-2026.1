@@ -10,6 +10,8 @@ class_name InGameUi
 @onready var health_pack_label: Label = $MarginContainer/Control/Items/Control/HealthPackLabel
 @onready var shotgun_ammo_label: Label = $MarginContainer/Control/Items/Control2/ShotgunAmmoLabel
 @onready var pause_menu: PanelContainer = $PauseMenu
+@onready var restart_checkpoint_button: TextureButton = $PauseMenu/Control/VBoxContainer/RestartCheckpointButton
+@onready var reset_warning: Label = $PauseMenu/Control/ResetWarning
 
 var game_paused = false
 
@@ -36,6 +38,8 @@ func update_inventory():
 	pause_menu.visible = game_paused
 	if game_paused:
 		get_tree().paused = true
+	
+	reset_warning.visible = restart_checkpoint_button.is_hovered()
 
 func scene_transition_in():
 	get_tree().paused = true

@@ -325,6 +325,20 @@ min_value = -50.0
 max_value = 10.0
 value = -23.0
 
+[node name="ResetWarning" type="Label" parent="PauseMenu/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.0
+offset_top = 27.0
+offset_right = 20.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_xf4xe")
+theme_override_font_sizes/font_size = 7
+text = "Lose All Items"
+
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/RestartCheckpointButton" to="." method="_on_restart_checkpoint_button_pressed"]
 [connection signal="value_changed" from="PauseMenu/Control/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]

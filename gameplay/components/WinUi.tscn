@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://0mmjdavrjgs2"]
 
 [ext_resource type="Script" uid="uid://b03k5qibonyip" path="res://gameplay/components/win_ui.gd" id="1_ebkru"]
-[ext_resource type="FontFile" uid="uid://bi4v2awwx8dm6" path="res://gameplay/assets/pixel.ttf" id="2_3ns7u"]
+[ext_resource type="Texture2D" uid="uid://dms76f7uyomrf" path="res://menu_assets/Ritual_is_Complete.png" id="2_3ns7u"]
 
 [sub_resource type="Gradient" id="Gradient_ebkru"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
+offsets = PackedFloat32Array(0.0070921984)
+colors = PackedColorArray(0.03137255, 0.03529412, 0.039215688, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3ns7u"]
 gradient = SubResource("Gradient_ebkru")
@@ -106,7 +106,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_3ns7u")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="TextureRect" parent="."]
 visible = false
 z_index = 6
 layout_mode = 1
@@ -115,16 +115,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -39.0
-offset_top = -15.0
-offset_right = 39.0
-offset_bottom = 15.0
+offset_left = -145.5
+offset_top = -16.0
+offset_right = 145.5
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_3ns7u")
-text = "RITUAL IS COMPLETE"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("2_3ns7u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

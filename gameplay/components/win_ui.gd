@@ -3,7 +3,7 @@ class_name WinUi
 
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var texture_rect_2: TextureRect = $TextureRect2
-@onready var label: Label = $Label
+@onready var label: TextureRect = $Label
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func play():
