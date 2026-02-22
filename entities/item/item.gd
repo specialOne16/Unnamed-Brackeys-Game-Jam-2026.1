@@ -38,4 +38,5 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			if GameState.gain_item(type):
 				if id != "": GameState.collected_chest.append(id)
+				AudioPlayer.taking_item.play()
 				queue_free()

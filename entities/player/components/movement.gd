@@ -8,6 +8,15 @@ class_name TD2Movement
 @onready var jump_timer: Timer = %JumpTimer
 @onready var vertical_animation: AnimationPlayer = $"../../VerticalAnimation"
 
+@onready var move_sound: Array[AudioStreamPlayer] = [
+	AudioPlayer.step_1,
+	AudioPlayer.step_2,
+	AudioPlayer.step_3,
+	AudioPlayer.step_4,
+	AudioPlayer.step_5,
+	AudioPlayer.step_6
+]
+
 var near_pit_position: Vector2
 var falling_in_pit: bool = false
 var knockbacking: bool = false
@@ -27,6 +36,9 @@ func _ready() -> void:
 	near_pit_detector.body_exited.connect(_pit_touched)
 	platform_detector.body_exited.connect(_on_fall_from_platform)
 	vertical_animation.animation_finished.connect(_on_vertical_animation_finished)
+	
+	for sound in move_sound:
+		sound.finished.connect(sound_finished)
 
 func _process(_delta: float) -> void:
 	if jump_timer.time_left > 0: return
@@ -41,6 +53,11 @@ func _process(_delta: float) -> void:
 	
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
+	if player.velocity == Vector2.ZERO and direction != Vector2.ZERO:
+		move_sound.pick_random().play()
+	elif direction == Vector2.ZERO:
+		for sound in move_sound: sound.stop()
+	
 	if player.holding_attack:
 		player.velocity = direction * player.charge_movement_speed
 	else:
@@ -49,6 +66,8 @@ func _process(_delta: float) -> void:
 			player.rotation = direction.angle()
 	
 	if Input.is_action_just_pressed("jump"):
+		AudioPlayer.jump.play()
+		
 		player.set_collision_mask_value(9, false)
 		
 		vertical_animation.play("jumping_up", -1, 1 / player.jump_duration)
@@ -78,9 +97,18 @@ func _on_vertical_animation_finished(anim_name: String):
 			if not platform_detector.has_overlapping_bodies():
 				player.set_collision_mask_value(9, true)
 				vertical_animation.play("jumping_down", -1, 1 / player.jump_duration)
+			else:
+				AudioPlayer.fall.play()
 		
-		"jumping_down": _pit_touched(null)
+		"jumping_down": 
+			AudioPlayer.fall.play()
+			_pit_touched(null)
 
 func _on_fall_from_platform(_body: Node2D):
+	AudioPlayer.fall.play()
 	player.set_collision_mask_value(9, true)
 	vertical_animation.play("jumping_down", -1, 1 / player.jump_duration)
+
+func sound_finished():
+	if player.velocity != Vector2.ZERO and player.process_mode == PROCESS_MODE_PAUSABLE:
+		move_sound.pick_random().play()

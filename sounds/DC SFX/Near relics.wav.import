@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqyrglwg6eoq0"
+path="res://.godot/imported/Near relics.wav-0e9bb7d07fcafbaee0f829bdef2086e9.sample"
+
+[deps]
+
+source_file="res://sounds/DC SFX/Near relics.wav"
+dest_files=["res://.godot/imported/Near relics.wav-0e9bb7d07fcafbaee0f829bdef2086e9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

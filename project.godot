@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 LevelLoader="*res://gameplay/components/level_loader.gd"
 GameState="*res://game_state.gd"
+AudioPlayer="*res://sounds/audio_player.tscn"
 
 [display]
 

@@ -25,6 +25,7 @@ func _process(_delta: float) -> void:
 	if player.holding_attack == self:
 		if attacking and Input.is_action_just_released("ranged"):
 			if player.holding_duration >= player.charge_duration and GameState.use_shotgun_ammo():
+				AudioPlayer.shot_1.play()
 				shotgun.visible = true
 				shotgun.play("attack")
 				ranged_hitbox.hit()

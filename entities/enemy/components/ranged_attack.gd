@@ -41,6 +41,8 @@ func _shoot():
 	arrow.position = arrow_spawn.global_position
 	arrow.direction = Vector2.from_angle(enemy.rotation)
 	enemy.get_parent().add_child(arrow)
+	
+	AudioPlayer.enemy_crossbow.play()
 
 func _start_fleeing(body: Node2D):
 	if body is TD2Player:

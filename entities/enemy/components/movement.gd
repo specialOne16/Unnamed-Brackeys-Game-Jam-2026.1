@@ -26,6 +26,8 @@ func _physics_process(_delta: float) -> void:
 		animated_sprite_2d.play("idle")
 	
 	if ray_cast_2d.get_collider() == enemy.player: 
+		if not enemy.aggresive:
+			AudioPlayer.enemy_aggro.play()
 		enemy.aggresive = true
 		ray_cast_2d.process_mode = Node.PROCESS_MODE_DISABLED
 	
