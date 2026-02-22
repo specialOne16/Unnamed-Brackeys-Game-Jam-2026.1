@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dh71csdixx0cv"
+path="res://.godot/imported/Chest_Opening.wav-1ca140d873a004a2886ac6f8e4b64d43.sample"
+
+[deps]
+
+source_file="res://sounds/DC SFX/Movement/Looting/Chest_Opening.wav"
+dest_files=["res://.godot/imported/Chest_Opening.wav-1ca140d873a004a2886ac6f8e4b64d43.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,192 @@
+[gd_scene load_steps=29 format=3 uid="uid://c6xa4j6qyg7i1"]
+
+[ext_resource type="AudioStream" uid="uid://cr0b6gom8vrcb" path="res://sounds/DC SFX/Enemies/Enemy_Aggro.wav" id="1_7u1k8"]
+[ext_resource type="Script" uid="uid://bpgkm2ons6ev7" path="res://sounds/audio_player.gd" id="1_qqvpm"]
+[ext_resource type="AudioStream" uid="uid://1gxgf4b002qn" path="res://sounds/DC SFX/Enemies/Enemy_Crossbow.wav" id="2_qqvpm"]
+[ext_resource type="AudioStream" uid="uid://wlaovinvwp7i" path="res://sounds/DC SFX/Enemies/Enemy_Death.wav" id="3_4k3ah"]
+[ext_resource type="AudioStream" uid="uid://boia0io64tue2" path="res://sounds/DC SFX/Jumps/Fall.wav" id="4_65uy7"]
+[ext_resource type="AudioStream" uid="uid://b8uhh5i5evm8" path="res://sounds/DC SFX/Jumps/Jump.wav" id="5_a8716"]
+[ext_resource type="AudioStream" uid="uid://dh71csdixx0cv" path="res://sounds/DC SFX/Movement/Looting/Chest_Opening.wav" id="6_g8ec4"]
+[ext_resource type="AudioStream" uid="uid://cgna1g1tklbmk" path="res://sounds/DC SFX/Movement/Looting/Taking Item.wav" id="7_wtwrb"]
+[ext_resource type="AudioStream" uid="uid://b6ft3rrc1acrs" path="res://sounds/DC SFX/Steps/Step_1.wav" id="8_rdyvd"]
+[ext_resource type="AudioStream" uid="uid://chhvdlrlka6a4" path="res://sounds/DC SFX/Steps/Step_2.wav" id="9_sfllo"]
+[ext_resource type="AudioStream" uid="uid://cfdqfl3pxt3pl" path="res://sounds/DC SFX/Steps/Step_3.wav" id="10_lfu4e"]
+[ext_resource type="AudioStream" uid="uid://c2ice6jiv1fit" path="res://sounds/DC SFX/Steps/Step_4.wav" id="11_n2lva"]
+[ext_resource type="AudioStream" uid="uid://b5d5bont5wlxw" path="res://sounds/DC SFX/Steps/Step_5.wav" id="12_qgumd"]
+[ext_resource type="AudioStream" uid="uid://15clj5iqi53w" path="res://sounds/DC SFX/Steps/Step_6.wav" id="13_si175"]
+[ext_resource type="AudioStream" uid="uid://bus5dr2ojjxrm" path="res://sounds/DC SFX/Weapon/Melee_No_Impact.wav" id="14_fu7qo"]
+[ext_resource type="AudioStream" uid="uid://3n8vcbbpnjqo" path="res://sounds/DC SFX/Weapon/Melee_With_Impact.wav" id="15_7ov8c"]
+[ext_resource type="AudioStream" uid="uid://d3hxbesmgcv52" path="res://sounds/DC SFX/Weapon/Shot1.wav" id="16_6a0d3"]
+[ext_resource type="AudioStream" uid="uid://b5oha7boley10" path="res://sounds/DC SFX/World/Door/Door_Opening.wav" id="17_8pi1m"]
+[ext_resource type="AudioStream" uid="uid://5s5day1uuxn" path="res://sounds/DC SFX/Ending Iron Maden.wav" id="18_5gays"]
+[ext_resource type="AudioStream" uid="uid://cqyrglwg6eoq0" path="res://sounds/DC SFX/Near relics.wav" id="19_550dd"]
+[ext_resource type="AudioStream" uid="uid://p0se2yuortgj" path="res://sounds/DC SFX/Player taking damage.wav" id="20_jrnjl"]
+[ext_resource type="AudioStream" uid="uid://tb7fxakkfbp1" path="res://sounds/Ambient1.mp3" id="21_qpmm6"]
+[ext_resource type="AudioStream" uid="uid://5mjhjwawnwth" path="res://sounds/Ambient2.mp3" id="22_6e63m"]
+[ext_resource type="AudioStream" uid="uid://sgvo16x3mneo" path="res://sounds/Ambient3.mp3" id="23_u6mqj"]
+[ext_resource type="AudioStream" uid="uid://bwk45pgiydmuu" path="res://sounds/Artifact1.mp3" id="24_oigdh"]
+[ext_resource type="AudioStream" uid="uid://dx4uytlbfhrdn" path="res://sounds/Artifact2.mp3" id="25_qbcnh"]
+[ext_resource type="AudioStream" uid="uid://b2xg5ejaixirf" path="res://sounds/BattleAmbientLoopFinal.mp3" id="26_in1o3"]
+[ext_resource type="AudioStream" uid="uid://cubmwppeyhf25" path="res://sounds/MainLoopFinal.mp3" id="27_4hoy6"]
+
+[node name="AudioPlayer" type="Node"]
+process_mode = 3
+script = ExtResource("1_qqvpm")
+
+[node name="Enemies" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="EnemyAggro" type="AudioStreamPlayer" parent="Enemies"]
+unique_name_in_owner = true
+stream = ExtResource("1_7u1k8")
+max_polyphony = 8
+
+[node name="EnemyCrossbow" type="AudioStreamPlayer" parent="Enemies"]
+unique_name_in_owner = true
+stream = ExtResource("2_qqvpm")
+max_polyphony = 8
+
+[node name="EnemyDeath" type="AudioStreamPlayer" parent="Enemies"]
+unique_name_in_owner = true
+stream = ExtResource("3_4k3ah")
+max_polyphony = 8
+
+[node name="Jumps" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Fall" type="AudioStreamPlayer" parent="Jumps"]
+unique_name_in_owner = true
+stream = ExtResource("4_65uy7")
+max_polyphony = 8
+
+[node name="Jump" type="AudioStreamPlayer" parent="Jumps"]
+unique_name_in_owner = true
+stream = ExtResource("5_a8716")
+max_polyphony = 8
+
+[node name="Movement" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Looting" type="Node" parent="Movement"]
+unique_name_in_owner = true
+
+[node name="ChestOpening" type="AudioStreamPlayer" parent="Movement/Looting"]
+unique_name_in_owner = true
+stream = ExtResource("6_g8ec4")
+max_polyphony = 8
+
+[node name="TakingItem" type="AudioStreamPlayer" parent="Movement/Looting"]
+unique_name_in_owner = true
+stream = ExtResource("7_wtwrb")
+max_polyphony = 8
+
+[node name="Steps" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Step1" type="AudioStreamPlayer" parent="Steps"]
+unique_name_in_owner = true
+stream = ExtResource("8_rdyvd")
+max_polyphony = 8
+
+[node name="Step2" type="AudioStreamPlayer" parent="Steps"]
+unique_name_in_owner = true
+stream = ExtResource("9_sfllo")
+max_polyphony = 8
+
+[node name="Step3" type="AudioStreamPlayer" parent="Steps"]
+unique_name_in_owner = true
+stream = ExtResource("10_lfu4e")
+max_polyphony = 8
+
+[node name="Step4" type="AudioStreamPlayer" parent="Steps"]
+unique_name_in_owner = true
+stream = ExtResource("11_n2lva")
+max_polyphony = 8
+
+[node name="Step5" type="AudioStreamPlayer" parent="Steps"]
+unique_name_in_owner = true
+stream = ExtResource("12_qgumd")
+max_polyphony = 8
+
+[node name="Step6" type="AudioStreamPlayer" parent="Steps"]
+unique_name_in_owner = true
+stream = ExtResource("13_si175")
+max_polyphony = 8
+
+[node name="Weapon" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="MeleeNoImpact" type="AudioStreamPlayer" parent="Weapon"]
+unique_name_in_owner = true
+stream = ExtResource("14_fu7qo")
+max_polyphony = 8
+
+[node name="MeleeWithImpact" type="AudioStreamPlayer" parent="Weapon"]
+unique_name_in_owner = true
+stream = ExtResource("15_7ov8c")
+
+[node name="Shot1" type="AudioStreamPlayer" parent="Weapon"]
+unique_name_in_owner = true
+stream = ExtResource("16_6a0d3")
+max_polyphony = 8
+
+[node name="World" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Door" type="Node" parent="World"]
+unique_name_in_owner = true
+
+[node name="DoorOpening" type="AudioStreamPlayer" parent="World/Door"]
+unique_name_in_owner = true
+stream = ExtResource("17_8pi1m")
+max_polyphony = 8
+
+[node name="EndingIronMaden" type="AudioStreamPlayer" parent="World"]
+unique_name_in_owner = true
+stream = ExtResource("18_5gays")
+max_polyphony = 8
+
+[node name="NearRelics" type="AudioStreamPlayer" parent="World"]
+unique_name_in_owner = true
+stream = ExtResource("19_550dd")
+max_polyphony = 8
+
+[node name="PlayerTakingDamage" type="AudioStreamPlayer" parent="World"]
+unique_name_in_owner = true
+stream = ExtResource("20_jrnjl")
+max_polyphony = 8
+
+[node name="Ambient1" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("21_qpmm6")
+max_polyphony = 8
+
+[node name="Ambient2" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("22_6e63m")
+max_polyphony = 8
+
+[node name="Ambient3" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("23_u6mqj")
+max_polyphony = 8
+
+[node name="Artifact1" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("24_oigdh")
+max_polyphony = 8
+
+[node name="Artifact2" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("25_qbcnh")
+max_polyphony = 8
+
+[node name="BattleAmbientLoopFinal" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("26_in1o3")
+max_polyphony = 8
+
+[node name="MainLoopFinal" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("27_4hoy6")
+max_polyphony = 8

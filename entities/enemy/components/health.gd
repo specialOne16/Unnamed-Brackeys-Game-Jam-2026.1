@@ -34,6 +34,7 @@ func _hurt(source: HitBox2D):
 	if _current_health <= 0:
 		enemy.process_mode = Node.PROCESS_MODE_DISABLED
 		animated_sprite_2d.play("died")
+		AudioPlayer.enemy_death.play()
 		await animated_sprite_2d.animation_finished
 		enemy.died()
 	
@@ -59,7 +60,8 @@ func _pit_entered(_body: Node2D):
 	if pit_detector.has_overlapping_bodies() and not near_pit_detector.has_overlapping_bodies():
 		enemy.movement_override = self
 		vertical_animation.play("falling")
-	
+		AudioPlayer.enemy_death.play()
+		
 		knockback_timer.stop()
 		stun_timer.stop()
 

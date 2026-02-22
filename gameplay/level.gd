@@ -7,6 +7,7 @@ const DARK_OVERLAY = preload("uid://c3gq6kvbs1q0c")
 @export var is_combat_room: bool = false
 @export var checkpoint_path: String
 @export var checkpoint_spawn: String
+@export var ambient: String
 
 var _player: TD2Player
 var _in_game_ui: InGameUi
@@ -66,6 +67,7 @@ func _ready() -> void:
 	
 	add_child(DARK_OVERLAY.instantiate())
 	
+	AudioPlayer.change_theme(ambient)
 	_in_game_ui.scene_transition_in()
 
 func _enemy_died(_enemy: Enemy):

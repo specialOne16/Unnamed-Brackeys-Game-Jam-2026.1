@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://3n8vcbbpnjqo"
+path="res://.godot/imported/Melee_With_Impact.wav-1fc670ef2316f0b23dd2b8b9a99cd185.sample"
+
+[deps]
+
+source_file="res://sounds/DC SFX/Weapon/Melee_With_Impact.wav"
+dest_files=["res://.godot/imported/Melee_With_Impact.wav-1fc670ef2316f0b23dd2b8b9a99cd185.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

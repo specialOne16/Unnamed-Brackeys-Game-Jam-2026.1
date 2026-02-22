@@ -39,6 +39,8 @@ func _process(delta: float) -> void:
 
 func take_damage(source: HitBox2D):
 	if invincibility < 0:
+		AudioPlayer.player_taking_damage.play()
+		
 		invincibility = invincibility_duration
 		GameState.player_health -= source.damage
 		
