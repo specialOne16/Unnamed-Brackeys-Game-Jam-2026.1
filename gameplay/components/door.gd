@@ -7,6 +7,7 @@ signal change_scene(door: Door)
 
 @export var current_scene_name: String
 @export var target_scene_path: String
+@export var relic_2_target_scene_path: String
 @export var asset_size: int = 16
 @export var is_horizontal: bool = true
 

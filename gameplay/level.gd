@@ -78,7 +78,13 @@ func _change_scene(door: Door):
 	
 	door.open_the_door()
 	await _in_game_ui.scene_transition_out()
-	LevelLoader.change_scene(door.target_scene_path, door.current_scene_name)
+	if door.relic_2_target_scene_path == "":
+		LevelLoader.change_scene(door.target_scene_path, door.current_scene_name)
+	else:
+		if GameState.relic_2_collected:
+			LevelLoader.change_scene(door.relic_2_target_scene_path, door.current_scene_name)
+		else:
+			LevelLoader.change_scene(door.target_scene_path, door.current_scene_name)
 
 func _dead():
 	await _in_game_ui.scene_transition_out()
