@@ -4,6 +4,7 @@ class_name Chest
 enum Item { HEALTH_PACK, SHOTGUN_AMMO }
 
 const ITEM = preload("uid://d2r4arw47toyq")
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 @export var id: String
 @export var item: Item = Item.SHOTGUN_AMMO
@@ -33,4 +34,4 @@ func open_chest(has_item: bool, immediate_pickup: bool):
 			item_instance.position = position
 			add_sibling(item_instance)
 		
-	queue_free()
+	sprite_2d.frame = 1

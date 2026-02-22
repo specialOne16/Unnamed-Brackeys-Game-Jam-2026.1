@@ -60,7 +60,8 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_tib38"]
-colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.49424517, 1.4018082e-06, 2.4065375e-07, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nfp5b"]
 gradient = SubResource("Gradient_tib38")
@@ -189,11 +190,15 @@ frame = 4
 [node name="HealthPackLabel" type="Label" parent="MarginContainer/Control/Items/Control"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
-offset_right = 4.0
-offset_bottom = 8.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(0.76240367, 0.76240367, 0.76240367, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("6_xf4xe")
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 5
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 2
@@ -221,11 +226,15 @@ frame = 5
 [node name="ShotgunAmmoLabel" type="Label" parent="MarginContainer/Control/Items/Control2"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 0
-offset_right = 4.0
-offset_bottom = 8.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(0.76240367, 0.76240367, 0.76240367, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("6_xf4xe")
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 5
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 2

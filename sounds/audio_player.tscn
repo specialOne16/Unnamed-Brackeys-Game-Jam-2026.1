@@ -190,13 +190,13 @@ max_polyphony = 8
 [node name="Artifact1" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("24_oigdh")
-volume_db = 5.0
+volume_db = 9.0
 max_polyphony = 8
 
 [node name="Artifact2" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("25_qbcnh")
-volume_db = 5.0
+volume_db = 9.0
 max_polyphony = 8
 
 [node name="BattleAmbientLoopFinal" type="AudioStreamPlayer" parent="."]
