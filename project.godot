@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Glowing Link"
+config/name="Stranded in the Dark"
 run/main_scene="uid://cmroi75m8njdn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"

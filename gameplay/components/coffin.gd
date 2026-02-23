@@ -7,8 +7,8 @@ signal coffin_entered
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body is TD2Player:
-		coffin_entered.emit()
 		disable_player.call_deferred(body)
+		coffin_entered.emit()
 		
 		await get_tree().create_timer(5).timeout
 		
