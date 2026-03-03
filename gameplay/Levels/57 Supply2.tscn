@@ -61,63 +61,49 @@ metadata/_custom_type_script = "uid://b8lq8hy8jihqf"
 
 [node name="Chest" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(92, 29)
-id = "54 11"
 
 [node name="Chest2" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(115, 29)
-id = "54 12"
 
 [node name="Chest3" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(138, 29)
-id = "54 13"
 
 [node name="Chest4" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(161, 29)
-id = "54 14"
 
 [node name="Chest5" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(184, 29)
-id = "54 15"
 
 [node name="Chest6" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(207, 29)
-id = "54 16"
 
 [node name="Chest7" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(228, 29)
-id = "54 17"
 
 [node name="Chest8" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(92, 161)
 rotation = 3.1415927
-id = "54 18"
 
 [node name="Chest9" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(115, 161)
 rotation = 3.1415927
-id = "54 19"
 
 [node name="Chest10" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(138, 161)
 rotation = 3.1415927
-id = "54 110"
 
 [node name="Chest11" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(161, 161)
 rotation = 3.1415927
-id = "54 111"
 
 [node name="Chest12" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(184, 161)
 rotation = 3.1415927
-id = "54 112"
 
 [node name="Chest13" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(207, 161)
 rotation = 3.1415927
-id = "54 1113"
 
 [node name="Chest14" parent="." instance=ExtResource("5_7scj5")]
 position = Vector2(228, 161)
 rotation = 3.1415927
-id = "54 11134"

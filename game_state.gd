@@ -43,5 +43,5 @@ func respawn():
 	player_health = INF
 	shotgun_ammo = 0
 	health_pack = 0
-	
+	#died_enemy_ids.clear()
 	LevelLoader.change_scene(checkpoint_path, checkpoint_spawn)
