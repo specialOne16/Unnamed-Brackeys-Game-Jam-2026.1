@@ -48,6 +48,7 @@ func change_theme(new_name: String):
 	
 	if new_theme == null:
 		if active_theme: active_theme.stop()
+		active_theme = null
 		return
 	if active_theme == new_theme: return
 	

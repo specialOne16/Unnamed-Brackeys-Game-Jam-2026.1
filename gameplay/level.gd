@@ -108,7 +108,7 @@ func _win():
 	_player.z_index = 3
 	_coffin.z_index = 3
 	
-	_win_ui.position = _player.position
+	_win_ui.global_position = _coffin.global_position
 	
 	get_tree().paused = true
 	_player.lights.visible = false
